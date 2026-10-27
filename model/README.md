@@ -97,3 +97,7 @@ It writes `summary.csv` with one row per model and threshold, per-window counts 
 | `docs/` | How we test, data, experiments, glossary |
 
 No videos, tiles, labels or trained weights are stored here.
+
+## Licence
+
+GNU Affero General Public License, version 3 or (at your option) any later version (AGPL-3.0-or-later). See [LICENSE](../LICENSE). Ultralytics, which the detector is built on, uses the same licence, and Ultralytics states that models trained with its code fall under it too.

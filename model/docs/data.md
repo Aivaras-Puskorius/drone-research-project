@@ -31,4 +31,4 @@ We have not had these terms checked by the university. The files in [`windows/`]
 
 ## Software
 
-The detector is YOLO26n from Ultralytics, trained from random weights. Ultralytics is released under AGPL-3.0, which matters for how this code can be licensed and shared. The team has not chosen a licence for this repository yet.
+The detector is YOLO26n from Ultralytics, trained from random weights. Ultralytics is released under AGPL-3.0, so this repository is too: it is licensed under the GNU Affero General Public License, version 3 or (at your option) any later version. See [LICENSE](../../LICENSE).
