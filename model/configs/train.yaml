@@ -1,0 +1,20 @@
+# Training settings of the current model (E1), passed to ultralytics' train().
+# Settings not listed keep ultralytics 8.4.160's defaults. The network starts from random weights
+# (yolo26n.yaml) with as many input channels as the tile set's dataset.yaml says (5).
+epochs: 100
+batch: 8
+nbs: 8              # nominal batch size: weights update after every batch of 8
+imgsz: 640
+workers: 2
+optimizer: SGD
+lr0: 0.01
+patience: 0         # no early stop; the last epoch's weights are used
+amp: false
+plots: false
+# Augmentation. No colour jitter, because the motion channels are gray levels compared across frames.
+hsv_h: 0.0
+hsv_s: 0.0
+hsv_v: 0.0
+degrees: 180.0
+flipud: 0.5
+mosaic: 0.0

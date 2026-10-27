@@ -1,0 +1,8 @@
+# Generated data and local environments. None of it belongs in the repository.
+.venv/
+__pycache__/
+tiles/
+runs/
+results/
+plans/
+*.pt

@@ -1,0 +1,709 @@
+{
+ "set": "nps",
+ "rule": "One window per clip on all 50 NPS-Drones clips: frames 4 to 163, or to the clip's end.",
+ "labels": "Boxes come from the publisher's refined_gt files (one-based frame, id, left, top, width, height). These files list only frames with a drone, so a frame without a row is skipped, not counted as empty. Boxes whose centre lies outside the image are dropped.",
+ "videos_folder": "the Videos folder, holding Clip_1.mov to Clip_50.mov",
+ "labels_folder": "the Video_Annotation-v2/refined_gt folder, holding Clip_1_refined.txt to Clip_50_refined.txt",
+ "windows": [
+  {
+   "key": "Clip_1_first",
+   "clip": "Clip_1",
+   "video": "Clip_1.mov",
+   "video_sha256": "1f11d50ec100bad42e6b41f78161ce07c1794c21914f39b72c1e0863e44e0002",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "6b3423863f11c77e004cc7daef7f08a051ffb71e40ea18f71817a964caf53420"
+  },
+  {
+   "key": "Clip_2_first",
+   "clip": "Clip_2",
+   "video": "Clip_2.mov",
+   "video_sha256": "d1496201246f37596ff999c83e6ef06caa9fb41b4305b952b8ae50bfd06f288b",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "88ef3c7ebfb20fdb4b99a317fe271a2a6afb683ebb6813f22a0380407f9863d6"
+  },
+  {
+   "key": "Clip_3_first",
+   "clip": "Clip_3",
+   "video": "Clip_3.mov",
+   "video_sha256": "fa52f896dec1239877b9f2b47722fa729d95a6f38a163d1a2aeca84b73c29dce",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "51a2614e6cb67e6b870697fd21af8d085d7ffc871a8d4208a7782ce8c3061821"
+  },
+  {
+   "key": "Clip_4_first",
+   "clip": "Clip_4",
+   "video": "Clip_4.mov",
+   "video_sha256": "067cd4cd3542f8ca1449992feffe761a9d4d82be8704a37e2ba0311bc89f73ff",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "a7ffa2be16454a656971c00ec54f95c4b40c029264ec0d5d8ed118d066ab11b9"
+  },
+  {
+   "key": "Clip_5_first",
+   "clip": "Clip_5",
+   "video": "Clip_5.mov",
+   "video_sha256": "c2111bcc9e9ab5db6167fd41eacf60c504d33a5dab0d61d0856693db9ff0cbe9",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "0650ee9b98eb8d2a3dc01bbaf405e2337e63c7204f026cfe30acc98084c7e88a"
+  },
+  {
+   "key": "Clip_6_first",
+   "clip": "Clip_6",
+   "video": "Clip_6.mov",
+   "video_sha256": "b1ddc0f51cb93573679f2c1148861b32cede3e8164bc9671c8c0efa63fb7821a",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "0aa6709c8023ea3af69011b6c7281a0b5bbce4ee4ed1bce439d1e7614bd97d96"
+  },
+  {
+   "key": "Clip_7_first",
+   "clip": "Clip_7",
+   "video": "Clip_7.mov",
+   "video_sha256": "8df494dca2a5e9728dad8bb44247e84c94862c5caf23bb221a870d58da2d1de5",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "70f808ded0c9e657b8c396fcf390a152c182f0471b107ba4ac575167e71b288d"
+  },
+  {
+   "key": "Clip_8_first",
+   "clip": "Clip_8",
+   "video": "Clip_8.mov",
+   "video_sha256": "1be75cf301c8102f40635d2c2649144eb4aa7cfaf80552aa4ac02faa7b29d02e",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "8b29565ca1d9cf0b58743abb2062fe5e1c5b128aa8e68637763b08753e93d199"
+  },
+  {
+   "key": "Clip_9_first",
+   "clip": "Clip_9",
+   "video": "Clip_9.mov",
+   "video_sha256": "e713d3a6b6e64b25aebc3a02c1c1ecbcf6d29d9b29895d78761e729405eabf8a",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "d79cd02ea306cbe755a5041f59d724d9068e298e688c11024244417a6be8ec90"
+  },
+  {
+   "key": "Clip_10_first",
+   "clip": "Clip_10",
+   "video": "Clip_10.mov",
+   "video_sha256": "9474fc740687c286951631374b78f5f9dd9d20b6e616dc3a80f450599064ba67",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "e4f87d399ea0e053a0890d5450e9b222c5772aab87c27786d680ef41eba39bec"
+  },
+  {
+   "key": "Clip_11_first",
+   "clip": "Clip_11",
+   "video": "Clip_11.mov",
+   "video_sha256": "5b595684f7fa6538c5eada4649cfa136ce00ad7324f0b580934a3edeb75e7f8c",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "31b94d463d502cecada22f95e72c1f806a358e32f343989825542f9469b0edcb"
+  },
+  {
+   "key": "Clip_12_first",
+   "clip": "Clip_12",
+   "video": "Clip_12.mov",
+   "video_sha256": "be148dd6dfb8b221b2380553dc5f74f7af966aeaa315874130ef7d721a169575",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "1aba582be37484d58a146602cab725c9a9f14072ad1cda30fd2c11db0150a07b"
+  },
+  {
+   "key": "Clip_13_first",
+   "clip": "Clip_13",
+   "video": "Clip_13.mov",
+   "video_sha256": "bd20ebafabe5d1075dd881df08675cf60975b2860c54e96aa767b29a714038c4",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "3b18ecc0e4767ec3c3dc2ed1bb5b75a15253ed37aec3b9c343b80d01c8d549ea"
+  },
+  {
+   "key": "Clip_14_first",
+   "clip": "Clip_14",
+   "video": "Clip_14.mov",
+   "video_sha256": "9c4596eec526806e63be76638fa31f539bbe81192b40a1f9ef20f415afa732fd",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "46bb5b89768e90c10496ac4672914e69e24869b4b77a6749a5be36702ae6719e"
+  },
+  {
+   "key": "Clip_15_first",
+   "clip": "Clip_15",
+   "video": "Clip_15.mov",
+   "video_sha256": "8472304489a5e95c4ad33c16711c89b643e030e086637d0d814e61c08e908482",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "53c904a7a3e26bedf7849a9a1d861689ca12144745077430e1bf209029694e14"
+  },
+  {
+   "key": "Clip_16_first",
+   "clip": "Clip_16",
+   "video": "Clip_16.mov",
+   "video_sha256": "3d6c44c13fbcf23412787275ed59cd949f4b1e663462b3439eeb9416e011bb6e",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "e6b15a48d2ab28d640863500e72a27b041db6ee79e1ad000a8a66a5b87666162"
+  },
+  {
+   "key": "Clip_17_first",
+   "clip": "Clip_17",
+   "video": "Clip_17.mov",
+   "video_sha256": "817d089cd6ae7836c77f7d0d542b5b292b5239229ddf9aae83501fd0aa467810",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 28.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "60672728b49e7ebb90c3946b6e96cb58330d99bf681df1f8207aea057b2b157b"
+  },
+  {
+   "key": "Clip_18_first",
+   "clip": "Clip_18",
+   "video": "Clip_18.mov",
+   "video_sha256": "e23c4a6fc184fdb15105c3869addd8ddd84d4f63b62ff8b0cb40e51db234ca0e",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "4b2b2551388117ae36eb420d8c51f336c3b91e77180b4746c392a850ad7e7281"
+  },
+  {
+   "key": "Clip_19_first",
+   "clip": "Clip_19",
+   "video": "Clip_19.mov",
+   "video_sha256": "1f566fbf0648cef2180d4d85d36cc9e374a73192b7b0f554b01bab5086883f02",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.8,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "2ca96520d03696406f3428553f96d22200d2f37e7af280baa7289bb7f24bba6a"
+  },
+  {
+   "key": "Clip_20_first",
+   "clip": "Clip_20",
+   "video": "Clip_20.mov",
+   "video_sha256": "329c816c752c92b7208fe9d312df6c4b125c931eaf1145df60a03ca4f8728e63",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.687,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "ca2865d3918f15ed5148c61f71c264b6f2ea681c968c8f13dc13b7aa5d02033f"
+  },
+  {
+   "key": "Clip_21_first",
+   "clip": "Clip_21",
+   "video": "Clip_21.mov",
+   "video_sha256": "1171ff0d7389e269ec7fd56202391bbcc503eb7ca178fc9b5dc895342cf77dd3",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "e1bce386debf25bdd9aaf566ecaebc42e977b3937459641ac06e517cba411ffc"
+  },
+  {
+   "key": "Clip_22_first",
+   "clip": "Clip_22",
+   "video": "Clip_22.mov",
+   "video_sha256": "cd45e5b5ba5726a62b26c3999f3b4794d4ef7cccb880d3def190db3f0c34eaba",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "ba54a99f5ed1b654c6d481f3ad894d64ea49c7d9033c2165115f20a0e9318c18"
+  },
+  {
+   "key": "Clip_23_first",
+   "clip": "Clip_23",
+   "video": "Clip_23.mov",
+   "video_sha256": "627c14f16815529129a1dfe0046b1af46e6b02eb9bf6f19a2fd9a89de077e444",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.8,
+   "start": 4,
+   "count": 129,
+   "labels_sha256": "cace0630583818e64227dfe28ef88916e273c2c4566bd55a01da0fd7d91ab61f"
+  },
+  {
+   "key": "Clip_24_first",
+   "clip": "Clip_24",
+   "video": "Clip_24.mov",
+   "video_sha256": "48bf39d674a2ae2de74bb35eca3c1c567bef9b17d0c0931524e03f81b89d7cfd",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "3e9bced135d6a3548ff3ba31c1fe741a17822ed1d5a1877a821f0e0221a9de86"
+  },
+  {
+   "key": "Clip_25_first",
+   "clip": "Clip_25",
+   "video": "Clip_25.mov",
+   "video_sha256": "c9d14b1fec3e711ce8c3b611ea2475224a817d5b4b4c9fb78f88e19403c184b7",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.96,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "f15513f6a154ca90f3fdeb69ec7ffdfb7f607f15eab9de11835f6d2834a52799"
+  },
+  {
+   "key": "Clip_26_first",
+   "clip": "Clip_26",
+   "video": "Clip_26.mov",
+   "video_sha256": "049480d7d4ace9d306b6d320f07000ba4a7c18427960d4020686619e178fdb56",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.66,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "122621b90425a04ae74838d96020757d9e6d72053aa7b5cc9f2e4011b0183ab2"
+  },
+  {
+   "key": "Clip_27_first",
+   "clip": "Clip_27",
+   "video": "Clip_27.mov",
+   "video_sha256": "6faa76a2cca1cd2d4314134d9eda9f5ca77c2153cddb95eed8725f771d4a6d2d",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.9,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "f1771623fbea816c52c9eab9145e8287b7d88d4ac0121c9e8dba7428f262d901"
+  },
+  {
+   "key": "Clip_28_first",
+   "clip": "Clip_28",
+   "video": "Clip_28.mov",
+   "video_sha256": "968937f6926ae9550910ab64061318d12c31fdfcef5b2badad77a6f479d176fb",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "3d1077d3ef51ed124733fc90c91fe31075c1d421d9248039d9e280307b1e5e51"
+  },
+  {
+   "key": "Clip_29_first",
+   "clip": "Clip_29",
+   "video": "Clip_29.mov",
+   "video_sha256": "8b78e35eff7f604daa1070eb437a732744d18fc061f5103da2b458d70aa5af0b",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "db7d247253739af133593b17c3a9f265843311da09988308e757b12f183230c2"
+  },
+  {
+   "key": "Clip_30_first",
+   "clip": "Clip_30",
+   "video": "Clip_30.mov",
+   "video_sha256": "659f786eb8c132463b70b6914a9f25d435a382b7cbf4717c215572f13d072d77",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "b55e6e16fd4c024185f3b48838c50e3a1c1ca5930472bd81601a51a1d10293b6"
+  },
+  {
+   "key": "Clip_31_first",
+   "clip": "Clip_31",
+   "video": "Clip_31.mov",
+   "video_sha256": "ad1b3b068a3990c97029d1f9f5a742ef0780966d98fcf8885bb3fa4c1c4e0b0c",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "af30da3c2b4e4b39021208e55866ae7f196551d0d82c03cdf6215c1e373f9c2e"
+  },
+  {
+   "key": "Clip_32_first",
+   "clip": "Clip_32",
+   "video": "Clip_32.mov",
+   "video_sha256": "12682055927dee85db715a36eb25bedd8e4df1ea04d65f3f56d37f3dee007365",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "38197dbd7349160e492245b6386798cb1d6b54e6cad98b5c8d2c9eef69516a4a"
+  },
+  {
+   "key": "Clip_33_first",
+   "clip": "Clip_33",
+   "video": "Clip_33.mov",
+   "video_sha256": "acdc85815dc47fc27d3a8623b91346f8834bc51c8526a20df7da372148ac3610",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "a6f6412793766e468e4778c38ab0ebb6f1e561fd6695d31d9f2b25347e014878"
+  },
+  {
+   "key": "Clip_34_first",
+   "clip": "Clip_34",
+   "video": "Clip_34.mov",
+   "video_sha256": "764cc59ea20170464a09a03fad62ed51127583237c8815c55821350c910a7743",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "34659b49b83cd6726902d79c15c410bfdd97bea7218a3b976fb27af881c514fe"
+  },
+  {
+   "key": "Clip_35_first",
+   "clip": "Clip_35",
+   "video": "Clip_35.mov",
+   "video_sha256": "b27af0883aa57446d5c028078565d1fb60613e7c4c4a3c2ae62e5939b5e6c256",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.96,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "cb3ddca98e139e57ec5a7287f3bd85bb63350d0d6e750988274b7d41cd86f4d6"
+  },
+  {
+   "key": "Clip_36_first",
+   "clip": "Clip_36",
+   "video": "Clip_36.mov",
+   "video_sha256": "985d1770ce290341a710c37c7611214f41e490b68a0d1e8f61661be5d1a013c5",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.95,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "5c549cf180cfdff9e7b26c958cd95907b811cca2fc596a6599e51a270ff4f629"
+  },
+  {
+   "key": "Clip_37_first",
+   "clip": "Clip_37",
+   "video": "Clip_37.mov",
+   "video_sha256": "6037b2441f8d533645a50a37c20cddb7de5f8276898dd6aab852d16a59b5750a",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "914154a2fde0dd81a4784703fecf1bc70f5e04983acd6bc923313318d842c664"
+  },
+  {
+   "key": "Clip_38_first",
+   "clip": "Clip_38",
+   "video": "Clip_38.mov",
+   "video_sha256": "161da3303f0b815f4a8c3cdf10ceb586a11e085ebfd7c9fd2cb22c2c2bd05120",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.77,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "2f11e87d21f9fac8d251f892dcbf85c7ae6409e99f1ef43ddae2764a7a3ee2fd"
+  },
+  {
+   "key": "Clip_39_first",
+   "clip": "Clip_39",
+   "video": "Clip_39.mov",
+   "video_sha256": "d983c4a05a9427a1f06c0d72e3b4d168fcc30151d3aedc69ac23488bb969f782",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "85dcbd4a49dd7c498976326e19bbd0188389acf62d6ddae0e7a4902af70925a5"
+  },
+  {
+   "key": "Clip_40_first",
+   "clip": "Clip_40",
+   "video": "Clip_40.mov",
+   "video_sha256": "f1a89fe3612e692bebb43f8060e67a243927476c0f702d09eb44ea239b0e5c0a",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.8,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "9dac11c001eb7a23aa94c621b6fbff2383e091948ba534404538b82e6b144396"
+  },
+  {
+   "key": "Clip_41_first",
+   "clip": "Clip_41",
+   "video": "Clip_41.mov",
+   "video_sha256": "ab0d52930cd27252df18de1b000a83cd7896a6d24cba4339eb8fa33c0025955a",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "c94972cc2d149ff8b9c8c3506f4d1f49d456eb40597eaaad4de6b2471664efed"
+  },
+  {
+   "key": "Clip_42_first",
+   "clip": "Clip_42",
+   "video": "Clip_42.mov",
+   "video_sha256": "a136a2c05699c4d0b67a45d84ba3f79354cb9a1359c99787d526fcf35b646008",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "1dff7a4f6337c03a218a272bc277c70e1676dee2cf79b1433b4f746868ba0cea"
+  },
+  {
+   "key": "Clip_43_first",
+   "clip": "Clip_43",
+   "video": "Clip_43.mov",
+   "video_sha256": "8d12d8807a48687303ab4aea0a350c3f74b535e2e5bb1a1b7df02d650c96c422",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 28.89,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "01319889536feb14eb9b9a23e5d50601085a6fff4547b55608afd2ff8a57fd25"
+  },
+  {
+   "key": "Clip_44_first",
+   "clip": "Clip_44",
+   "video": "Clip_44.mov",
+   "video_sha256": "4b2f73054b75f5a2ac790ff20dd716dd4cbfaa2a94cee241a2d9c3ec2ba06b28",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "5c8ff0d6202c9f4a4d7b22fd7ba6608116790b5ccadc7e721a8ee375876a2958"
+  },
+  {
+   "key": "Clip_45_first",
+   "clip": "Clip_45",
+   "video": "Clip_45.mov",
+   "video_sha256": "c5c8695e6c94cdfc0a399230c1397f0c2542cbabc2dfbc813c93a79a6aff189e",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.8,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "5b7b82524a376f13a7bea52614582a8a7665f013e27d7f13567ad7690be1f93f"
+  },
+  {
+   "key": "Clip_46_first",
+   "clip": "Clip_46",
+   "video": "Clip_46.mov",
+   "video_sha256": "698a7d3877592899261074c7516001b42e1d2220a56743ae652099245c8a40c1",
+   "dimensions": [
+    1280,
+    960
+   ],
+   "fps": 29.578,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "70437122889e5f6e718f7149b39dfc15c99067a0ba03eec9adabc9af680471ed"
+  },
+  {
+   "key": "Clip_47_first",
+   "clip": "Clip_47",
+   "video": "Clip_47.mov",
+   "video_sha256": "f37633009d356be6d1f743378ea21b36bed64995119616518d1ffe83d62d0523",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.96,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "6a804a9114b3f04a20faa8333a023c45be4deb911764d50f08d752a60e20ac17"
+  },
+  {
+   "key": "Clip_48_first",
+   "clip": "Clip_48",
+   "video": "Clip_48.mov",
+   "video_sha256": "fa6d5c37d289791a7f30e5a1cb47f60f2a30e73e2391c393f019ac02b9cbfb7d",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "5e72504cefc38e253b135fbfe2d73e0d91dc46eefe0dff7f9afa12f528e330f0"
+  },
+  {
+   "key": "Clip_49_first",
+   "clip": "Clip_49",
+   "video": "Clip_49.mov",
+   "video_sha256": "9e70df80156a6258963899a6a4c759900a4290477db9fa7558d281fcaba77f9c",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 59.9,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "8ffa1fdbf55724fd7db4e72ac26ce9a9b1903caca5c5a15e312a756d45a33ff4"
+  },
+  {
+   "key": "Clip_50_first",
+   "clip": "Clip_50",
+   "video": "Clip_50.mov",
+   "video_sha256": "74b9d5be1356f8d0aa5784f636566cde66f926c3d26b34a508e2e7637eaac95f",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 59.9,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "43024318b7d1856a3a549d4aa54cea6bdfa7d8d54581f1238215618801a63bcb"
+  }
+ ]
+}

@@ -1,0 +1,3845 @@
+{
+ "set": "uav_anti_uav",
+ "rule": "274 windows on 195 of the 196 videos in the development half of our split of the UAV-Anti-UAV test set. The other 224 test videos are kept untouched for one final test. UAV-Anti-UAV_Test_000316 is left out because its label files have fewer lines than it has frames. Window 'first': frames 4 to 163, or to the video's end. Window 'absence', in 79 videos: the longest labelled-absent run of at least 10 frames that starts at frame 204 or later, from 40 frames before it, for 160 frames or to the video's end.",
+ "labels": "Line i of groundtruth_rect.txt and absent.txt labels frame i (counting from 0). An absent frame counts as a frame with no drone. A present frame whose box has no width or height is skipped.",
+ "videos_folder": "the unpacked Test folder, with one subfolder per video holding the video, groundtruth_rect.txt and absent.txt",
+ "labels_folder": "the same Test folder",
+ "windows": [
+  {
+   "key": "UAV-Anti-UAV_Test_000001_first",
+   "clip": "UAV-Anti-UAV_Test_000001",
+   "video": "UAV-Anti-UAV_Test_000001/UAV-Anti-UAV_Test_000001.mp4",
+   "video_sha256": "4f75f003c738b5f5893df2cc6bd097ebe6ab415059275ec051ebf6d790cd7dfc",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 109,
+   "labels_sha256": "06932c81182cfbb6e2cee8ea8e142d1dd843b93c15d7cfa5a69d388d07f546a9"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000002_first",
+   "clip": "UAV-Anti-UAV_Test_000002",
+   "video": "UAV-Anti-UAV_Test_000002/UAV-Anti-UAV_Test_000002.mp4",
+   "video_sha256": "2e0d99d7967093c8f97f1671eb9e433c2da5335017e3b243967b89ecc1d2d6b6",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "810f0c75d8168942b6d4ad58c45f24ffdbde509a1730bb3572f43bd8998804fa"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000002_absence",
+   "clip": "UAV-Anti-UAV_Test_000002",
+   "video": "UAV-Anti-UAV_Test_000002/UAV-Anti-UAV_Test_000002.mp4",
+   "video_sha256": "2e0d99d7967093c8f97f1671eb9e433c2da5335017e3b243967b89ecc1d2d6b6",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 190,
+   "count": 93,
+   "labels_sha256": "810f0c75d8168942b6d4ad58c45f24ffdbde509a1730bb3572f43bd8998804fa"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000005_first",
+   "clip": "UAV-Anti-UAV_Test_000005",
+   "video": "UAV-Anti-UAV_Test_000005/UAV-Anti-UAV_Test_000005.mp4",
+   "video_sha256": "fc19f0f40327823f2618b4e316246ca6cd2cddab22c0cef693101b44a2bedc9c",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 107,
+   "labels_sha256": "bac7413141c56b298ce97ce913c544126da0acb40fad58faf0e84decdb680990"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000006_first",
+   "clip": "UAV-Anti-UAV_Test_000006",
+   "video": "UAV-Anti-UAV_Test_000006/UAV-Anti-UAV_Test_000006.mp4",
+   "video_sha256": "37f94cc62b72b1feb0c0f8b63b5727f2c1817e4989e79a5b1660e51defd6e355",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "367db3f87ef956552723c68cc3dc56d3ee78c169a7c51bb0436582eb889725ea"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000007_first",
+   "clip": "UAV-Anti-UAV_Test_000007",
+   "video": "UAV-Anti-UAV_Test_000007/UAV-Anti-UAV_Test_000007.mp4",
+   "video_sha256": "2ea82cc94d211e713c70eb053c37bb4b74b65972b10178f8ba5e74a35f57d960",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "5f80f027aab98b5e8282b33f1477b3d9ec8a014a90d8d670c8459c926d9b6650"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000008_first",
+   "clip": "UAV-Anti-UAV_Test_000008",
+   "video": "UAV-Anti-UAV_Test_000008/UAV-Anti-UAV_Test_000008.mp4",
+   "video_sha256": "0848b9cef4a4f2154ccfa8c108726ae2d2c129172514a7b81cd483c4b49cf228",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "675b218556944468b937393fbfe3bc78d2847f7edd6ba94f58ea63015bd880c8"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000009_first",
+   "clip": "UAV-Anti-UAV_Test_000009",
+   "video": "UAV-Anti-UAV_Test_000009/UAV-Anti-UAV_Test_000009.mp4",
+   "video_sha256": "db9a34773394019ce5f337fb207afa7dee1554dac021c084ffc391865a6f1585",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "68cfb56a95ab5f9aeb133fc648fc1b6c4e5a3891965eaedfa2e25a387d9f85b1"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000013_first",
+   "clip": "UAV-Anti-UAV_Test_000013",
+   "video": "UAV-Anti-UAV_Test_000013/UAV-Anti-UAV_Test_000013.mp4",
+   "video_sha256": "ab5fbc55f502b491db7dbc6f1d560538bcb8e1242d6677ebe11559f215128207",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "f4113b7b9ad4172573cb1460d4edaba929b30f1804bca28ceb402d13eb0b2992"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000014_first",
+   "clip": "UAV-Anti-UAV_Test_000014",
+   "video": "UAV-Anti-UAV_Test_000014/UAV-Anti-UAV_Test_000014.mp4",
+   "video_sha256": "a23e3e364b0b75d1c5b5ec311ede37c5d50876f223fc7615c7ae27a704b9c399",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "af1b6c23cca8b379ace2b829136676ba385da78e0f4d413d41bbb5c1ec0b1ff8"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000016_first",
+   "clip": "UAV-Anti-UAV_Test_000016",
+   "video": "UAV-Anti-UAV_Test_000016/UAV-Anti-UAV_Test_000016.mp4",
+   "video_sha256": "0ac66d43f4f8eeb567e4fe7437e2d7147902898775a66aeb7d8f47fe5c8fe9ee",
+   "dimensions": [
+    480,
+    856
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "de0c0aced9ba6803be4bf2f78f1414cbc86ffd3631add3f4302eb857bc3897f3"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000016_absence",
+   "clip": "UAV-Anti-UAV_Test_000016",
+   "video": "UAV-Anti-UAV_Test_000016/UAV-Anti-UAV_Test_000016.mp4",
+   "video_sha256": "0ac66d43f4f8eeb567e4fe7437e2d7147902898775a66aeb7d8f47fe5c8fe9ee",
+   "dimensions": [
+    480,
+    856
+   ],
+   "fps": 30.0,
+   "start": 2203,
+   "count": 160,
+   "labels_sha256": "de0c0aced9ba6803be4bf2f78f1414cbc86ffd3631add3f4302eb857bc3897f3"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000017_first",
+   "clip": "UAV-Anti-UAV_Test_000017",
+   "video": "UAV-Anti-UAV_Test_000017/UAV-Anti-UAV_Test_000017.mp4",
+   "video_sha256": "7b42873205c4bccd53219dac925a06a9954194f6bef31d677532a36f3e203f6c",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "f65d27aa76f1b69afccc77b505a35d44c20012d61d119ada89e8642cec357be2"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000017_absence",
+   "clip": "UAV-Anti-UAV_Test_000017",
+   "video": "UAV-Anti-UAV_Test_000017/UAV-Anti-UAV_Test_000017.mp4",
+   "video_sha256": "7b42873205c4bccd53219dac925a06a9954194f6bef31d677532a36f3e203f6c",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 312,
+   "count": 60,
+   "labels_sha256": "f65d27aa76f1b69afccc77b505a35d44c20012d61d119ada89e8642cec357be2"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000018_first",
+   "clip": "UAV-Anti-UAV_Test_000018",
+   "video": "UAV-Anti-UAV_Test_000018/UAV-Anti-UAV_Test_000018.mp4",
+   "video_sha256": "63f7133351299c963b8f49a74eb6cc3bab1f8fb9d1b3d4c6e498f4fccbfbc933",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "a110f80bb4ece709e3c6d75a3c19978ff30965abce64d14d6c06ae09d5d4a611"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000020_first",
+   "clip": "UAV-Anti-UAV_Test_000020",
+   "video": "UAV-Anti-UAV_Test_000020/UAV-Anti-UAV_Test_000020.mp4",
+   "video_sha256": "e3131fe8674467552cdc0f6923c191c7260661432369575aac97bceb30a8eef5",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "3d7654500a9ce0093af919a12bf3a6b1ad26f79a81881cf42d3c58aaf04d1beb"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000020_absence",
+   "clip": "UAV-Anti-UAV_Test_000020",
+   "video": "UAV-Anti-UAV_Test_000020/UAV-Anti-UAV_Test_000020.mp4",
+   "video_sha256": "e3131fe8674467552cdc0f6923c191c7260661432369575aac97bceb30a8eef5",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 1155,
+   "count": 74,
+   "labels_sha256": "3d7654500a9ce0093af919a12bf3a6b1ad26f79a81881cf42d3c58aaf04d1beb"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000023_first",
+   "clip": "UAV-Anti-UAV_Test_000023",
+   "video": "UAV-Anti-UAV_Test_000023/UAV-Anti-UAV_Test_000023.mp4",
+   "video_sha256": "063063e255e8bc47ce67a556e84ba5dfb3d06457898850de48de75ac841a929d",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "b8a40cf6467d9fca465ee516f697071ba391146b2a9535b553e371b2f582ab41"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000023_absence",
+   "clip": "UAV-Anti-UAV_Test_000023",
+   "video": "UAV-Anti-UAV_Test_000023/UAV-Anti-UAV_Test_000023.mp4",
+   "video_sha256": "063063e255e8bc47ce67a556e84ba5dfb3d06457898850de48de75ac841a929d",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 307,
+   "count": 148,
+   "labels_sha256": "b8a40cf6467d9fca465ee516f697071ba391146b2a9535b553e371b2f582ab41"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000029_first",
+   "clip": "UAV-Anti-UAV_Test_000029",
+   "video": "UAV-Anti-UAV_Test_000029/UAV-Anti-UAV_Test_000029.mp4",
+   "video_sha256": "9ee357a677a4e2a2b96df76638e1b2982735e34c60272580530c23d9bd0ef6f6",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "4bd4c03e6384324a616a56549e259a429a7f460c860b4e8a22fa75c402f6fa0a"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000033_first",
+   "clip": "UAV-Anti-UAV_Test_000033",
+   "video": "UAV-Anti-UAV_Test_000033/UAV-Anti-UAV_Test_000033.mp4",
+   "video_sha256": "85d81232393122d6d22fa70cb41119986288bd8675b2ca8ed803848cd0cd31b6",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "46b7d837ebb552c83cefb20a12e05f992f03efbddcfb0083b1dbc4d3b6476222"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000033_absence",
+   "clip": "UAV-Anti-UAV_Test_000033",
+   "video": "UAV-Anti-UAV_Test_000033/UAV-Anti-UAV_Test_000033.mp4",
+   "video_sha256": "85d81232393122d6d22fa70cb41119986288bd8675b2ca8ed803848cd0cd31b6",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 500,
+   "count": 50,
+   "labels_sha256": "46b7d837ebb552c83cefb20a12e05f992f03efbddcfb0083b1dbc4d3b6476222"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000036_first",
+   "clip": "UAV-Anti-UAV_Test_000036",
+   "video": "UAV-Anti-UAV_Test_000036/UAV-Anti-UAV_Test_000036.mp4",
+   "video_sha256": "36e129bf4ac078b6cdb45d7cade7a0cfba4c3da895d60ba8a937d89db9211107",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "989820202b618063e6ff99c5c194ba6de1cd7c60264dff47e390ef925561b406"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000037_first",
+   "clip": "UAV-Anti-UAV_Test_000037",
+   "video": "UAV-Anti-UAV_Test_000037/UAV-Anti-UAV_Test_000037.mp4",
+   "video_sha256": "92d9a06ed4c56d08e12c338ab6da2ad3006a2909c28fb6d4b930a3ee81d7ff55",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "3c798af99d20a1d63de97c28d6c7879d64ea23faaf11ccf811fc0104de1c0ab7"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000038_first",
+   "clip": "UAV-Anti-UAV_Test_000038",
+   "video": "UAV-Anti-UAV_Test_000038/UAV-Anti-UAV_Test_000038.mp4",
+   "video_sha256": "441b481110ea2ad14fe237645ccd2b79265f697f3e04ee108167d81585b221db",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "44f9748082d807ba53a9e10d66c5ca038cedea41a39ad0e976141f69f7c38c97"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000038_absence",
+   "clip": "UAV-Anti-UAV_Test_000038",
+   "video": "UAV-Anti-UAV_Test_000038/UAV-Anti-UAV_Test_000038.mp4",
+   "video_sha256": "441b481110ea2ad14fe237645ccd2b79265f697f3e04ee108167d81585b221db",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 503,
+   "count": 160,
+   "labels_sha256": "44f9748082d807ba53a9e10d66c5ca038cedea41a39ad0e976141f69f7c38c97"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000039_first",
+   "clip": "UAV-Anti-UAV_Test_000039",
+   "video": "UAV-Anti-UAV_Test_000039/UAV-Anti-UAV_Test_000039.mp4",
+   "video_sha256": "8bdf23a93e96e97b0318eea34937e892c212e1f944dcf30b4475f61aa055bcb5",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "dd5c3ce3b8f7000ceddb17221c7dd6b9668a59a82b7257cf6fd00b50beb74f46"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000039_absence",
+   "clip": "UAV-Anti-UAV_Test_000039",
+   "video": "UAV-Anti-UAV_Test_000039/UAV-Anti-UAV_Test_000039.mp4",
+   "video_sha256": "8bdf23a93e96e97b0318eea34937e892c212e1f944dcf30b4475f61aa055bcb5",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 376,
+   "count": 160,
+   "labels_sha256": "dd5c3ce3b8f7000ceddb17221c7dd6b9668a59a82b7257cf6fd00b50beb74f46"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000040_first",
+   "clip": "UAV-Anti-UAV_Test_000040",
+   "video": "UAV-Anti-UAV_Test_000040/UAV-Anti-UAV_Test_000040.mp4",
+   "video_sha256": "cfc093de875306ff3d7b3336e52d8bdc1cffd6f0a2f7079f28f9fe2e6731ff61",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "41c984ccd254d219aa6a7f3f62ef87d743e29f028d214b55a2776a4257c9e30e"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000042_first",
+   "clip": "UAV-Anti-UAV_Test_000042",
+   "video": "UAV-Anti-UAV_Test_000042/UAV-Anti-UAV_Test_000042.mp4",
+   "video_sha256": "d096f92142e98d3be5293a023b42d95dfdfab673a69279a13bb24f4be78d838b",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 138,
+   "labels_sha256": "0bdfc05436887cc18e4ea49610ad6af2390f544c34cd3a90c8f38e9fe40de283"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000043_first",
+   "clip": "UAV-Anti-UAV_Test_000043",
+   "video": "UAV-Anti-UAV_Test_000043/UAV-Anti-UAV_Test_000043.mp4",
+   "video_sha256": "3063ad1a03b66f364f687932bc94a4433c89c9f999b03a5c885a3c4564bc4a8a",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "b3bab72501dfd26825ed863a4d0e84295e46a3033b6ec0a95a1f938009c07c67"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000043_absence",
+   "clip": "UAV-Anti-UAV_Test_000043",
+   "video": "UAV-Anti-UAV_Test_000043/UAV-Anti-UAV_Test_000043.mp4",
+   "video_sha256": "3063ad1a03b66f364f687932bc94a4433c89c9f999b03a5c885a3c4564bc4a8a",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 387,
+   "count": 160,
+   "labels_sha256": "b3bab72501dfd26825ed863a4d0e84295e46a3033b6ec0a95a1f938009c07c67"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000048_first",
+   "clip": "UAV-Anti-UAV_Test_000048",
+   "video": "UAV-Anti-UAV_Test_000048/UAV-Anti-UAV_Test_000048.mp4",
+   "video_sha256": "6fe1579b59eb7bba77dcad6f6a28bc27e84cc5890cc36d48aa61de1c2843b054",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "88854702d84667f9d479da0f7ecdd7707b372c645c3302811012155d762ae4d4"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000050_first",
+   "clip": "UAV-Anti-UAV_Test_000050",
+   "video": "UAV-Anti-UAV_Test_000050/UAV-Anti-UAV_Test_000050.mp4",
+   "video_sha256": "4df195e9d33d654e6522cd8b484f45bde49c6548c03563b58fb51b3d9587b60f",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "708ef768a95e8c4dd0f326d968368c64241e5144a230702fa83d815a1cbdd93f"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000050_absence",
+   "clip": "UAV-Anti-UAV_Test_000050",
+   "video": "UAV-Anti-UAV_Test_000050/UAV-Anti-UAV_Test_000050.mp4",
+   "video_sha256": "4df195e9d33d654e6522cd8b484f45bde49c6548c03563b58fb51b3d9587b60f",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 5357,
+   "count": 160,
+   "labels_sha256": "708ef768a95e8c4dd0f326d968368c64241e5144a230702fa83d815a1cbdd93f"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000051_first",
+   "clip": "UAV-Anti-UAV_Test_000051",
+   "video": "UAV-Anti-UAV_Test_000051/UAV-Anti-UAV_Test_000051.mp4",
+   "video_sha256": "f0edf8768879f881a68728eecdf103f0fa86d1b20716ba755f1a182aa02f5fd0",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "1efd9876e4de2572ce52e70d96315444bf60e90d5347443bc613d01f3a5a7fc4"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000052_first",
+   "clip": "UAV-Anti-UAV_Test_000052",
+   "video": "UAV-Anti-UAV_Test_000052/UAV-Anti-UAV_Test_000052.mp4",
+   "video_sha256": "c7fcea129b65b09a5494329ba16bdc92c238d06c8c319d2d1007a7a90af38089",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "dd67f25f5d9b80f5696f6b2b4cb5ef5ee1c27138d2f98d196601515838146691"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000052_absence",
+   "clip": "UAV-Anti-UAV_Test_000052",
+   "video": "UAV-Anti-UAV_Test_000052/UAV-Anti-UAV_Test_000052.mp4",
+   "video_sha256": "c7fcea129b65b09a5494329ba16bdc92c238d06c8c319d2d1007a7a90af38089",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 716,
+   "count": 160,
+   "labels_sha256": "dd67f25f5d9b80f5696f6b2b4cb5ef5ee1c27138d2f98d196601515838146691"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000053_first",
+   "clip": "UAV-Anti-UAV_Test_000053",
+   "video": "UAV-Anti-UAV_Test_000053/UAV-Anti-UAV_Test_000053.mp4",
+   "video_sha256": "53b8d212981d71cd053bf9528dfc1123174364eb4d7bcbb99670348f83cb2d1d",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "6a7c74d6dab2f63d0d69f47c41822472aeb23597fcbf2e232f572a332eb3429d"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000053_absence",
+   "clip": "UAV-Anti-UAV_Test_000053",
+   "video": "UAV-Anti-UAV_Test_000053/UAV-Anti-UAV_Test_000053.mp4",
+   "video_sha256": "53b8d212981d71cd053bf9528dfc1123174364eb4d7bcbb99670348f83cb2d1d",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 430,
+   "count": 160,
+   "labels_sha256": "6a7c74d6dab2f63d0d69f47c41822472aeb23597fcbf2e232f572a332eb3429d"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000058_first",
+   "clip": "UAV-Anti-UAV_Test_000058",
+   "video": "UAV-Anti-UAV_Test_000058/UAV-Anti-UAV_Test_000058.mp4",
+   "video_sha256": "a1b1f6c2684a3f8e1713f6ee849a58b2c3e8b458a29ec30018d9dfc6e1edab42",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 118,
+   "labels_sha256": "618202ead5d94f0639cb59f2f79cd5e458b589e381d8f25c5f3d09f22903ff46"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000059_first",
+   "clip": "UAV-Anti-UAV_Test_000059",
+   "video": "UAV-Anti-UAV_Test_000059/UAV-Anti-UAV_Test_000059.mp4",
+   "video_sha256": "ec248d947b1cc375e20bf40df718f281b27250873897e7906f71eee26d4c705b",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "4c81b6fcb4b609e63b8977686d1b40a0ab9ef52276a266520ee6a1a4f750e5e7"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000059_absence",
+   "clip": "UAV-Anti-UAV_Test_000059",
+   "video": "UAV-Anti-UAV_Test_000059/UAV-Anti-UAV_Test_000059.mp4",
+   "video_sha256": "ec248d947b1cc375e20bf40df718f281b27250873897e7906f71eee26d4c705b",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 221,
+   "count": 160,
+   "labels_sha256": "4c81b6fcb4b609e63b8977686d1b40a0ab9ef52276a266520ee6a1a4f750e5e7"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000066_first",
+   "clip": "UAV-Anti-UAV_Test_000066",
+   "video": "UAV-Anti-UAV_Test_000066/UAV-Anti-UAV_Test_000066.mp4",
+   "video_sha256": "9f1d19d2977cdfa2190107dab8562ffb937899e1085ef8d0a3660205ce58caef",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "390ed71272bcefb168f4ef4933fe5dd37688f19be7a01e024c6d3e8f0e6f8f44"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000066_absence",
+   "clip": "UAV-Anti-UAV_Test_000066",
+   "video": "UAV-Anti-UAV_Test_000066/UAV-Anti-UAV_Test_000066.mp4",
+   "video_sha256": "9f1d19d2977cdfa2190107dab8562ffb937899e1085ef8d0a3660205ce58caef",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 326,
+   "count": 160,
+   "labels_sha256": "390ed71272bcefb168f4ef4933fe5dd37688f19be7a01e024c6d3e8f0e6f8f44"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000071_first",
+   "clip": "UAV-Anti-UAV_Test_000071",
+   "video": "UAV-Anti-UAV_Test_000071/UAV-Anti-UAV_Test_000071.mp4",
+   "video_sha256": "ee61bbef222bf632105de3c529a3cdbc9b7512f0cc6848339297cc7ce17aa41b",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 66,
+   "labels_sha256": "223079c3e893c33c37381fdede72f4b73f72fdf4c32a2929bf98c82e271d22b4"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000072_first",
+   "clip": "UAV-Anti-UAV_Test_000072",
+   "video": "UAV-Anti-UAV_Test_000072/UAV-Anti-UAV_Test_000072.mp4",
+   "video_sha256": "b0e55797dc073b8fc4f424c3db02dc4c16177b2e61ad170389d4e7b18a8fdb7f",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "37c2966b009093123fb229bfc11ad5af87a8c9d8c0ca0b482d1134be1e6ea6ee"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000072_absence",
+   "clip": "UAV-Anti-UAV_Test_000072",
+   "video": "UAV-Anti-UAV_Test_000072/UAV-Anti-UAV_Test_000072.mp4",
+   "video_sha256": "b0e55797dc073b8fc4f424c3db02dc4c16177b2e61ad170389d4e7b18a8fdb7f",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 183,
+   "count": 160,
+   "labels_sha256": "37c2966b009093123fb229bfc11ad5af87a8c9d8c0ca0b482d1134be1e6ea6ee"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000073_first",
+   "clip": "UAV-Anti-UAV_Test_000073",
+   "video": "UAV-Anti-UAV_Test_000073/UAV-Anti-UAV_Test_000073.mp4",
+   "video_sha256": "9c82504cb9c50399c50ab4f53c23510edf9aab69a693dea4431d905a9298b450",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "7f07afa3a7bc48777e21b77d459a96b409cabb5fd40070168310ed24ed641246"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000074_first",
+   "clip": "UAV-Anti-UAV_Test_000074",
+   "video": "UAV-Anti-UAV_Test_000074/UAV-Anti-UAV_Test_000074.mp4",
+   "video_sha256": "c70229c7e581f1b688069485f5a8eee9f605a6a1794e7d1a84dcc74255d00816",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 126,
+   "labels_sha256": "309362da6fe4d74d4a12601e9d94a5217621e9d3ac4fcc2133562d47ae14328c"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000076_first",
+   "clip": "UAV-Anti-UAV_Test_000076",
+   "video": "UAV-Anti-UAV_Test_000076/UAV-Anti-UAV_Test_000076.mp4",
+   "video_sha256": "7bb4c1459465c7998a97d61c7000880371aae7ac841d95f64de8fdab63892501",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "dd10e689b0713ae4153ced139d9621b2a02cc2290e5dcd558cc35707156458d1"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000076_absence",
+   "clip": "UAV-Anti-UAV_Test_000076",
+   "video": "UAV-Anti-UAV_Test_000076/UAV-Anti-UAV_Test_000076.mp4",
+   "video_sha256": "7bb4c1459465c7998a97d61c7000880371aae7ac841d95f64de8fdab63892501",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 2550,
+   "count": 160,
+   "labels_sha256": "dd10e689b0713ae4153ced139d9621b2a02cc2290e5dcd558cc35707156458d1"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000077_first",
+   "clip": "UAV-Anti-UAV_Test_000077",
+   "video": "UAV-Anti-UAV_Test_000077/UAV-Anti-UAV_Test_000077.mp4",
+   "video_sha256": "2418f005980dfcf59eec9aafbd05799c145546147a12f8dfca3e0d1739a856ec",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "868573015aace47c7e7d1ff470737cf34e50fffc1eca76f42a3f2c11ca3772d8"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000077_absence",
+   "clip": "UAV-Anti-UAV_Test_000077",
+   "video": "UAV-Anti-UAV_Test_000077/UAV-Anti-UAV_Test_000077.mp4",
+   "video_sha256": "2418f005980dfcf59eec9aafbd05799c145546147a12f8dfca3e0d1739a856ec",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 1195,
+   "count": 160,
+   "labels_sha256": "868573015aace47c7e7d1ff470737cf34e50fffc1eca76f42a3f2c11ca3772d8"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000078_first",
+   "clip": "UAV-Anti-UAV_Test_000078",
+   "video": "UAV-Anti-UAV_Test_000078/UAV-Anti-UAV_Test_000078.mp4",
+   "video_sha256": "be6baf8acbbb3b6340e3da0032e83427ec6c458a46fc24a26c4e2f1376728853",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 68,
+   "labels_sha256": "b226eb2d1db7128efa130a3207ee11e6e92bc4fc8e55f69128518cf25c2b8e9d"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000080_first",
+   "clip": "UAV-Anti-UAV_Test_000080",
+   "video": "UAV-Anti-UAV_Test_000080/UAV-Anti-UAV_Test_000080.mp4",
+   "video_sha256": "4a1bb8c40cdac52f031727afb4e1be50c68e33ab662e3f2e5c386e7eea7c62ba",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "d7d240de47c1a27ca080eddcd653652250d61f10adf536965e0b0cc47a0d194e"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000080_absence",
+   "clip": "UAV-Anti-UAV_Test_000080",
+   "video": "UAV-Anti-UAV_Test_000080/UAV-Anti-UAV_Test_000080.mp4",
+   "video_sha256": "4a1bb8c40cdac52f031727afb4e1be50c68e33ab662e3f2e5c386e7eea7c62ba",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 815,
+   "count": 160,
+   "labels_sha256": "d7d240de47c1a27ca080eddcd653652250d61f10adf536965e0b0cc47a0d194e"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000081_first",
+   "clip": "UAV-Anti-UAV_Test_000081",
+   "video": "UAV-Anti-UAV_Test_000081/UAV-Anti-UAV_Test_000081.mp4",
+   "video_sha256": "ce327c66df257078ffcf0b2a883334f7ffbc319cee13d712cd416db279fb46af",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "d1b25d1432c17a083ba6942684d052ccf7f6aa5d8819afe8d2b5431b3489e694"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000081_absence",
+   "clip": "UAV-Anti-UAV_Test_000081",
+   "video": "UAV-Anti-UAV_Test_000081/UAV-Anti-UAV_Test_000081.mp4",
+   "video_sha256": "ce327c66df257078ffcf0b2a883334f7ffbc319cee13d712cd416db279fb46af",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 754,
+   "count": 84,
+   "labels_sha256": "d1b25d1432c17a083ba6942684d052ccf7f6aa5d8819afe8d2b5431b3489e694"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000083_first",
+   "clip": "UAV-Anti-UAV_Test_000083",
+   "video": "UAV-Anti-UAV_Test_000083/UAV-Anti-UAV_Test_000083.mp4",
+   "video_sha256": "1473bf45de30dd1e288d905be407d26e5d0f6fc33f03efed555fea91df72fc0c",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "19e5a61f5db7a00c361aae130a8a070d9643f61c4ac305d679f83dcafc00614e"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000085_first",
+   "clip": "UAV-Anti-UAV_Test_000085",
+   "video": "UAV-Anti-UAV_Test_000085/UAV-Anti-UAV_Test_000085.mp4",
+   "video_sha256": "4ef18b2855390424e491f785c4506d71ee910576da32f240e981bfd351ec0b1a",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "acd04bbfd8000bf497349d3280db7af5101fc43c779162e61912d678ff2a15c3"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000085_absence",
+   "clip": "UAV-Anti-UAV_Test_000085",
+   "video": "UAV-Anti-UAV_Test_000085/UAV-Anti-UAV_Test_000085.mp4",
+   "video_sha256": "4ef18b2855390424e491f785c4506d71ee910576da32f240e981bfd351ec0b1a",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 512,
+   "count": 160,
+   "labels_sha256": "acd04bbfd8000bf497349d3280db7af5101fc43c779162e61912d678ff2a15c3"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000089_first",
+   "clip": "UAV-Anti-UAV_Test_000089",
+   "video": "UAV-Anti-UAV_Test_000089/UAV-Anti-UAV_Test_000089.mp4",
+   "video_sha256": "c750511c9512f84d8a204ab656fe566889b26d7a85638cb58d8a573506130e73",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "c01a31efc1c8f20704ac0ad39687c9592c2e95c9d17066adc23e9cf722a40523"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000090_first",
+   "clip": "UAV-Anti-UAV_Test_000090",
+   "video": "UAV-Anti-UAV_Test_000090/UAV-Anti-UAV_Test_000090.mp4",
+   "video_sha256": "1e559689fab59418a68bedd9cd5032801f4f41bb6eef79a450999abe36d45c1e",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "8818d41093ade53c83689700b7e5e1036eb6ea7ee3781c4dc415de060d32f61b"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000090_absence",
+   "clip": "UAV-Anti-UAV_Test_000090",
+   "video": "UAV-Anti-UAV_Test_000090/UAV-Anti-UAV_Test_000090.mp4",
+   "video_sha256": "1e559689fab59418a68bedd9cd5032801f4f41bb6eef79a450999abe36d45c1e",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 175,
+   "count": 160,
+   "labels_sha256": "8818d41093ade53c83689700b7e5e1036eb6ea7ee3781c4dc415de060d32f61b"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000092_first",
+   "clip": "UAV-Anti-UAV_Test_000092",
+   "video": "UAV-Anti-UAV_Test_000092/UAV-Anti-UAV_Test_000092.mp4",
+   "video_sha256": "fc78514b4af90b5d9a2cc6563df47101b10944c22f0cbb5c76eac182604deffd",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 142,
+   "labels_sha256": "77f850842f1215a22ce82d587d38cab829832a53a3d2efb85e02ffe916744a60"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000096_first",
+   "clip": "UAV-Anti-UAV_Test_000096",
+   "video": "UAV-Anti-UAV_Test_000096/UAV-Anti-UAV_Test_000096.mp4",
+   "video_sha256": "cfe9ddb03a7041c346eacbcb5a056322281ae9c4ca3ade9e0292580999a38f0e",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "27c23cf6eaa9169776d8ece21747204e49a79ca4432b516d7db5973da8ccfcc7"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000098_first",
+   "clip": "UAV-Anti-UAV_Test_000098",
+   "video": "UAV-Anti-UAV_Test_000098/UAV-Anti-UAV_Test_000098.mp4",
+   "video_sha256": "e5815eebfed0807bd93822c6c96c6a5d8c152ced2f8880b4552d9ae2b4c11ff1",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "717c56112cb33496f5a6d1d1aa01d186793c14b6afb0193f34af14ef654ab6e8"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000102_first",
+   "clip": "UAV-Anti-UAV_Test_000102",
+   "video": "UAV-Anti-UAV_Test_000102/UAV-Anti-UAV_Test_000102.mp4",
+   "video_sha256": "b30a118cfff9c3abd56ab2425991560cfc62b86f80f856c1abd353499432df42",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "131d67a73122de851554f5a5f58ba52d557fbd424dc802456e159ef28f34b014"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000103_first",
+   "clip": "UAV-Anti-UAV_Test_000103",
+   "video": "UAV-Anti-UAV_Test_000103/UAV-Anti-UAV_Test_000103.mp4",
+   "video_sha256": "e1c0af59f5559ec61a51500f896dfe16db06b7861e0242156675fec0e86e6417",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "76dc43b61e10ac4a7e963b3adc42ecdcbb1c058f66e6477b3a536f2fa9426a03"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000104_first",
+   "clip": "UAV-Anti-UAV_Test_000104",
+   "video": "UAV-Anti-UAV_Test_000104/UAV-Anti-UAV_Test_000104.mp4",
+   "video_sha256": "1870113aca883b80a6725a034f8d9b3897c065dc09ccaccb655d85c0ce2d37e4",
+   "dimensions": [
+    480,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "87b5e45f41fcdfabe12f2ae3781ad8334f5d69a026ed5b859eee5e366617b4ed"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000105_first",
+   "clip": "UAV-Anti-UAV_Test_000105",
+   "video": "UAV-Anti-UAV_Test_000105/UAV-Anti-UAV_Test_000105.mp4",
+   "video_sha256": "8f342cd81709b520d6eb937150356621073d2226eb3d197b053b918f3adb16ce",
+   "dimensions": [
+    480,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 79,
+   "labels_sha256": "399045a8c9590269bbfbe87e7e0b0278b66d1352ce55e6d5bbe9a5ca995548fd"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000110_first",
+   "clip": "UAV-Anti-UAV_Test_000110",
+   "video": "UAV-Anti-UAV_Test_000110/UAV-Anti-UAV_Test_000110.mp4",
+   "video_sha256": "7d500fa703e9c8c21dd08579e1691c51fd7d7153887cc027cae04dead0d0e98c",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "a850d1dc9220cf96ea94a393d90c1a3b71a604345b47afa8e0e1971e72b92b3e"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000111_first",
+   "clip": "UAV-Anti-UAV_Test_000111",
+   "video": "UAV-Anti-UAV_Test_000111/UAV-Anti-UAV_Test_000111.mp4",
+   "video_sha256": "08e1471858d013b70df57fdb6b2c1ffb403f0756e6d233b66bc71e8f0df70f7a",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "8d95217c048bfccb7f3d616524a0f19d4b1a74822dba223cd708b616dba9b057"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000112_first",
+   "clip": "UAV-Anti-UAV_Test_000112",
+   "video": "UAV-Anti-UAV_Test_000112/UAV-Anti-UAV_Test_000112.mp4",
+   "video_sha256": "17b7656d45764f5e1db507e7e455ca142753c6366483591203384769ffb47045",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 113,
+   "labels_sha256": "417f0652d688d0b690994cde3b433b93514faea8006297361e883db8b0a36632"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000115_first",
+   "clip": "UAV-Anti-UAV_Test_000115",
+   "video": "UAV-Anti-UAV_Test_000115/UAV-Anti-UAV_Test_000115.mp4",
+   "video_sha256": "95ac209b97733cc1a8859fd8f0ca5ab90bee484a0839b05d25636dd2374dade5",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "d46d6b79f8f6d4a8faea7c916b4a3f4d627ef955226d07a2886a54547fac13c8"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000115_absence",
+   "clip": "UAV-Anti-UAV_Test_000115",
+   "video": "UAV-Anti-UAV_Test_000115/UAV-Anti-UAV_Test_000115.mp4",
+   "video_sha256": "95ac209b97733cc1a8859fd8f0ca5ab90bee484a0839b05d25636dd2374dade5",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 1714,
+   "count": 160,
+   "labels_sha256": "d46d6b79f8f6d4a8faea7c916b4a3f4d627ef955226d07a2886a54547fac13c8"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000116_first",
+   "clip": "UAV-Anti-UAV_Test_000116",
+   "video": "UAV-Anti-UAV_Test_000116/UAV-Anti-UAV_Test_000116.mp4",
+   "video_sha256": "d9633c7b2048feff6d66db0c629dc7ff906095771f13aa594bf8100ec1b42eb9",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "442127d0a66fd4be092fa6d81e9cacfc9d376874c6a12b7a3655d0db534b846b"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000116_absence",
+   "clip": "UAV-Anti-UAV_Test_000116",
+   "video": "UAV-Anti-UAV_Test_000116/UAV-Anti-UAV_Test_000116.mp4",
+   "video_sha256": "d9633c7b2048feff6d66db0c629dc7ff906095771f13aa594bf8100ec1b42eb9",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 210,
+   "count": 160,
+   "labels_sha256": "442127d0a66fd4be092fa6d81e9cacfc9d376874c6a12b7a3655d0db534b846b"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000117_first",
+   "clip": "UAV-Anti-UAV_Test_000117",
+   "video": "UAV-Anti-UAV_Test_000117/UAV-Anti-UAV_Test_000117.mp4",
+   "video_sha256": "9bc6efa843bedeb67ddecac4409495c0096923e45752996290c0cad4eb11a32c",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "6e4f5283679053abcecab7cf504d28b668491e4426c29a69e01f179318d4f169"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000117_absence",
+   "clip": "UAV-Anti-UAV_Test_000117",
+   "video": "UAV-Anti-UAV_Test_000117/UAV-Anti-UAV_Test_000117.mp4",
+   "video_sha256": "9bc6efa843bedeb67ddecac4409495c0096923e45752996290c0cad4eb11a32c",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 2880,
+   "count": 160,
+   "labels_sha256": "6e4f5283679053abcecab7cf504d28b668491e4426c29a69e01f179318d4f169"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000118_first",
+   "clip": "UAV-Anti-UAV_Test_000118",
+   "video": "UAV-Anti-UAV_Test_000118/UAV-Anti-UAV_Test_000118.mp4",
+   "video_sha256": "84d13caa002d883f0b087cb07c4ae31a8bdce183f95fd745e2ae3ec43a447ad9",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "1e3beb9ad265d97e7261aa2e123a47802a2f05dc633bab213bc0aadc19374664"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000118_absence",
+   "clip": "UAV-Anti-UAV_Test_000118",
+   "video": "UAV-Anti-UAV_Test_000118/UAV-Anti-UAV_Test_000118.mp4",
+   "video_sha256": "84d13caa002d883f0b087cb07c4ae31a8bdce183f95fd745e2ae3ec43a447ad9",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 203,
+   "count": 160,
+   "labels_sha256": "1e3beb9ad265d97e7261aa2e123a47802a2f05dc633bab213bc0aadc19374664"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000119_first",
+   "clip": "UAV-Anti-UAV_Test_000119",
+   "video": "UAV-Anti-UAV_Test_000119/UAV-Anti-UAV_Test_000119.mp4",
+   "video_sha256": "ba1365c171ff5c5c7cdd2e6be772ec5ad4dec99f49008736e2327ce69bb18993",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "9151f3e7d42950c09ba24e4f2d394e61a378aae381bffe600cacdba48f44e8e9"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000119_absence",
+   "clip": "UAV-Anti-UAV_Test_000119",
+   "video": "UAV-Anti-UAV_Test_000119/UAV-Anti-UAV_Test_000119.mp4",
+   "video_sha256": "ba1365c171ff5c5c7cdd2e6be772ec5ad4dec99f49008736e2327ce69bb18993",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 703,
+   "count": 58,
+   "labels_sha256": "9151f3e7d42950c09ba24e4f2d394e61a378aae381bffe600cacdba48f44e8e9"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000121_first",
+   "clip": "UAV-Anti-UAV_Test_000121",
+   "video": "UAV-Anti-UAV_Test_000121/UAV-Anti-UAV_Test_000121.mp4",
+   "video_sha256": "cd6f395cce3649160d8ca05c4ea9712c8a1a32d8db34a99f2133cf3d36a0ee56",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "17f1c7cb6ea5ff25ad0c025b826e95ba6458d3ec5d46c4b82d256eb12d2608c0"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000122_first",
+   "clip": "UAV-Anti-UAV_Test_000122",
+   "video": "UAV-Anti-UAV_Test_000122/UAV-Anti-UAV_Test_000122.mp4",
+   "video_sha256": "4fa61875dc98ba26147e23e130c47dacc54fe10ac2f4109cc70ff5cfa522c9b8",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "a033badc4cfc08ab7abce42262e1c513c13905f582f254d052ece12a51ad9273"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000122_absence",
+   "clip": "UAV-Anti-UAV_Test_000122",
+   "video": "UAV-Anti-UAV_Test_000122/UAV-Anti-UAV_Test_000122.mp4",
+   "video_sha256": "4fa61875dc98ba26147e23e130c47dacc54fe10ac2f4109cc70ff5cfa522c9b8",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 414,
+   "count": 105,
+   "labels_sha256": "a033badc4cfc08ab7abce42262e1c513c13905f582f254d052ece12a51ad9273"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000123_first",
+   "clip": "UAV-Anti-UAV_Test_000123",
+   "video": "UAV-Anti-UAV_Test_000123/UAV-Anti-UAV_Test_000123.mp4",
+   "video_sha256": "782800c51274c8e68dca8fa07047c31b271bc183b30b3cb358d19bd3c46e1ac4",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "4801be2ee9918d8148ae9a92415c4d5695000c400901e42fb0f39470860a7937"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000123_absence",
+   "clip": "UAV-Anti-UAV_Test_000123",
+   "video": "UAV-Anti-UAV_Test_000123/UAV-Anti-UAV_Test_000123.mp4",
+   "video_sha256": "782800c51274c8e68dca8fa07047c31b271bc183b30b3cb358d19bd3c46e1ac4",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 531,
+   "count": 160,
+   "labels_sha256": "4801be2ee9918d8148ae9a92415c4d5695000c400901e42fb0f39470860a7937"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000124_first",
+   "clip": "UAV-Anti-UAV_Test_000124",
+   "video": "UAV-Anti-UAV_Test_000124/UAV-Anti-UAV_Test_000124.mp4",
+   "video_sha256": "bc9024b4f058df3edbce9da3dd8036a53a96f1848ab3d55dc2f7ecc9dccefa1e",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "04a76372012f0eeeb8c9da0038951c9b8de511eb709b6da25e42689829214a52"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000124_absence",
+   "clip": "UAV-Anti-UAV_Test_000124",
+   "video": "UAV-Anti-UAV_Test_000124/UAV-Anti-UAV_Test_000124.mp4",
+   "video_sha256": "bc9024b4f058df3edbce9da3dd8036a53a96f1848ab3d55dc2f7ecc9dccefa1e",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 1632,
+   "count": 160,
+   "labels_sha256": "04a76372012f0eeeb8c9da0038951c9b8de511eb709b6da25e42689829214a52"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000125_first",
+   "clip": "UAV-Anti-UAV_Test_000125",
+   "video": "UAV-Anti-UAV_Test_000125/UAV-Anti-UAV_Test_000125.mp4",
+   "video_sha256": "f1eb206c8e6d8d1f423e1a7de933b5f31be575fea3c5f51698631cb0756d0446",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "79fef28f11b2dd374e1a8e944763e4574037c325c86c679b1373cd7527acfa32"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000125_absence",
+   "clip": "UAV-Anti-UAV_Test_000125",
+   "video": "UAV-Anti-UAV_Test_000125/UAV-Anti-UAV_Test_000125.mp4",
+   "video_sha256": "f1eb206c8e6d8d1f423e1a7de933b5f31be575fea3c5f51698631cb0756d0446",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 284,
+   "count": 123,
+   "labels_sha256": "79fef28f11b2dd374e1a8e944763e4574037c325c86c679b1373cd7527acfa32"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000127_first",
+   "clip": "UAV-Anti-UAV_Test_000127",
+   "video": "UAV-Anti-UAV_Test_000127/UAV-Anti-UAV_Test_000127.mp4",
+   "video_sha256": "4b2fb1d8f20092386c1997284f93d8b15144254b540948b85d1391db22e8f4a3",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "dd463e522caac7a91c10ee156dafd00d6209b82446d9ca3bf36c13788855445c"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000128_first",
+   "clip": "UAV-Anti-UAV_Test_000128",
+   "video": "UAV-Anti-UAV_Test_000128/UAV-Anti-UAV_Test_000128.mp4",
+   "video_sha256": "4b2fb1d8f20092386c1997284f93d8b15144254b540948b85d1391db22e8f4a3",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "e304c5e5ead2f6f8fb4045ef9d77a6a749be23eac35ef5548e588577fff2f72b"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000132_first",
+   "clip": "UAV-Anti-UAV_Test_000132",
+   "video": "UAV-Anti-UAV_Test_000132/UAV-Anti-UAV_Test_000132.mp4",
+   "video_sha256": "092d83a3de64ffe4e62bc2b492bd64d66db4ec759f33754027ea0b601ba3844f",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 115,
+   "labels_sha256": "361073643e9048a59d1d3fa2df24e9a23a4353ae129ae10c8972c2e34896509b"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000133_first",
+   "clip": "UAV-Anti-UAV_Test_000133",
+   "video": "UAV-Anti-UAV_Test_000133/UAV-Anti-UAV_Test_000133.mp4",
+   "video_sha256": "3f68bbcb8d0f256ac203f6e79c66b341482077e8f2c171e40fca4b04aa3d7b62",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "9072ca312b32589ec67b933687075f6b7b08eaf9458ec889654e1d31f8e82bb1"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000133_absence",
+   "clip": "UAV-Anti-UAV_Test_000133",
+   "video": "UAV-Anti-UAV_Test_000133/UAV-Anti-UAV_Test_000133.mp4",
+   "video_sha256": "3f68bbcb8d0f256ac203f6e79c66b341482077e8f2c171e40fca4b04aa3d7b62",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 1340,
+   "count": 160,
+   "labels_sha256": "9072ca312b32589ec67b933687075f6b7b08eaf9458ec889654e1d31f8e82bb1"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000134_first",
+   "clip": "UAV-Anti-UAV_Test_000134",
+   "video": "UAV-Anti-UAV_Test_000134/UAV-Anti-UAV_Test_000134.mp4",
+   "video_sha256": "e9e5930cad6b0cf03c7743dc9883f81531b1a132a59ca6265908dd89b54a8f3f",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "8a43c7e5defb33faa4a5c775dc8d23564ad9c921236a76549d8027e8a774b2c3"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000135_first",
+   "clip": "UAV-Anti-UAV_Test_000135",
+   "video": "UAV-Anti-UAV_Test_000135/UAV-Anti-UAV_Test_000135.mp4",
+   "video_sha256": "f97ebb991790e312fee4ce0d81d0c247428aef16f0124ccae748283376f6f10f",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "aba64781d6c2e1e7391e2d909ca9c3e4fbd9101e49e7da2a41889ff0a7c5379a"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000135_absence",
+   "clip": "UAV-Anti-UAV_Test_000135",
+   "video": "UAV-Anti-UAV_Test_000135/UAV-Anti-UAV_Test_000135.mp4",
+   "video_sha256": "f97ebb991790e312fee4ce0d81d0c247428aef16f0124ccae748283376f6f10f",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4219,
+   "count": 160,
+   "labels_sha256": "aba64781d6c2e1e7391e2d909ca9c3e4fbd9101e49e7da2a41889ff0a7c5379a"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000136_first",
+   "clip": "UAV-Anti-UAV_Test_000136",
+   "video": "UAV-Anti-UAV_Test_000136/UAV-Anti-UAV_Test_000136.mp4",
+   "video_sha256": "fdef71bd2168c730cff4a99c6fea1166012e7b18be0418de5701361e46c8b810",
+   "dimensions": [
+    854,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "840e5c1d8f6a7e0106dcf3af67b928fb88dbf136bce8df5cb9ba448e25fa5f14"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000136_absence",
+   "clip": "UAV-Anti-UAV_Test_000136",
+   "video": "UAV-Anti-UAV_Test_000136/UAV-Anti-UAV_Test_000136.mp4",
+   "video_sha256": "fdef71bd2168c730cff4a99c6fea1166012e7b18be0418de5701361e46c8b810",
+   "dimensions": [
+    854,
+    480
+   ],
+   "fps": 30.0,
+   "start": 772,
+   "count": 153,
+   "labels_sha256": "840e5c1d8f6a7e0106dcf3af67b928fb88dbf136bce8df5cb9ba448e25fa5f14"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000138_first",
+   "clip": "UAV-Anti-UAV_Test_000138",
+   "video": "UAV-Anti-UAV_Test_000138/UAV-Anti-UAV_Test_000138.mp4",
+   "video_sha256": "330b539ffcac40a031e678b3643cae3e455be71442c2babb4345a9a356da1f45",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "566bf77172307f9b46d25c8baef8765d65ec3669783980df4e9d2db4c9c0eb68"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000138_absence",
+   "clip": "UAV-Anti-UAV_Test_000138",
+   "video": "UAV-Anti-UAV_Test_000138/UAV-Anti-UAV_Test_000138.mp4",
+   "video_sha256": "330b539ffcac40a031e678b3643cae3e455be71442c2babb4345a9a356da1f45",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 208,
+   "count": 160,
+   "labels_sha256": "566bf77172307f9b46d25c8baef8765d65ec3669783980df4e9d2db4c9c0eb68"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000139_first",
+   "clip": "UAV-Anti-UAV_Test_000139",
+   "video": "UAV-Anti-UAV_Test_000139/UAV-Anti-UAV_Test_000139.mp4",
+   "video_sha256": "1fffb240c33177d3c0af5aa815c249c27d7690b27d0d6ed722afe71a5cedeab1",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "0467249725e782f8e6a0cbca36cb3194b6b8bda1ed6d844fb8e5d3f26e486bb8"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000139_absence",
+   "clip": "UAV-Anti-UAV_Test_000139",
+   "video": "UAV-Anti-UAV_Test_000139/UAV-Anti-UAV_Test_000139.mp4",
+   "video_sha256": "1fffb240c33177d3c0af5aa815c249c27d7690b27d0d6ed722afe71a5cedeab1",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 1322,
+   "count": 160,
+   "labels_sha256": "0467249725e782f8e6a0cbca36cb3194b6b8bda1ed6d844fb8e5d3f26e486bb8"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000140_first",
+   "clip": "UAV-Anti-UAV_Test_000140",
+   "video": "UAV-Anti-UAV_Test_000140/UAV-Anti-UAV_Test_000140.mp4",
+   "video_sha256": "4827d9ddbca1023ba327aa3f8f7823f3ae41020f9f67d984c76cf7e9011c8f90",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 135,
+   "labels_sha256": "5f3a9a8e029753aa1f7556a6a7f559302c470d4a11b4276514edd9bd8a5ad4b9"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000141_first",
+   "clip": "UAV-Anti-UAV_Test_000141",
+   "video": "UAV-Anti-UAV_Test_000141/UAV-Anti-UAV_Test_000141.mp4",
+   "video_sha256": "2b3cf3cb2e75a218157abceb271d710d090f5079d23132c5c5041a835abdcc87",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "1aa5bb0ed4e2542e1f41727ad0c73c2393b68d53452ea008bc7fe49bb1792b81"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000141_absence",
+   "clip": "UAV-Anti-UAV_Test_000141",
+   "video": "UAV-Anti-UAV_Test_000141/UAV-Anti-UAV_Test_000141.mp4",
+   "video_sha256": "2b3cf3cb2e75a218157abceb271d710d090f5079d23132c5c5041a835abdcc87",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 5637,
+   "count": 160,
+   "labels_sha256": "1aa5bb0ed4e2542e1f41727ad0c73c2393b68d53452ea008bc7fe49bb1792b81"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000143_first",
+   "clip": "UAV-Anti-UAV_Test_000143",
+   "video": "UAV-Anti-UAV_Test_000143/UAV-Anti-UAV_Test_000143.mp4",
+   "video_sha256": "9b6bf75578fa7de41cdf4b85c7ad666f9d11c772788422af1d1fbf17504a6d66",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "aeebe588cf7373bd9fa4264c420d57d180567440c06ae9ea9d7be0939e8ff1e4"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000143_absence",
+   "clip": "UAV-Anti-UAV_Test_000143",
+   "video": "UAV-Anti-UAV_Test_000143/UAV-Anti-UAV_Test_000143.mp4",
+   "video_sha256": "9b6bf75578fa7de41cdf4b85c7ad666f9d11c772788422af1d1fbf17504a6d66",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 400,
+   "count": 160,
+   "labels_sha256": "aeebe588cf7373bd9fa4264c420d57d180567440c06ae9ea9d7be0939e8ff1e4"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000144_first",
+   "clip": "UAV-Anti-UAV_Test_000144",
+   "video": "UAV-Anti-UAV_Test_000144/UAV-Anti-UAV_Test_000144.mp4",
+   "video_sha256": "98cac78e7672445812ea0dd1e3fc4067969dd537607452664a4f6ed53ff517e3",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "37a2d669d98f2996872caff936748311edab2be78c9fe5466a837f43c878b08b"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000144_absence",
+   "clip": "UAV-Anti-UAV_Test_000144",
+   "video": "UAV-Anti-UAV_Test_000144/UAV-Anti-UAV_Test_000144.mp4",
+   "video_sha256": "98cac78e7672445812ea0dd1e3fc4067969dd537607452664a4f6ed53ff517e3",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 1111,
+   "count": 160,
+   "labels_sha256": "37a2d669d98f2996872caff936748311edab2be78c9fe5466a837f43c878b08b"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000146_first",
+   "clip": "UAV-Anti-UAV_Test_000146",
+   "video": "UAV-Anti-UAV_Test_000146/UAV-Anti-UAV_Test_000146.mp4",
+   "video_sha256": "7be90d85010a4e540afc741aff47936128b48d8c87b2ae99006d90b4f9296e48",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 159,
+   "labels_sha256": "5febdc3343d8ddf72dd904bd760e4374e7c5ef7695fd914d039ea68c74c92e0d"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000147_first",
+   "clip": "UAV-Anti-UAV_Test_000147",
+   "video": "UAV-Anti-UAV_Test_000147/UAV-Anti-UAV_Test_000147.mp4",
+   "video_sha256": "c57cc18e0d47828f7ab12a26e5038633c21175c764d6b669ee53f35c09f39748",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "a16bd13df55aa241c1daaa74c49311ff142300f82b4fb0a1f968dffe306a6565"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000148_first",
+   "clip": "UAV-Anti-UAV_Test_000148",
+   "video": "UAV-Anti-UAV_Test_000148/UAV-Anti-UAV_Test_000148.mp4",
+   "video_sha256": "fcccc914221de74cf7bb5b8c6a8155b1717d79497a43a1597311540ed2957fda",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "0d7030395a06f1023f9d1043d9da21d83bca59ad4aea98203631035b29fc6a9e"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000150_first",
+   "clip": "UAV-Anti-UAV_Test_000150",
+   "video": "UAV-Anti-UAV_Test_000150/UAV-Anti-UAV_Test_000150.mp4",
+   "video_sha256": "65b4cec461eacd09674c9d88c81e8332e9526292230654f707522578c2cf5ff7",
+   "dimensions": [
+    480,
+    856
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 101,
+   "labels_sha256": "6c9c39fb1f3cf325bb4064717226c34325e82f53e38a0603e3ed2ba2980c35d3"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000151_first",
+   "clip": "UAV-Anti-UAV_Test_000151",
+   "video": "UAV-Anti-UAV_Test_000151/UAV-Anti-UAV_Test_000151.mp4",
+   "video_sha256": "25e44738c47aa3d6f09c9c8b7a988199ae384f3f587a74d4b3c74c3a15c4ad42",
+   "dimensions": [
+    480,
+    856
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 114,
+   "labels_sha256": "2cb9c5d63e8bf422a4f5b41d939351076144cfcbb55002928c2d133f3557049f"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000152_first",
+   "clip": "UAV-Anti-UAV_Test_000152",
+   "video": "UAV-Anti-UAV_Test_000152/UAV-Anti-UAV_Test_000152.mp4",
+   "video_sha256": "4c444143429eb0387de747264f7948ce15439406fd924c15b99e0292079b9d17",
+   "dimensions": [
+    480,
+    856
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "286ecc31c4284dec5086fee9330fbd058441eb54cbe95d2b92c8481f62c0cb50"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000153_first",
+   "clip": "UAV-Anti-UAV_Test_000153",
+   "video": "UAV-Anti-UAV_Test_000153/UAV-Anti-UAV_Test_000153.mp4",
+   "video_sha256": "b405ed1e4da5ec545a7a69fac825fe46b3e053b0aa2c7ebf3a2a0920906680e9",
+   "dimensions": [
+    480,
+    856
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 96,
+   "labels_sha256": "65a5c15a9dafe6f046ddb0aadd6804a9b1204a97c64f22ce772bfb31425cbfe0"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000155_first",
+   "clip": "UAV-Anti-UAV_Test_000155",
+   "video": "UAV-Anti-UAV_Test_000155/UAV-Anti-UAV_Test_000155.mp4",
+   "video_sha256": "2b15ed62c9c74ebd7a029325f92b2347a87a0ea7fd684872eac10603d7cb91fb",
+   "dimensions": [
+    480,
+    856
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "d69e704e164b80d6cc4598362aed6030b2bf1ea8b0d05147ee99ff9ab680d2b1"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000155_absence",
+   "clip": "UAV-Anti-UAV_Test_000155",
+   "video": "UAV-Anti-UAV_Test_000155/UAV-Anti-UAV_Test_000155.mp4",
+   "video_sha256": "2b15ed62c9c74ebd7a029325f92b2347a87a0ea7fd684872eac10603d7cb91fb",
+   "dimensions": [
+    480,
+    856
+   ],
+   "fps": 30.0,
+   "start": 505,
+   "count": 160,
+   "labels_sha256": "d69e704e164b80d6cc4598362aed6030b2bf1ea8b0d05147ee99ff9ab680d2b1"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000158_first",
+   "clip": "UAV-Anti-UAV_Test_000158",
+   "video": "UAV-Anti-UAV_Test_000158/UAV-Anti-UAV_Test_000158.mp4",
+   "video_sha256": "d60aecc54757f4ac8868fafa815072ea2a0db14e45dfe33e38ebe48c54f6a3e0",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 46,
+   "labels_sha256": "4b6df18a7f83289adfdf5577e274c9dc6cfc1a406215bec3daa6c808beebda7d"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000163_first",
+   "clip": "UAV-Anti-UAV_Test_000163",
+   "video": "UAV-Anti-UAV_Test_000163/UAV-Anti-UAV_Test_000163.mp4",
+   "video_sha256": "fa17bfda7c550eba6e68bad06fa826a96a0170f7e7ea911d86a70f4de4bac1db",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "62ca067379d70fffe2b9cc8f1dc29708b5fd012078f59357beea1cbd1294a4bd"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000163_absence",
+   "clip": "UAV-Anti-UAV_Test_000163",
+   "video": "UAV-Anti-UAV_Test_000163/UAV-Anti-UAV_Test_000163.mp4",
+   "video_sha256": "fa17bfda7c550eba6e68bad06fa826a96a0170f7e7ea911d86a70f4de4bac1db",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 384,
+   "count": 160,
+   "labels_sha256": "62ca067379d70fffe2b9cc8f1dc29708b5fd012078f59357beea1cbd1294a4bd"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000164_first",
+   "clip": "UAV-Anti-UAV_Test_000164",
+   "video": "UAV-Anti-UAV_Test_000164/UAV-Anti-UAV_Test_000164.mp4",
+   "video_sha256": "daaa952e8eeb25168042dd2b472430728db966c372c654d98769dbb00752166c",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "5db87aa76b9275082abbec7c3809732de01b0944bce4f12d00b9d8502b17f3c0"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000165_first",
+   "clip": "UAV-Anti-UAV_Test_000165",
+   "video": "UAV-Anti-UAV_Test_000165/UAV-Anti-UAV_Test_000165.mp4",
+   "video_sha256": "416bb270212b9c71f6165fe981004eb4f788e28b99c20fbe7c8c9076ed678c7b",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "a0553697c1c7504a9da679590465dc2b68ddb7614c33e99f6575e8de94825227"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000165_absence",
+   "clip": "UAV-Anti-UAV_Test_000165",
+   "video": "UAV-Anti-UAV_Test_000165/UAV-Anti-UAV_Test_000165.mp4",
+   "video_sha256": "416bb270212b9c71f6165fe981004eb4f788e28b99c20fbe7c8c9076ed678c7b",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 974,
+   "count": 75,
+   "labels_sha256": "a0553697c1c7504a9da679590465dc2b68ddb7614c33e99f6575e8de94825227"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000166_first",
+   "clip": "UAV-Anti-UAV_Test_000166",
+   "video": "UAV-Anti-UAV_Test_000166/UAV-Anti-UAV_Test_000166.mp4",
+   "video_sha256": "4cc183ec09e3c2a4baef7303f82a7face05d97c4a62861f3ee7bfec75f23d9a3",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "84650fd662200d7f1618e221043002d55e671983e5dd7398c50b5d57d655ee37"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000166_absence",
+   "clip": "UAV-Anti-UAV_Test_000166",
+   "video": "UAV-Anti-UAV_Test_000166/UAV-Anti-UAV_Test_000166.mp4",
+   "video_sha256": "4cc183ec09e3c2a4baef7303f82a7face05d97c4a62861f3ee7bfec75f23d9a3",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 2874,
+   "count": 160,
+   "labels_sha256": "84650fd662200d7f1618e221043002d55e671983e5dd7398c50b5d57d655ee37"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000167_first",
+   "clip": "UAV-Anti-UAV_Test_000167",
+   "video": "UAV-Anti-UAV_Test_000167/UAV-Anti-UAV_Test_000167.mp4",
+   "video_sha256": "158a307378c91746e40e3bca5d60ec9fcfb0b722577a5e2904cfcb3814a551b1",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "9011496773cee74940080fbca51d70ea377c4204d5d56691ae8ca87ecf641ae8"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000167_absence",
+   "clip": "UAV-Anti-UAV_Test_000167",
+   "video": "UAV-Anti-UAV_Test_000167/UAV-Anti-UAV_Test_000167.mp4",
+   "video_sha256": "158a307378c91746e40e3bca5d60ec9fcfb0b722577a5e2904cfcb3814a551b1",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 3667,
+   "count": 160,
+   "labels_sha256": "9011496773cee74940080fbca51d70ea377c4204d5d56691ae8ca87ecf641ae8"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000173_first",
+   "clip": "UAV-Anti-UAV_Test_000173",
+   "video": "UAV-Anti-UAV_Test_000173/UAV-Anti-UAV_Test_000173.mp4",
+   "video_sha256": "b502fc00e8ef48c0a51c0bce879ac4f0d119125f5deb9040a8e951166c32a7f0",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "88d42c46a5e202f1c1c582da095218636a2aecc5d6ff7a4140a797c6a05ed233"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000174_first",
+   "clip": "UAV-Anti-UAV_Test_000174",
+   "video": "UAV-Anti-UAV_Test_000174/UAV-Anti-UAV_Test_000174.mp4",
+   "video_sha256": "88df0f8b8b4d70fcae8cf6673118474b69aa044da61e0e3226777688392ba542",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "711be7b71ad02d81bcc2db98632f217889f3cf005e9605c8ed675b8210d19f16"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000176_first",
+   "clip": "UAV-Anti-UAV_Test_000176",
+   "video": "UAV-Anti-UAV_Test_000176/UAV-Anti-UAV_Test_000176.mp4",
+   "video_sha256": "ed866d62b8f7095c748f7deb5e8f8cc93ba460b711ad2e43404a7ca5b674689f",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "c4ddb603373d037148ae833432b2d6429424db3038b3c12acadc019866aa4528"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000179_first",
+   "clip": "UAV-Anti-UAV_Test_000179",
+   "video": "UAV-Anti-UAV_Test_000179/UAV-Anti-UAV_Test_000179.mp4",
+   "video_sha256": "99ea5ac08c34df8c62fb1f3cd22759fb25a1acabea9e174fc940f05ed8a32887",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "f78c48748304315f6d3a9ba42e3e95914143f909d79eeffa8ee62e66730ad30c"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000180_first",
+   "clip": "UAV-Anti-UAV_Test_000180",
+   "video": "UAV-Anti-UAV_Test_000180/UAV-Anti-UAV_Test_000180.mp4",
+   "video_sha256": "99ea5ac08c34df8c62fb1f3cd22759fb25a1acabea9e174fc940f05ed8a32887",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "1a82e3de95901a7d8b776cc8743454c19856ebcc051335c12315107f8d918274"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000185_first",
+   "clip": "UAV-Anti-UAV_Test_000185",
+   "video": "UAV-Anti-UAV_Test_000185/UAV-Anti-UAV_Test_000185.mp4",
+   "video_sha256": "8419dd0e9866f4cae8c63cc7a15d16bcf80f58dddae7fe5d59c7fc5e8d87d40a",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "efe60dbf642c70cbd77bb1c3f56ef0f82bda35758f46a6023a1888842e449354"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000186_first",
+   "clip": "UAV-Anti-UAV_Test_000186",
+   "video": "UAV-Anti-UAV_Test_000186/UAV-Anti-UAV_Test_000186.mp4",
+   "video_sha256": "63932b1d93e20f8bd5dccad185b9855fae90137b2d6dc19310a8e63c48824673",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "6a7dc310a160a5ea88e6566ef3740e87a6205b328dcd0be7326a302d6fa23b54"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000186_absence",
+   "clip": "UAV-Anti-UAV_Test_000186",
+   "video": "UAV-Anti-UAV_Test_000186/UAV-Anti-UAV_Test_000186.mp4",
+   "video_sha256": "63932b1d93e20f8bd5dccad185b9855fae90137b2d6dc19310a8e63c48824673",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 172,
+   "count": 103,
+   "labels_sha256": "6a7dc310a160a5ea88e6566ef3740e87a6205b328dcd0be7326a302d6fa23b54"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000187_first",
+   "clip": "UAV-Anti-UAV_Test_000187",
+   "video": "UAV-Anti-UAV_Test_000187/UAV-Anti-UAV_Test_000187.mp4",
+   "video_sha256": "2d587e72a2596803fa0643969c8149dbbd89bb42c5a460f1f71f80149e60d2e6",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "c7bfc310941ac9a789877fd6797ca70d0e683734df87a1c4a858a1da6c460669"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000190_first",
+   "clip": "UAV-Anti-UAV_Test_000190",
+   "video": "UAV-Anti-UAV_Test_000190/UAV-Anti-UAV_Test_000190.mp4",
+   "video_sha256": "c82257aa8ef50f99a867fb85cebef4079ddbf90f1f4cd07afe82ac9a07815d34",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 18,
+   "labels_sha256": "15ba5281fdf8dd684cb449a11b1e29662c7b47edd40c55df61f21981fab922c4"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000191_first",
+   "clip": "UAV-Anti-UAV_Test_000191",
+   "video": "UAV-Anti-UAV_Test_000191/UAV-Anti-UAV_Test_000191.mp4",
+   "video_sha256": "53550569a8eefa0d350e467614f3ca92cf4d81b1bd31590de78df6baf9fdf2c3",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "760f80a33f2c84589cc38b04a15f9372e829bf067600090b45bb26d6f61ff669"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000193_first",
+   "clip": "UAV-Anti-UAV_Test_000193",
+   "video": "UAV-Anti-UAV_Test_000193/UAV-Anti-UAV_Test_000193.mp4",
+   "video_sha256": "6fe87757ff75a25976218c8f11bb311478abc6e0c7efe058cf8511460e9a79d5",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "a263461ff0d1e9fb01aef3fc2b4b77aff4a55ae10e6bf7dcefab3cb34e4f9c4f"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000193_absence",
+   "clip": "UAV-Anti-UAV_Test_000193",
+   "video": "UAV-Anti-UAV_Test_000193/UAV-Anti-UAV_Test_000193.mp4",
+   "video_sha256": "6fe87757ff75a25976218c8f11bb311478abc6e0c7efe058cf8511460e9a79d5",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 368,
+   "count": 160,
+   "labels_sha256": "a263461ff0d1e9fb01aef3fc2b4b77aff4a55ae10e6bf7dcefab3cb34e4f9c4f"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000194_first",
+   "clip": "UAV-Anti-UAV_Test_000194",
+   "video": "UAV-Anti-UAV_Test_000194/UAV-Anti-UAV_Test_000194.mp4",
+   "video_sha256": "aa4f34f509e26286dededa7c03fb999f022d4b4a6abfed3f726e16cf2f79a8a1",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "606c8c2cd6df16a77775085586774892adfdf7d962b6fac42af31d36a0e17eba"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000194_absence",
+   "clip": "UAV-Anti-UAV_Test_000194",
+   "video": "UAV-Anti-UAV_Test_000194/UAV-Anti-UAV_Test_000194.mp4",
+   "video_sha256": "aa4f34f509e26286dededa7c03fb999f022d4b4a6abfed3f726e16cf2f79a8a1",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 492,
+   "count": 160,
+   "labels_sha256": "606c8c2cd6df16a77775085586774892adfdf7d962b6fac42af31d36a0e17eba"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000196_first",
+   "clip": "UAV-Anti-UAV_Test_000196",
+   "video": "UAV-Anti-UAV_Test_000196/UAV-Anti-UAV_Test_000196.mp4",
+   "video_sha256": "f5a3cf89298146e1e708261b0d7c4b562a58bc4dc3f9dcaa31e86226246e2ef3",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "d8d1f9fd340492e54d2a1249e219aedae8fa5e8352d2ea2c41bbdd95aff8381d"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000196_absence",
+   "clip": "UAV-Anti-UAV_Test_000196",
+   "video": "UAV-Anti-UAV_Test_000196/UAV-Anti-UAV_Test_000196.mp4",
+   "video_sha256": "f5a3cf89298146e1e708261b0d7c4b562a58bc4dc3f9dcaa31e86226246e2ef3",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 416,
+   "count": 160,
+   "labels_sha256": "d8d1f9fd340492e54d2a1249e219aedae8fa5e8352d2ea2c41bbdd95aff8381d"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000197_first",
+   "clip": "UAV-Anti-UAV_Test_000197",
+   "video": "UAV-Anti-UAV_Test_000197/UAV-Anti-UAV_Test_000197.mp4",
+   "video_sha256": "b72481c1b2dcc7926627b60b9847191b689597e74c9622034b609da3e710bd6e",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "0e61d7a2a161f254f9ac28e856637b9a2fd5e6a8effceccf6d39dcbb9e96f11d"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000197_absence",
+   "clip": "UAV-Anti-UAV_Test_000197",
+   "video": "UAV-Anti-UAV_Test_000197/UAV-Anti-UAV_Test_000197.mp4",
+   "video_sha256": "b72481c1b2dcc7926627b60b9847191b689597e74c9622034b609da3e710bd6e",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 230,
+   "count": 160,
+   "labels_sha256": "0e61d7a2a161f254f9ac28e856637b9a2fd5e6a8effceccf6d39dcbb9e96f11d"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000198_first",
+   "clip": "UAV-Anti-UAV_Test_000198",
+   "video": "UAV-Anti-UAV_Test_000198/UAV-Anti-UAV_Test_000198.mp4",
+   "video_sha256": "c9354b79ea3f477dc76cc2e9a18bc16b85d173adbe0f14c3a5cd3ee3400d05c8",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "29e85c6895f8c06e929c19e92728950263259b603e3718b9b2832cb36d88d8fc"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000204_first",
+   "clip": "UAV-Anti-UAV_Test_000204",
+   "video": "UAV-Anti-UAV_Test_000204/UAV-Anti-UAV_Test_000204.mp4",
+   "video_sha256": "23c3d44e1621b0597601dcfe98386deed93f208aa4c293b4ce6752c61db3ccdc",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "7d413fac55e57dbc12669d80835b43de2f97d025130c27a0530763fac631b21d"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000205_first",
+   "clip": "UAV-Anti-UAV_Test_000205",
+   "video": "UAV-Anti-UAV_Test_000205/UAV-Anti-UAV_Test_000205.mp4",
+   "video_sha256": "f21d0793a67daa4b89791e6d3a7a2141368c9928878bf981807eac6dbf33ddbe",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "122c305a9320143e85c5fead1687799a56229bfc0b08b85f9186fc529839904f"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000205_absence",
+   "clip": "UAV-Anti-UAV_Test_000205",
+   "video": "UAV-Anti-UAV_Test_000205/UAV-Anti-UAV_Test_000205.mp4",
+   "video_sha256": "f21d0793a67daa4b89791e6d3a7a2141368c9928878bf981807eac6dbf33ddbe",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 723,
+   "count": 111,
+   "labels_sha256": "122c305a9320143e85c5fead1687799a56229bfc0b08b85f9186fc529839904f"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000211_first",
+   "clip": "UAV-Anti-UAV_Test_000211",
+   "video": "UAV-Anti-UAV_Test_000211/UAV-Anti-UAV_Test_000211.mp4",
+   "video_sha256": "57a9d74797a7b4d57927910630bf09a80609961244e888654d68c5d2cd3dfb5d",
+   "dimensions": [
+    848,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "d408eb0a995015155884afe65aaf56c786b6ae2b8fa47e936733d61efcc48f6c"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000211_absence",
+   "clip": "UAV-Anti-UAV_Test_000211",
+   "video": "UAV-Anti-UAV_Test_000211/UAV-Anti-UAV_Test_000211.mp4",
+   "video_sha256": "57a9d74797a7b4d57927910630bf09a80609961244e888654d68c5d2cd3dfb5d",
+   "dimensions": [
+    848,
+    480
+   ],
+   "fps": 30.0,
+   "start": 483,
+   "count": 160,
+   "labels_sha256": "d408eb0a995015155884afe65aaf56c786b6ae2b8fa47e936733d61efcc48f6c"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000212_first",
+   "clip": "UAV-Anti-UAV_Test_000212",
+   "video": "UAV-Anti-UAV_Test_000212/UAV-Anti-UAV_Test_000212.mp4",
+   "video_sha256": "eb5f3abdede4161d21fafea40145011984e241fae3dcf31cbcdbf6f676b1367f",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "6a5225cfb2fc3581270822978670aaf0052ded83ddf195013a33c8ef147de984"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000212_absence",
+   "clip": "UAV-Anti-UAV_Test_000212",
+   "video": "UAV-Anti-UAV_Test_000212/UAV-Anti-UAV_Test_000212.mp4",
+   "video_sha256": "eb5f3abdede4161d21fafea40145011984e241fae3dcf31cbcdbf6f676b1367f",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 475,
+   "count": 160,
+   "labels_sha256": "6a5225cfb2fc3581270822978670aaf0052ded83ddf195013a33c8ef147de984"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000215_first",
+   "clip": "UAV-Anti-UAV_Test_000215",
+   "video": "UAV-Anti-UAV_Test_000215/UAV-Anti-UAV_Test_000215.mp4",
+   "video_sha256": "083fb9bb15abf4b2e7bf4e86595da05793d85523d221d414b7e0c05cdf7d89ed",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "eab25904ecd7036ff19e2e436ba92d37106f8f6695f9e968da12de33d7c16745"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000217_first",
+   "clip": "UAV-Anti-UAV_Test_000217",
+   "video": "UAV-Anti-UAV_Test_000217/UAV-Anti-UAV_Test_000217.mp4",
+   "video_sha256": "db0fd6ec63f7344c516a81130fbf8b1c6346476a93827982e6c3a4214e69a831",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "09461ddb5209d648c8156a48a533ab827db41ea264e08e43dedc0dff45f24dfe"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000217_absence",
+   "clip": "UAV-Anti-UAV_Test_000217",
+   "video": "UAV-Anti-UAV_Test_000217/UAV-Anti-UAV_Test_000217.mp4",
+   "video_sha256": "db0fd6ec63f7344c516a81130fbf8b1c6346476a93827982e6c3a4214e69a831",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 6593,
+   "count": 160,
+   "labels_sha256": "09461ddb5209d648c8156a48a533ab827db41ea264e08e43dedc0dff45f24dfe"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000218_first",
+   "clip": "UAV-Anti-UAV_Test_000218",
+   "video": "UAV-Anti-UAV_Test_000218/UAV-Anti-UAV_Test_000218.mp4",
+   "video_sha256": "bceac74566b3868be71c788a935a35fbb3ab4e5528d33b14602575fdd5cfd71f",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 144,
+   "labels_sha256": "74902d34576ed2e6f7cc42a53a0612950725562f45f73c09c060791b7b1ea452"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000227_first",
+   "clip": "UAV-Anti-UAV_Test_000227",
+   "video": "UAV-Anti-UAV_Test_000227/UAV-Anti-UAV_Test_000227.mp4",
+   "video_sha256": "11ed3d2fcc067f0f083149b7badcc879e21d0bfa70d85582ae0d021e42be2915",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "0340cd421923d39f92bbb881593d96804346999da39609e0ac41ee3e43f426fe"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000227_absence",
+   "clip": "UAV-Anti-UAV_Test_000227",
+   "video": "UAV-Anti-UAV_Test_000227/UAV-Anti-UAV_Test_000227.mp4",
+   "video_sha256": "11ed3d2fcc067f0f083149b7badcc879e21d0bfa70d85582ae0d021e42be2915",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 3012,
+   "count": 160,
+   "labels_sha256": "0340cd421923d39f92bbb881593d96804346999da39609e0ac41ee3e43f426fe"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000228_first",
+   "clip": "UAV-Anti-UAV_Test_000228",
+   "video": "UAV-Anti-UAV_Test_000228/UAV-Anti-UAV_Test_000228.mp4",
+   "video_sha256": "6117e582f8fea5757a8b9cd08696e3bd437eaca756ae6d8b2af2d1dc99d55ac0",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "79c1c1d3ce702ce6fd9a10a276a241547454b7501662dd3e562590d34a05ba63"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000228_absence",
+   "clip": "UAV-Anti-UAV_Test_000228",
+   "video": "UAV-Anti-UAV_Test_000228/UAV-Anti-UAV_Test_000228.mp4",
+   "video_sha256": "6117e582f8fea5757a8b9cd08696e3bd437eaca756ae6d8b2af2d1dc99d55ac0",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 248,
+   "count": 105,
+   "labels_sha256": "79c1c1d3ce702ce6fd9a10a276a241547454b7501662dd3e562590d34a05ba63"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000230_first",
+   "clip": "UAV-Anti-UAV_Test_000230",
+   "video": "UAV-Anti-UAV_Test_000230/UAV-Anti-UAV_Test_000230.mp4",
+   "video_sha256": "de345d700f41a1cacf3a0458b4210962cdd00cdb5aecc9d02a4d3efc747a5413",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "988ba7ec7e604535f2fe82c73c6127c2db52dc6bc4c5402f863af39b40ab5dcc"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000230_absence",
+   "clip": "UAV-Anti-UAV_Test_000230",
+   "video": "UAV-Anti-UAV_Test_000230/UAV-Anti-UAV_Test_000230.mp4",
+   "video_sha256": "de345d700f41a1cacf3a0458b4210962cdd00cdb5aecc9d02a4d3efc747a5413",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 1621,
+   "count": 160,
+   "labels_sha256": "988ba7ec7e604535f2fe82c73c6127c2db52dc6bc4c5402f863af39b40ab5dcc"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000231_first",
+   "clip": "UAV-Anti-UAV_Test_000231",
+   "video": "UAV-Anti-UAV_Test_000231/UAV-Anti-UAV_Test_000231.mp4",
+   "video_sha256": "70c0d81229ef3e2ab01d5595509eb409259bcb3d7f9c84656319117fc04c619c",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "c3ea4093c96ef6a9de6aabf84337fa8ea7b76b05eef525f90a594f2da49268bc"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000231_absence",
+   "clip": "UAV-Anti-UAV_Test_000231",
+   "video": "UAV-Anti-UAV_Test_000231/UAV-Anti-UAV_Test_000231.mp4",
+   "video_sha256": "70c0d81229ef3e2ab01d5595509eb409259bcb3d7f9c84656319117fc04c619c",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 842,
+   "count": 159,
+   "labels_sha256": "c3ea4093c96ef6a9de6aabf84337fa8ea7b76b05eef525f90a594f2da49268bc"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000232_first",
+   "clip": "UAV-Anti-UAV_Test_000232",
+   "video": "UAV-Anti-UAV_Test_000232/UAV-Anti-UAV_Test_000232.mp4",
+   "video_sha256": "e47f7d4ed410a41d36a04fb30913e609f8b56301d08e37c62662330a03134259",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "5b277159c1171c745cd6f6d32d4dc21e2f673f789d5238e607501ae40575500d"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000232_absence",
+   "clip": "UAV-Anti-UAV_Test_000232",
+   "video": "UAV-Anti-UAV_Test_000232/UAV-Anti-UAV_Test_000232.mp4",
+   "video_sha256": "e47f7d4ed410a41d36a04fb30913e609f8b56301d08e37c62662330a03134259",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 302,
+   "count": 119,
+   "labels_sha256": "5b277159c1171c745cd6f6d32d4dc21e2f673f789d5238e607501ae40575500d"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000233_first",
+   "clip": "UAV-Anti-UAV_Test_000233",
+   "video": "UAV-Anti-UAV_Test_000233/UAV-Anti-UAV_Test_000233.mp4",
+   "video_sha256": "5b339cead222d9d9ce1cc748bfd8997174d2c119ef0adcd7c09b2c82dd257faa",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "a1ebf9665a47a7dbae574c98ccd96fc094ad5d140addfd951ebe6c3e08ca8d16"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000233_absence",
+   "clip": "UAV-Anti-UAV_Test_000233",
+   "video": "UAV-Anti-UAV_Test_000233/UAV-Anti-UAV_Test_000233.mp4",
+   "video_sha256": "5b339cead222d9d9ce1cc748bfd8997174d2c119ef0adcd7c09b2c82dd257faa",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 297,
+   "count": 160,
+   "labels_sha256": "a1ebf9665a47a7dbae574c98ccd96fc094ad5d140addfd951ebe6c3e08ca8d16"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000236_first",
+   "clip": "UAV-Anti-UAV_Test_000236",
+   "video": "UAV-Anti-UAV_Test_000236/UAV-Anti-UAV_Test_000236.mp4",
+   "video_sha256": "6399f940d2862d7547f379fe8659dbe28d09c6774a9cdd2ad7401c637fc0af0d",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "ab56281544ed49c328740fda5e840d4ead9f92f799f28fee28a97c24cef3c3d8"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000236_absence",
+   "clip": "UAV-Anti-UAV_Test_000236",
+   "video": "UAV-Anti-UAV_Test_000236/UAV-Anti-UAV_Test_000236.mp4",
+   "video_sha256": "6399f940d2862d7547f379fe8659dbe28d09c6774a9cdd2ad7401c637fc0af0d",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 500,
+   "count": 160,
+   "labels_sha256": "ab56281544ed49c328740fda5e840d4ead9f92f799f28fee28a97c24cef3c3d8"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000239_first",
+   "clip": "UAV-Anti-UAV_Test_000239",
+   "video": "UAV-Anti-UAV_Test_000239/UAV-Anti-UAV_Test_000239.mp4",
+   "video_sha256": "2184c6e008eb1da36bd91e43b175b5cbd2e3a0ab47d39b21321651f43621f466",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "466804eccefa44b7d4b1dfe42a4ac2a4ec55586f22282ee84315b6978fe6ad75"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000241_first",
+   "clip": "UAV-Anti-UAV_Test_000241",
+   "video": "UAV-Anti-UAV_Test_000241/UAV-Anti-UAV_Test_000241.mp4",
+   "video_sha256": "fa5b8b22d215d19caa2fae6ef64a432996af116f175d216eaeaa9b21a6cf5fc7",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "f9c5dc276a25281bbeea2655cc41e9b721344124c8789fa4b9061469cab094d7"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000243_first",
+   "clip": "UAV-Anti-UAV_Test_000243",
+   "video": "UAV-Anti-UAV_Test_000243/UAV-Anti-UAV_Test_000243.mp4",
+   "video_sha256": "35d368a33b62a26273ff82878c7e87a607e2894508c9f27a0848a607987f3af8",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "71dcf138afede4c58efd1f9849992c455dad8110560fe6f6b4b8fc9d015959c6"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000243_absence",
+   "clip": "UAV-Anti-UAV_Test_000243",
+   "video": "UAV-Anti-UAV_Test_000243/UAV-Anti-UAV_Test_000243.mp4",
+   "video_sha256": "35d368a33b62a26273ff82878c7e87a607e2894508c9f27a0848a607987f3af8",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 739,
+   "count": 160,
+   "labels_sha256": "71dcf138afede4c58efd1f9849992c455dad8110560fe6f6b4b8fc9d015959c6"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000244_first",
+   "clip": "UAV-Anti-UAV_Test_000244",
+   "video": "UAV-Anti-UAV_Test_000244/UAV-Anti-UAV_Test_000244.mp4",
+   "video_sha256": "75391cb48176b5cbb30d2161850935fbe4dff3bbf1c6d5e9459cfc880d643a4d",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "cb4676063a5153948593553af9e6817e13d01361dfd7e925bcc01dacddfe1bda"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000244_absence",
+   "clip": "UAV-Anti-UAV_Test_000244",
+   "video": "UAV-Anti-UAV_Test_000244/UAV-Anti-UAV_Test_000244.mp4",
+   "video_sha256": "75391cb48176b5cbb30d2161850935fbe4dff3bbf1c6d5e9459cfc880d643a4d",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 913,
+   "count": 160,
+   "labels_sha256": "cb4676063a5153948593553af9e6817e13d01361dfd7e925bcc01dacddfe1bda"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000246_first",
+   "clip": "UAV-Anti-UAV_Test_000246",
+   "video": "UAV-Anti-UAV_Test_000246/UAV-Anti-UAV_Test_000246.mp4",
+   "video_sha256": "3fa1c860b137673cfffa350351ae14fa3e3243f6b71dcde43d097dcbcb142fa7",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "22ee6518944ef76d89c4fa18afa0ba50b91168eb42e2563a89d9467b28a2ac0c"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000247_first",
+   "clip": "UAV-Anti-UAV_Test_000247",
+   "video": "UAV-Anti-UAV_Test_000247/UAV-Anti-UAV_Test_000247.mp4",
+   "video_sha256": "09dea1fe13333ace90690c67b4427791321d3361dd1922c025b9806900f53bcd",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "1d41043d5aea6c849dfb7f8db736ec812b36eefb7e765cc912dc5380bf632713"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000248_first",
+   "clip": "UAV-Anti-UAV_Test_000248",
+   "video": "UAV-Anti-UAV_Test_000248/UAV-Anti-UAV_Test_000248.mp4",
+   "video_sha256": "b3dde9f46e4a3cf97e9eab04e264e41e73f8069904f5954958dbda806154cac5",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "e6fb5fdf5fbdb8841f895208f7784e97a6a6c2b3e60c894c7bbdda7dacfd32df"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000248_absence",
+   "clip": "UAV-Anti-UAV_Test_000248",
+   "video": "UAV-Anti-UAV_Test_000248/UAV-Anti-UAV_Test_000248.mp4",
+   "video_sha256": "b3dde9f46e4a3cf97e9eab04e264e41e73f8069904f5954958dbda806154cac5",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 558,
+   "count": 160,
+   "labels_sha256": "e6fb5fdf5fbdb8841f895208f7784e97a6a6c2b3e60c894c7bbdda7dacfd32df"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000249_first",
+   "clip": "UAV-Anti-UAV_Test_000249",
+   "video": "UAV-Anti-UAV_Test_000249/UAV-Anti-UAV_Test_000249.mp4",
+   "video_sha256": "38f468ee70cef32b504a5d2b02756c8db822a2b19bc913e4fa8814128f5820f1",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "24b789c9512e7ff664c53ae4f56ca6b18de1be601fa9c06af1d574ef6f7e0631"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000249_absence",
+   "clip": "UAV-Anti-UAV_Test_000249",
+   "video": "UAV-Anti-UAV_Test_000249/UAV-Anti-UAV_Test_000249.mp4",
+   "video_sha256": "38f468ee70cef32b504a5d2b02756c8db822a2b19bc913e4fa8814128f5820f1",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 261,
+   "count": 160,
+   "labels_sha256": "24b789c9512e7ff664c53ae4f56ca6b18de1be601fa9c06af1d574ef6f7e0631"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000251_first",
+   "clip": "UAV-Anti-UAV_Test_000251",
+   "video": "UAV-Anti-UAV_Test_000251/UAV-Anti-UAV_Test_000251.mp4",
+   "video_sha256": "809ec8573fe6ddb2462a819501d198c4672f17328a93fcf60aff0ebaa2956630",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "d7fcebf9dcc43fd1c8828b4bf1d01c7cf7211799a9092de75ad338159559c4f7"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000251_absence",
+   "clip": "UAV-Anti-UAV_Test_000251",
+   "video": "UAV-Anti-UAV_Test_000251/UAV-Anti-UAV_Test_000251.mp4",
+   "video_sha256": "809ec8573fe6ddb2462a819501d198c4672f17328a93fcf60aff0ebaa2956630",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 10005,
+   "count": 160,
+   "labels_sha256": "d7fcebf9dcc43fd1c8828b4bf1d01c7cf7211799a9092de75ad338159559c4f7"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000252_first",
+   "clip": "UAV-Anti-UAV_Test_000252",
+   "video": "UAV-Anti-UAV_Test_000252/UAV-Anti-UAV_Test_000252.mp4",
+   "video_sha256": "abe21c6b433395875d96c671f8bcb18c83cb36da6609affea6369b3df39c1b4d",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "3e0bd39bd934f224f725b62e0b910e8ec2dcc0c02cabef61052fda178e991f4b"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000256_first",
+   "clip": "UAV-Anti-UAV_Test_000256",
+   "video": "UAV-Anti-UAV_Test_000256/UAV-Anti-UAV_Test_000256.mp4",
+   "video_sha256": "dc4a4f11a6cb897c78a8c0235aee9a5f4974d3df3d06d6d1b9cd16121e1b4d79",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "7eed45176c107b48d15ec7f8c05e7d0c79506235535840cd31fd39c9627bf5e1"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000257_first",
+   "clip": "UAV-Anti-UAV_Test_000257",
+   "video": "UAV-Anti-UAV_Test_000257/UAV-Anti-UAV_Test_000257.mp4",
+   "video_sha256": "dc3f8822832687a5454b49d6872dce0b31a0497710a4d1490662c242b96fbe3d",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 69,
+   "labels_sha256": "caf4d406e35ddea36f377c6d5325c5003afe6bf7151d80b1c4a32955d8af3f29"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000261_first",
+   "clip": "UAV-Anti-UAV_Test_000261",
+   "video": "UAV-Anti-UAV_Test_000261/UAV-Anti-UAV_Test_000261.mp4",
+   "video_sha256": "eef3b5f2288249c58aa3e26388080e444480103b6ee135f0cfbe5c28bef655d3",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "d6deb2248e9e38a3c8a2d06bdd797ff4a96026aa070f4983c328f3e1eda67a8a"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000261_absence",
+   "clip": "UAV-Anti-UAV_Test_000261",
+   "video": "UAV-Anti-UAV_Test_000261/UAV-Anti-UAV_Test_000261.mp4",
+   "video_sha256": "eef3b5f2288249c58aa3e26388080e444480103b6ee135f0cfbe5c28bef655d3",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 6687,
+   "count": 160,
+   "labels_sha256": "d6deb2248e9e38a3c8a2d06bdd797ff4a96026aa070f4983c328f3e1eda67a8a"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000265_first",
+   "clip": "UAV-Anti-UAV_Test_000265",
+   "video": "UAV-Anti-UAV_Test_000265/UAV-Anti-UAV_Test_000265.mp4",
+   "video_sha256": "93b00cb96d29a000cba39647b52b3d6d5cf806484a63475c4d375add583169de",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "7386c84bc21d50210b31894b12ad13bd9ad1d681789fd429ba17a7cdc0840701"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000266_first",
+   "clip": "UAV-Anti-UAV_Test_000266",
+   "video": "UAV-Anti-UAV_Test_000266/UAV-Anti-UAV_Test_000266.mp4",
+   "video_sha256": "051cccf1f4779e860b5e2502d96eb9e488258c7099346bb79a6b762cf0ca61b2",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "1a304669252d91172cc3d2420a2053f49963b5b927046416231a3d181b25bacc"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000266_absence",
+   "clip": "UAV-Anti-UAV_Test_000266",
+   "video": "UAV-Anti-UAV_Test_000266/UAV-Anti-UAV_Test_000266.mp4",
+   "video_sha256": "051cccf1f4779e860b5e2502d96eb9e488258c7099346bb79a6b762cf0ca61b2",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 306,
+   "count": 53,
+   "labels_sha256": "1a304669252d91172cc3d2420a2053f49963b5b927046416231a3d181b25bacc"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000267_first",
+   "clip": "UAV-Anti-UAV_Test_000267",
+   "video": "UAV-Anti-UAV_Test_000267/UAV-Anti-UAV_Test_000267.mp4",
+   "video_sha256": "abf3030186379509b25f860c6eeda7f1d2cc2685503a35b29b5763e3d1913699",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "948b49d4f47a86f80759aa2308e3e6b6cb21c6cf9fb85e2557cd6cfc5275dad5"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000270_first",
+   "clip": "UAV-Anti-UAV_Test_000270",
+   "video": "UAV-Anti-UAV_Test_000270/UAV-Anti-UAV_Test_000270.mp4",
+   "video_sha256": "a6e3c1af044a9814c0923a1031d8612952196a97200ba01480458df918ea84ea",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "eae8136ca9b33997c41b2e45479d3b8720efc4ecc1964d96a4ac274dca73afc5"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000270_absence",
+   "clip": "UAV-Anti-UAV_Test_000270",
+   "video": "UAV-Anti-UAV_Test_000270/UAV-Anti-UAV_Test_000270.mp4",
+   "video_sha256": "a6e3c1af044a9814c0923a1031d8612952196a97200ba01480458df918ea84ea",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 1231,
+   "count": 108,
+   "labels_sha256": "eae8136ca9b33997c41b2e45479d3b8720efc4ecc1964d96a4ac274dca73afc5"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000274_first",
+   "clip": "UAV-Anti-UAV_Test_000274",
+   "video": "UAV-Anti-UAV_Test_000274/UAV-Anti-UAV_Test_000274.mp4",
+   "video_sha256": "273e6b9213d053ace8504fafbfb3dcf4879a502a7275ce72240d289b430cd715",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 98,
+   "labels_sha256": "2dc3ffc2b0a915c409ffb40a2bfce1fba338f8bf651fef531088e7fc38f589a2"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000276_first",
+   "clip": "UAV-Anti-UAV_Test_000276",
+   "video": "UAV-Anti-UAV_Test_000276/UAV-Anti-UAV_Test_000276.mp4",
+   "video_sha256": "bd3c293f4191334d6d3d148870e02500023b92a8784d2c047cd040240b86b6a7",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 36,
+   "labels_sha256": "78c97712116804209d4f7b04b915c7266899d8681e3f71e18e1fff849ae555cb"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000277_first",
+   "clip": "UAV-Anti-UAV_Test_000277",
+   "video": "UAV-Anti-UAV_Test_000277/UAV-Anti-UAV_Test_000277.mp4",
+   "video_sha256": "cbdf847368de9249a2901df7cd2d41f668b1044aadd940a595ff32ac734a3952",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "6bd574ddf1598d8f206c16e52c3f9e7adcb3f9bdb4ffb130652c2ef503580956"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000278_first",
+   "clip": "UAV-Anti-UAV_Test_000278",
+   "video": "UAV-Anti-UAV_Test_000278/UAV-Anti-UAV_Test_000278.mp4",
+   "video_sha256": "74137591a5523415785964e8f99a65a09ea90956a086d31a65b138ddecf05ba1",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "c98970293d92140fcb6db9472bcb9cf5bff34378da3cc76ba3dce402ba2fb8bb"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000279_first",
+   "clip": "UAV-Anti-UAV_Test_000279",
+   "video": "UAV-Anti-UAV_Test_000279/UAV-Anti-UAV_Test_000279.mp4",
+   "video_sha256": "b734fcd6bd592ef43f249894cdbc5e8ef8b5a36d0bfbb1d409c875ef73e11097",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "78b21745635c24cf3af66754478c839ec8f526ff38f1a716b9cbf27b3bbce9f7"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000283_first",
+   "clip": "UAV-Anti-UAV_Test_000283",
+   "video": "UAV-Anti-UAV_Test_000283/UAV-Anti-UAV_Test_000283.mp4",
+   "video_sha256": "34444d7b1ca3e1e30096dc476b78a4dfa63e912c698eca3eb8f55f877f34c1b0",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "16fac04e44db0a62dcb26672d20f7f9a0bd808273bb16486c928fcb1bcb99a3c"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000283_absence",
+   "clip": "UAV-Anti-UAV_Test_000283",
+   "video": "UAV-Anti-UAV_Test_000283/UAV-Anti-UAV_Test_000283.mp4",
+   "video_sha256": "34444d7b1ca3e1e30096dc476b78a4dfa63e912c698eca3eb8f55f877f34c1b0",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 1018,
+   "count": 160,
+   "labels_sha256": "16fac04e44db0a62dcb26672d20f7f9a0bd808273bb16486c928fcb1bcb99a3c"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000284_first",
+   "clip": "UAV-Anti-UAV_Test_000284",
+   "video": "UAV-Anti-UAV_Test_000284/UAV-Anti-UAV_Test_000284.mp4",
+   "video_sha256": "297eaf40b32cc15a88088f2d7dce0fb9a12ab140b1e6b2adaf4e71e4e652a86f",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "13edbb90a1d96111478085adb252a8d1158f5276332fe305f0a5d3cabd0de642"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000284_absence",
+   "clip": "UAV-Anti-UAV_Test_000284",
+   "video": "UAV-Anti-UAV_Test_000284/UAV-Anti-UAV_Test_000284.mp4",
+   "video_sha256": "297eaf40b32cc15a88088f2d7dce0fb9a12ab140b1e6b2adaf4e71e4e652a86f",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 919,
+   "count": 160,
+   "labels_sha256": "13edbb90a1d96111478085adb252a8d1158f5276332fe305f0a5d3cabd0de642"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000285_first",
+   "clip": "UAV-Anti-UAV_Test_000285",
+   "video": "UAV-Anti-UAV_Test_000285/UAV-Anti-UAV_Test_000285.mp4",
+   "video_sha256": "ceff02124a16b3101744e6c052978e86475dfcd035b4e5fa8ff65e2a6e20f496",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "98aad8e0d7c5b85849af959c442755ca02819d05aad146155523e12ddd209be4"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000285_absence",
+   "clip": "UAV-Anti-UAV_Test_000285",
+   "video": "UAV-Anti-UAV_Test_000285/UAV-Anti-UAV_Test_000285.mp4",
+   "video_sha256": "ceff02124a16b3101744e6c052978e86475dfcd035b4e5fa8ff65e2a6e20f496",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 418,
+   "count": 160,
+   "labels_sha256": "98aad8e0d7c5b85849af959c442755ca02819d05aad146155523e12ddd209be4"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000289_first",
+   "clip": "UAV-Anti-UAV_Test_000289",
+   "video": "UAV-Anti-UAV_Test_000289/UAV-Anti-UAV_Test_000289.mp4",
+   "video_sha256": "8c84d1c3ca4a4a4f4550eb79162b10a012111c7cc07c5b711d7a5a8539d74aa4",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "ad4d3e412fd59599ffca99f84c1b536ad5152b8ac529da37863a2fb6fcc99b79"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000297_first",
+   "clip": "UAV-Anti-UAV_Test_000297",
+   "video": "UAV-Anti-UAV_Test_000297/UAV-Anti-UAV_Test_000297.mp4",
+   "video_sha256": "2b58c3577d5b3327cd6180828e53f3e5d5ad66623d5a604e433e5b4de23c62cc",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "988def9af53504b72dca798a9275c7d36d5b498c23d420e2685cc8682de2048d"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000297_absence",
+   "clip": "UAV-Anti-UAV_Test_000297",
+   "video": "UAV-Anti-UAV_Test_000297/UAV-Anti-UAV_Test_000297.mp4",
+   "video_sha256": "2b58c3577d5b3327cd6180828e53f3e5d5ad66623d5a604e433e5b4de23c62cc",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4558,
+   "count": 160,
+   "labels_sha256": "988def9af53504b72dca798a9275c7d36d5b498c23d420e2685cc8682de2048d"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000300_first",
+   "clip": "UAV-Anti-UAV_Test_000300",
+   "video": "UAV-Anti-UAV_Test_000300/UAV-Anti-UAV_Test_000300.mp4",
+   "video_sha256": "c5a01e0b96bfcb3f9ae9c71938d7791de1d29284fdf36cd0c5f80ff53c0c67eb",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "003fa046755c84701a8ac260b95f36949a35f39bd6c8407cf49ab68414bda26e"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000300_absence",
+   "clip": "UAV-Anti-UAV_Test_000300",
+   "video": "UAV-Anti-UAV_Test_000300/UAV-Anti-UAV_Test_000300.mp4",
+   "video_sha256": "c5a01e0b96bfcb3f9ae9c71938d7791de1d29284fdf36cd0c5f80ff53c0c67eb",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 322,
+   "count": 133,
+   "labels_sha256": "003fa046755c84701a8ac260b95f36949a35f39bd6c8407cf49ab68414bda26e"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000301_first",
+   "clip": "UAV-Anti-UAV_Test_000301",
+   "video": "UAV-Anti-UAV_Test_000301/UAV-Anti-UAV_Test_000301.mp4",
+   "video_sha256": "8dccd40616a03df3f37ddf554d5f59e83b8123aefeecc798345b78e1519c9dcd",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "f2285044df5902c5f9dea428131022f209a7fdf8c9bf26d9de26f2e3bd934440"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000303_first",
+   "clip": "UAV-Anti-UAV_Test_000303",
+   "video": "UAV-Anti-UAV_Test_000303/UAV-Anti-UAV_Test_000303.mp4",
+   "video_sha256": "657576fe636e404d38dd5a6ae5bd24c50350f994b33bb6f7b05ca3ab5fc9607f",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "f48b6387ff70dfe5f07c7c10f9df35bc9c3bec8f4417acb1e7143fa0b007582f"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000303_absence",
+   "clip": "UAV-Anti-UAV_Test_000303",
+   "video": "UAV-Anti-UAV_Test_000303/UAV-Anti-UAV_Test_000303.mp4",
+   "video_sha256": "657576fe636e404d38dd5a6ae5bd24c50350f994b33bb6f7b05ca3ab5fc9607f",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 258,
+   "count": 158,
+   "labels_sha256": "f48b6387ff70dfe5f07c7c10f9df35bc9c3bec8f4417acb1e7143fa0b007582f"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000308_first",
+   "clip": "UAV-Anti-UAV_Test_000308",
+   "video": "UAV-Anti-UAV_Test_000308/UAV-Anti-UAV_Test_000308.mp4",
+   "video_sha256": "2730586e60bf33eb0240199be24329fe1ba41fb903574487ef881fc9d2cb2e4d",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 83,
+   "labels_sha256": "838a2c92053b4847abb0c951a6864bb995764029433eb228e056e25953606c1a"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000309_first",
+   "clip": "UAV-Anti-UAV_Test_000309",
+   "video": "UAV-Anti-UAV_Test_000309/UAV-Anti-UAV_Test_000309.mp4",
+   "video_sha256": "f76e82e9835ebb691f5c470b3a050d12f122be4fe2d0dfd345a1f463e138cc2b",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 32,
+   "labels_sha256": "9ef80e6aade936ff1be551bd83325d03213345351ba1fe0d3c7040efcbde2800"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000310_first",
+   "clip": "UAV-Anti-UAV_Test_000310",
+   "video": "UAV-Anti-UAV_Test_000310/UAV-Anti-UAV_Test_000310.mp4",
+   "video_sha256": "deb61c920185750c85e57013f22179a2ac3ab7052ba1f6a45980c40946fc6ca1",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "6931d0b8d263c1ae839065a0108d19f4026026709f6112ff7defa5fdd0586ced"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000311_first",
+   "clip": "UAV-Anti-UAV_Test_000311",
+   "video": "UAV-Anti-UAV_Test_000311/UAV-Anti-UAV_Test_000311.mp4",
+   "video_sha256": "6e2f2abb07488f9307c59448d50c1eae2dca8f527e9941c03080ded0306d1997",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 83,
+   "labels_sha256": "eeb168d3fdc5ab12494ca115a0a0668a3d1ef24f08e6649f6504c792a1f6a35d"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000321_first",
+   "clip": "UAV-Anti-UAV_Test_000321",
+   "video": "UAV-Anti-UAV_Test_000321/UAV-Anti-UAV_Test_000321.mp4",
+   "video_sha256": "187e1e958fe8b62dba6d957ac710b97735426410e4f8fba8bf1bdc730b2db574",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "4836ad9701ea51e677b6abc638cba1e33900cc6fee105965fa4ecf43e6dd2593"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000322_first",
+   "clip": "UAV-Anti-UAV_Test_000322",
+   "video": "UAV-Anti-UAV_Test_000322/UAV-Anti-UAV_Test_000322.mp4",
+   "video_sha256": "f01e68b3a340439819943982bfa3bec071ef918ee6c6b8ce057ac4aa63de559d",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "4f5721000cbd2f487687b46c93e62bbf5ed75e84f962521e355a65bf2dd87905"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000322_absence",
+   "clip": "UAV-Anti-UAV_Test_000322",
+   "video": "UAV-Anti-UAV_Test_000322/UAV-Anti-UAV_Test_000322.mp4",
+   "video_sha256": "f01e68b3a340439819943982bfa3bec071ef918ee6c6b8ce057ac4aa63de559d",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 1688,
+   "count": 110,
+   "labels_sha256": "4f5721000cbd2f487687b46c93e62bbf5ed75e84f962521e355a65bf2dd87905"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000323_first",
+   "clip": "UAV-Anti-UAV_Test_000323",
+   "video": "UAV-Anti-UAV_Test_000323/UAV-Anti-UAV_Test_000323.mp4",
+   "video_sha256": "3e48384a7bad96f5daefe268b0d07e61cc971ac036291f8ed6250008c4a16ec3",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "7fb928c83d64c1177409d7cdfd4d45334bc1ab6342a31636e3045650cf562d8f"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000323_absence",
+   "clip": "UAV-Anti-UAV_Test_000323",
+   "video": "UAV-Anti-UAV_Test_000323/UAV-Anti-UAV_Test_000323.mp4",
+   "video_sha256": "3e48384a7bad96f5daefe268b0d07e61cc971ac036291f8ed6250008c4a16ec3",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 1081,
+   "count": 144,
+   "labels_sha256": "7fb928c83d64c1177409d7cdfd4d45334bc1ab6342a31636e3045650cf562d8f"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000325_first",
+   "clip": "UAV-Anti-UAV_Test_000325",
+   "video": "UAV-Anti-UAV_Test_000325/UAV-Anti-UAV_Test_000325.mp4",
+   "video_sha256": "9151bfde13e8bd9ea1363045b78f32ec300647f58f419ad8a0872195c3216b48",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "ed358a89647d8d2731649b2d0b06c723e7a5811d10ea436da2822dea5649050e"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000325_absence",
+   "clip": "UAV-Anti-UAV_Test_000325",
+   "video": "UAV-Anti-UAV_Test_000325/UAV-Anti-UAV_Test_000325.mp4",
+   "video_sha256": "9151bfde13e8bd9ea1363045b78f32ec300647f58f419ad8a0872195c3216b48",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 569,
+   "count": 101,
+   "labels_sha256": "ed358a89647d8d2731649b2d0b06c723e7a5811d10ea436da2822dea5649050e"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000327_first",
+   "clip": "UAV-Anti-UAV_Test_000327",
+   "video": "UAV-Anti-UAV_Test_000327/UAV-Anti-UAV_Test_000327.mp4",
+   "video_sha256": "ea08c3c694e5a3560f55fa44ea6ef8085327f42ce7a1914a3debe726aa428940",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 107,
+   "labels_sha256": "02940cf2a78cec3e97adcd8c2c8207b72b7aed9046ca085f0dc7deb300beecfc"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000329_first",
+   "clip": "UAV-Anti-UAV_Test_000329",
+   "video": "UAV-Anti-UAV_Test_000329/UAV-Anti-UAV_Test_000329.mp4",
+   "video_sha256": "7c5094267cacce054a53f1a95a9b181efe2470177a3c14e148f9c008bf9f4f01",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "32e12f8df17cba7dd8d27a7b494036dfa16059f2d502fb8f880264b041c5fa6f"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000329_absence",
+   "clip": "UAV-Anti-UAV_Test_000329",
+   "video": "UAV-Anti-UAV_Test_000329/UAV-Anti-UAV_Test_000329.mp4",
+   "video_sha256": "7c5094267cacce054a53f1a95a9b181efe2470177a3c14e148f9c008bf9f4f01",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 1701,
+   "count": 97,
+   "labels_sha256": "32e12f8df17cba7dd8d27a7b494036dfa16059f2d502fb8f880264b041c5fa6f"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000330_first",
+   "clip": "UAV-Anti-UAV_Test_000330",
+   "video": "UAV-Anti-UAV_Test_000330/UAV-Anti-UAV_Test_000330.mp4",
+   "video_sha256": "d01baa0ec550e598416504e7fc4275a2443ff129a5a1be4aadc5324339a347bf",
+   "dimensions": [
+    640,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "ffda4124a30e204659865b9fd1df64f3ff2bfc5687562ad295bd4774a0536020"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000330_absence",
+   "clip": "UAV-Anti-UAV_Test_000330",
+   "video": "UAV-Anti-UAV_Test_000330/UAV-Anti-UAV_Test_000330.mp4",
+   "video_sha256": "d01baa0ec550e598416504e7fc4275a2443ff129a5a1be4aadc5324339a347bf",
+   "dimensions": [
+    640,
+    480
+   ],
+   "fps": 30.0,
+   "start": 226,
+   "count": 160,
+   "labels_sha256": "ffda4124a30e204659865b9fd1df64f3ff2bfc5687562ad295bd4774a0536020"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000333_first",
+   "clip": "UAV-Anti-UAV_Test_000333",
+   "video": "UAV-Anti-UAV_Test_000333/UAV-Anti-UAV_Test_000333.mp4",
+   "video_sha256": "f86c45009ba8be87334d9fef6a2e01efb67dc9737a97b3c15acc848614cdfe1b",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "5b6f659facb2f1126fc772049d54e3f64a9f13cfda30171f73e0efb4950ed62b"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000334_first",
+   "clip": "UAV-Anti-UAV_Test_000334",
+   "video": "UAV-Anti-UAV_Test_000334/UAV-Anti-UAV_Test_000334.mp4",
+   "video_sha256": "edbf4e1996e4a56f61a1aa9cf88908506254a2ea7d6ec7bce344754288f1f8da",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "7ebbe776a8cdd9accf1647049ecf02ff21377fce8628cf66dbbd47994ca93980"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000337_first",
+   "clip": "UAV-Anti-UAV_Test_000337",
+   "video": "UAV-Anti-UAV_Test_000337/UAV-Anti-UAV_Test_000337.mp4",
+   "video_sha256": "ec344220164a5210d4ae4c4e5f05a7237eaf129e8c8e0600397f1e55ae4b34a8",
+   "dimensions": [
+    1280,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "b250f3f36525b9eed4a0864337ec3d825ac7a3e397be8c1bfa0fc90c96e663e1"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000343_first",
+   "clip": "UAV-Anti-UAV_Test_000343",
+   "video": "UAV-Anti-UAV_Test_000343/UAV-Anti-UAV_Test_000343.mp4",
+   "video_sha256": "a2148369c3af933a37e46541e45ca89f3650f7ecb8a4cfa052a5ff3cb5e14884",
+   "dimensions": [
+    1280,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "0fc30b904ad6b9e29221acedd8b9094f98d512e3a5933797ed7c532ec644338e"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000344_first",
+   "clip": "UAV-Anti-UAV_Test_000344",
+   "video": "UAV-Anti-UAV_Test_000344/UAV-Anti-UAV_Test_000344.mp4",
+   "video_sha256": "23fe9ac2ff260e2597d5640355e88932143bab990ac611efc3e8dd37ec5815b1",
+   "dimensions": [
+    1280,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "743ae8ba03fdb0c4da74b68d458acd062e55760af02e5e44150c4a5a6982c4c6"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000345_first",
+   "clip": "UAV-Anti-UAV_Test_000345",
+   "video": "UAV-Anti-UAV_Test_000345/UAV-Anti-UAV_Test_000345.mp4",
+   "video_sha256": "fea70762ebf08b59eaeaca2c8095a1661d0c0bf5f3e55a9bc54f3a914c68a8b2",
+   "dimensions": [
+    1280,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "f7562362fb2ecda25f6a1d16006df969e999cad99a90a58fe6de5dcac55c0e7f"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000346_first",
+   "clip": "UAV-Anti-UAV_Test_000346",
+   "video": "UAV-Anti-UAV_Test_000346/UAV-Anti-UAV_Test_000346.mp4",
+   "video_sha256": "7e704af5429b1a839eea2d4737bdea63c983557568d2885981bf10ccfc65c1af",
+   "dimensions": [
+    1280,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "83f178a18d0471afe876dd8c9740ec21281c3c3188e6608bedcbcace78332eae"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000347_first",
+   "clip": "UAV-Anti-UAV_Test_000347",
+   "video": "UAV-Anti-UAV_Test_000347/UAV-Anti-UAV_Test_000347.mp4",
+   "video_sha256": "505f387f0a3099697381090e4d37e455ee601b38124aa62747feed76e961895e",
+   "dimensions": [
+    1280,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "37f53e86324d319c59400d5d0fdddc3c9ae29902ced292d4c092c4a35e082fc1"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000353_first",
+   "clip": "UAV-Anti-UAV_Test_000353",
+   "video": "UAV-Anti-UAV_Test_000353/UAV-Anti-UAV_Test_000353.mp4",
+   "video_sha256": "a86e3aa3e0e326d32175a787f60f5a3f4ff0011b82812c9816504c425c210bd5",
+   "dimensions": [
+    1280,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 23,
+   "labels_sha256": "b54ba4c3b71b9f33e3873e2bc0f4efcfee4d1005ec32489c09c0c38f475724a8"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000355_first",
+   "clip": "UAV-Anti-UAV_Test_000355",
+   "video": "UAV-Anti-UAV_Test_000355/UAV-Anti-UAV_Test_000355.mp4",
+   "video_sha256": "7a3258c90f30c0dd54f6294705aca9858415371b2f5ab34b3efd1ef26cd49f2b",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 31,
+   "labels_sha256": "ba6cff9ff697ee7b0f5d6ec02a15ad96b6e3c7398b6a37e765e4bf9d5085ef91"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000359_first",
+   "clip": "UAV-Anti-UAV_Test_000359",
+   "video": "UAV-Anti-UAV_Test_000359/UAV-Anti-UAV_Test_000359.mp4",
+   "video_sha256": "b264e3eb3574e058ec864a55b60bdf9b3ef43dbec82afd4b92bb3383c2e27e9a",
+   "dimensions": [
+    992,
+    544
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "a048506dc403a892c8691d4b01c7260aa1a483a4e8a8ce4bef9daed572205e42"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000360_first",
+   "clip": "UAV-Anti-UAV_Test_000360",
+   "video": "UAV-Anti-UAV_Test_000360/UAV-Anti-UAV_Test_000360.mp4",
+   "video_sha256": "a86e3aa3e0e326d32175a787f60f5a3f4ff0011b82812c9816504c425c210bd5",
+   "dimensions": [
+    1280,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 23,
+   "labels_sha256": "4350636ee3ee546ebd3cf40f6dd16c3d0d8ca9b1ab64fa1414d5a498bc298057"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000361_first",
+   "clip": "UAV-Anti-UAV_Test_000361",
+   "video": "UAV-Anti-UAV_Test_000361/UAV-Anti-UAV_Test_000361.mp4",
+   "video_sha256": "e10b38e8d530fa3038dbc0351ac1cae25df3d25db895307a7fbf89e2b1fcf461",
+   "dimensions": [
+    1280,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "0a62f026df841955381bf07ea7e4fd798be278ceb8458f5225f93f18e10f5001"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000362_first",
+   "clip": "UAV-Anti-UAV_Test_000362",
+   "video": "UAV-Anti-UAV_Test_000362/UAV-Anti-UAV_Test_000362.mp4",
+   "video_sha256": "e10b38e8d530fa3038dbc0351ac1cae25df3d25db895307a7fbf89e2b1fcf461",
+   "dimensions": [
+    1280,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "f931ca3f7bb429b2dd3b3295aaf354555ffd52cec42cbfc2659b9907c1a61af9"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000363_first",
+   "clip": "UAV-Anti-UAV_Test_000363",
+   "video": "UAV-Anti-UAV_Test_000363/UAV-Anti-UAV_Test_000363.mp4",
+   "video_sha256": "b1e9000cdc9dd36f69aaabefe88ad3e03ad30697e85f46e8d88b6e3ac19ff042",
+   "dimensions": [
+    1280,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "6b95854207031f2b33881374b11d052fe24ee4732c4a86e04a5ab14838a1ee3b"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000364_first",
+   "clip": "UAV-Anti-UAV_Test_000364",
+   "video": "UAV-Anti-UAV_Test_000364/UAV-Anti-UAV_Test_000364.mp4",
+   "video_sha256": "fbcb3a3403d74151465142935b874cb410d9a3311d2abacf87afe0e811fcd029",
+   "dimensions": [
+    1280,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "64fae080b6ed03e279e6c614ebcc10264ae5b1286f16a383b3877513110a72a1"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000365_first",
+   "clip": "UAV-Anti-UAV_Test_000365",
+   "video": "UAV-Anti-UAV_Test_000365/UAV-Anti-UAV_Test_000365.mp4",
+   "video_sha256": "e0fd6ed211f14cdfb9dad2424ee167dc7c6035ca31fe67fbb09a61f2aabdd7bd",
+   "dimensions": [
+    1312,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 58,
+   "labels_sha256": "37a0438972d9a9d2bf76e5ea39218876aec3f1f5039154fd2137206b5a4f5ac6"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000366_first",
+   "clip": "UAV-Anti-UAV_Test_000366",
+   "video": "UAV-Anti-UAV_Test_000366/UAV-Anti-UAV_Test_000366.mp4",
+   "video_sha256": "3f8e86424052ce0524de0d4fe0249ab93348c3abb31c3fd0405f1fe38efcf06d",
+   "dimensions": [
+    1312,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "d3579c5cd0c3892e1b3efa1e34910df13d82598414ae1bd83322f840c7fbb526"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000370_first",
+   "clip": "UAV-Anti-UAV_Test_000370",
+   "video": "UAV-Anti-UAV_Test_000370/UAV-Anti-UAV_Test_000370.mp4",
+   "video_sha256": "43a53141fbce8d93744a1f906c6b4a135797d9c73dc8b48ebb0ec6814b478611",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 124,
+   "labels_sha256": "55548329ca6c93009da250506c3a89dd7f35b33dc08a72019ab0511a9b0c639d"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000372_first",
+   "clip": "UAV-Anti-UAV_Test_000372",
+   "video": "UAV-Anti-UAV_Test_000372/UAV-Anti-UAV_Test_000372.mp4",
+   "video_sha256": "692fdcd2a7ed7ed5b1bd9f13bcaadf548b0e44f85016e184b32ae35e766315fe",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "6e74b6a9e065ed259c69dd06563d7ffd49824de3c9892df0e3f68f721193cc32"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000375_first",
+   "clip": "UAV-Anti-UAV_Test_000375",
+   "video": "UAV-Anti-UAV_Test_000375/UAV-Anti-UAV_Test_000375.mp4",
+   "video_sha256": "45eecfc0590854edd898ee1751f10c7fdee1866371bd05b641f48de796f791ba",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "6fc0a36b034ae268d265a0ad33e6ca9e8f7f696260c474e8ca3679aa4408b935"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000376_first",
+   "clip": "UAV-Anti-UAV_Test_000376",
+   "video": "UAV-Anti-UAV_Test_000376/UAV-Anti-UAV_Test_000376.mp4",
+   "video_sha256": "912666448e8844f049ef72bbb917db5cacb2a3ee623d4c11b6de393c650e82d4",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "0cbcaf8131253d287761d7a46faa99d87401e7ae6f925e0e203499fd3ca7bcf9"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000377_first",
+   "clip": "UAV-Anti-UAV_Test_000377",
+   "video": "UAV-Anti-UAV_Test_000377/UAV-Anti-UAV_Test_000377.mp4",
+   "video_sha256": "247fc1d297654c51ced49a4afc36bc3f7c95c89fb53333979bffa7268ed47ecd",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "6b01c355290be06e9fea6e8e91ffc3ce2c347d983b7e55d3d55e8bda544a842c"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000380_first",
+   "clip": "UAV-Anti-UAV_Test_000380",
+   "video": "UAV-Anti-UAV_Test_000380/UAV-Anti-UAV_Test_000380.mp4",
+   "video_sha256": "3567105edbdf93e4c49fc34cf8fa3036ad875f9d8e16c80fa59cdb64d8917cb5",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 153,
+   "labels_sha256": "7473877c6f04c311e0623b89b6673680304155f24d456010198f78eab0c56dfc"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000384_first",
+   "clip": "UAV-Anti-UAV_Test_000384",
+   "video": "UAV-Anti-UAV_Test_000384/UAV-Anti-UAV_Test_000384.mp4",
+   "video_sha256": "c11ae6e3ab22d68f24571e3ac18a0d74855939728a905417339f8479a752e204",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 157,
+   "labels_sha256": "7d3d979456bfa88fb4cc634fef431e5a70ccb0a5114be68e28c9d8c64e872719"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000385_first",
+   "clip": "UAV-Anti-UAV_Test_000385",
+   "video": "UAV-Anti-UAV_Test_000385/UAV-Anti-UAV_Test_000385.mp4",
+   "video_sha256": "aa33995e72b0617c9e7bc21568477f3fc6788115f9387cbed70b36c2b8209b37",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 76,
+   "labels_sha256": "6f9b486b02c4413209895acdb617faf846449af7948303f576d27501c970f67e"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000386_first",
+   "clip": "UAV-Anti-UAV_Test_000386",
+   "video": "UAV-Anti-UAV_Test_000386/UAV-Anti-UAV_Test_000386.mp4",
+   "video_sha256": "ca3af3171ed453cb1a88b593f7f2d20649420b3d3120c0e75c70a5d9d4707d10",
+   "dimensions": [
+    1312,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 81,
+   "labels_sha256": "837631e8d6bb9f0bc30d71c50b22b69490f4b86f0a9d0701351d1efe26152fda"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000387_first",
+   "clip": "UAV-Anti-UAV_Test_000387",
+   "video": "UAV-Anti-UAV_Test_000387/UAV-Anti-UAV_Test_000387.mp4",
+   "video_sha256": "fbcb3a3403d74151465142935b874cb410d9a3311d2abacf87afe0e811fcd029",
+   "dimensions": [
+    1280,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "11a9f010ad8194c085d680fcd7602042552b322d4ed2edd163d0d96735c6c496"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000388_first",
+   "clip": "UAV-Anti-UAV_Test_000388",
+   "video": "UAV-Anti-UAV_Test_000388/UAV-Anti-UAV_Test_000388.mp4",
+   "video_sha256": "082404990cd596df08a8370cc14f85b5f50cb79ae61c8a97d8a39b1a2f4670ee",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 133,
+   "labels_sha256": "a26d03fc7751b3ca72a28a4923b60a0df80ae3e0776ca826b18492b54b69634c"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000389_first",
+   "clip": "UAV-Anti-UAV_Test_000389",
+   "video": "UAV-Anti-UAV_Test_000389/UAV-Anti-UAV_Test_000389.mp4",
+   "video_sha256": "059a6445693325552e5d186043dc0cfa0fe5a5b45c8cc24677a59f7b6bc5cab7",
+   "dimensions": [
+    1280,
+    720
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "29fdad21373cc4eb4a0eb089f83638d516114369b0ca48139d6697e5481fa92e"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000397_first",
+   "clip": "UAV-Anti-UAV_Test_000397",
+   "video": "UAV-Anti-UAV_Test_000397/UAV-Anti-UAV_Test_000397.mp4",
+   "video_sha256": "f956de011e1be25ba0797f85ec8859bbc3c0189730938c173de4ed9263b5d6da",
+   "dimensions": [
+    720,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "7402ec8929d9f4cc189dc64fbc63c82991ef5415f8ac478574d81095689e9fed"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000397_absence",
+   "clip": "UAV-Anti-UAV_Test_000397",
+   "video": "UAV-Anti-UAV_Test_000397/UAV-Anti-UAV_Test_000397.mp4",
+   "video_sha256": "f956de011e1be25ba0797f85ec8859bbc3c0189730938c173de4ed9263b5d6da",
+   "dimensions": [
+    720,
+    480
+   ],
+   "fps": 30.0,
+   "start": 657,
+   "count": 160,
+   "labels_sha256": "7402ec8929d9f4cc189dc64fbc63c82991ef5415f8ac478574d81095689e9fed"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000409_first",
+   "clip": "UAV-Anti-UAV_Test_000409",
+   "video": "UAV-Anti-UAV_Test_000409/UAV-Anti-UAV_Test_000409.mp4",
+   "video_sha256": "dfbd38a2334556bffb6f802685ef8e7c28d9f8aa6ccd949b3fb21646bbe3f76b",
+   "dimensions": [
+    852,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "7919c71b17143ac3ca69d96ae218abb78104d2e511977e4c0ca8409a95866a43"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000413_first",
+   "clip": "UAV-Anti-UAV_Test_000413",
+   "video": "UAV-Anti-UAV_Test_000413/UAV-Anti-UAV_Test_000413.mp4",
+   "video_sha256": "b30b8ecd1f742ca0df876bc42219b430d53033ac12610bddc736e62aa8b53f7d",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "e70a6933fd283185614d366179ea101865471b8ed7805947a4d55ac82fd6f34e"
+  },
+  {
+   "key": "UAV-Anti-UAV_Test_000414_first",
+   "clip": "UAV-Anti-UAV_Test_000414",
+   "video": "UAV-Anti-UAV_Test_000414/UAV-Anti-UAV_Test_000414.mp4",
+   "video_sha256": "7f8f889094e9ba29c2beff5ad3bf49ed4d285d342bc4221ee8affb227374158d",
+   "dimensions": [
+    856,
+    480
+   ],
+   "fps": 30.0,
+   "start": 4,
+   "count": 111,
+   "labels_sha256": "cb97481f7d4462e150043213192c8bc3a1c39b8b4809999916b768e0e8231fd7"
+  }
+ ]
+}

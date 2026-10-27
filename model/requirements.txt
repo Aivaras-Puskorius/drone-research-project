@@ -1,0 +1,10 @@
+# Versions behind every result in docs/: Python 3.12.14, NVIDIA RTX 4070, CUDA 12.8.
+# torch and torchvision are the CUDA 12.8 builds (+cu128) from PyTorch's own package index (see pytorch.org).
+# Install only one OpenCV package: opencv-python and its contrib or headless variants share the cv2 module and
+# overwrite each other's files.
+ultralytics==8.4.160
+torch==2.11.0
+torchvision==0.26.0
+opencv-python==5.0.0.93
+numpy==2.5.2
+PyYAML==6.0.3

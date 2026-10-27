@@ -1,0 +1,639 @@
+{
+ "set": "local4k",
+ "rule": "42 windows on our 20 flights. Per flight, the two longest runs of at least 100 frames in which the drone's position projected from the flight logs lies inside the image, up to 160 frames each, and the longest run of at least 100 frames in which the projection lies at least 1,000 px outside the image, labelled as having no drone (4 flights have one).",
+ "labels": "The box is centred on the projection (CSV columns pix_xc, pix_yc) with the drone's projected length and width (mavic3e_l_px, mavic3e_w_px). CSV frame n is video frame n. The projections have a median error of about 30 px, so these windows are read at 50 and 75 px instead of 20 and 50 px.",
+ "videos_folder": "the folder holding the flights' .mp4 files (team data, not public)",
+ "labels_folder": "the folder holding the flights' .csv files",
+ "windows": [
+  {
+   "key": "001_present0",
+   "clip": "001_Create-Area-Route1",
+   "video": "001_Create-Area-Route1.mp4",
+   "video_sha256": "d11f05e3102ae6d7ca4c511d69216191f7c1991ec99a2ea75c1ac733e2b11658",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 7620,
+   "count": 160,
+   "labels_sha256": "9f547c39544aef59cf7377689c844d768fe6412a1c5a2f345a68ca6382f91d5f",
+   "kind": "present"
+  },
+  {
+   "key": "001_present1",
+   "clip": "001_Create-Area-Route1",
+   "video": "001_Create-Area-Route1.mp4",
+   "video_sha256": "d11f05e3102ae6d7ca4c511d69216191f7c1991ec99a2ea75c1ac733e2b11658",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 6828,
+   "count": 160,
+   "labels_sha256": "9f547c39544aef59cf7377689c844d768fe6412a1c5a2f345a68ca6382f91d5f",
+   "kind": "present"
+  },
+  {
+   "key": "001_absence2",
+   "clip": "001_Create-Area-Route1",
+   "video": "001_Create-Area-Route1.mp4",
+   "video_sha256": "d11f05e3102ae6d7ca4c511d69216191f7c1991ec99a2ea75c1ac733e2b11658",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 10308,
+   "count": 160,
+   "labels_sha256": "9f547c39544aef59cf7377689c844d768fe6412a1c5a2f345a68ca6382f91d5f",
+   "kind": "absence"
+  },
+  {
+   "key": "002_present0",
+   "clip": "002_Create-Area-Route1",
+   "video": "002_Create-Area-Route1.mp4",
+   "video_sha256": "3c8cb91ebed0eaa4575c3f39eb91c2f3216a94cd52100d08d3d71894761a8c00",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 6896,
+   "count": 160,
+   "labels_sha256": "924240f7055c6ace47eff9144f186ada065507cdbfa702f2d757ed76cdcb5a75",
+   "kind": "present"
+  },
+  {
+   "key": "002_present1",
+   "clip": "002_Create-Area-Route1",
+   "video": "002_Create-Area-Route1.mp4",
+   "video_sha256": "3c8cb91ebed0eaa4575c3f39eb91c2f3216a94cd52100d08d3d71894761a8c00",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 7687,
+   "count": 160,
+   "labels_sha256": "924240f7055c6ace47eff9144f186ada065507cdbfa702f2d757ed76cdcb5a75",
+   "kind": "present"
+  },
+  {
+   "key": "002_absence2",
+   "clip": "002_Create-Area-Route1",
+   "video": "002_Create-Area-Route1.mp4",
+   "video_sha256": "3c8cb91ebed0eaa4575c3f39eb91c2f3216a94cd52100d08d3d71894761a8c00",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 9496,
+   "count": 160,
+   "labels_sha256": "924240f7055c6ace47eff9144f186ada065507cdbfa702f2d757ed76cdcb5a75",
+   "kind": "absence"
+  },
+  {
+   "key": "003_present0",
+   "clip": "003_Create-Area-Route1",
+   "video": "003_Create-Area-Route1.mp4",
+   "video_sha256": "019a39439851f81e77d5102232efad526c9a701e6195429afe07f9cb5815f53c",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 9090,
+   "count": 160,
+   "labels_sha256": "b72a5604bf2f5061a650739b7062dfa2106f262d6dbb226b7484265fe6ba6829",
+   "kind": "present"
+  },
+  {
+   "key": "003_present1",
+   "clip": "003_Create-Area-Route1",
+   "video": "003_Create-Area-Route1.mp4",
+   "video_sha256": "019a39439851f81e77d5102232efad526c9a701e6195429afe07f9cb5815f53c",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 7710,
+   "count": 160,
+   "labels_sha256": "b72a5604bf2f5061a650739b7062dfa2106f262d6dbb226b7484265fe6ba6829",
+   "kind": "present"
+  },
+  {
+   "key": "004_present0",
+   "clip": "004_Create-Area-Route1",
+   "video": "004_Create-Area-Route1.mp4",
+   "video_sha256": "dc13113339a794f347d3dab78561a1501b401ffafb1d832f121b12d23478af1e",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 9184,
+   "count": 154,
+   "labels_sha256": "c5fd6d39540f7108d15997a7e100fd56685effd6158b67b6c7cb01ec4236a0ac",
+   "kind": "present"
+  },
+  {
+   "key": "004_present1",
+   "clip": "004_Create-Area-Route1",
+   "video": "004_Create-Area-Route1.mp4",
+   "video_sha256": "dc13113339a794f347d3dab78561a1501b401ffafb1d832f121b12d23478af1e",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 7793,
+   "count": 120,
+   "labels_sha256": "c5fd6d39540f7108d15997a7e100fd56685effd6158b67b6c7cb01ec4236a0ac",
+   "kind": "present"
+  },
+  {
+   "key": "005_present0",
+   "clip": "005_Create-Area-Route2",
+   "video": "005_Create-Area-Route2.mp4",
+   "video_sha256": "ba1b485b7650bc79db988fed672509531e1a7555823ac08d07e86910f18a8794",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 6136,
+   "count": 160,
+   "labels_sha256": "59100855fc5748a591f444c60c68a0b109297405acc7eb80f1ce7ca41c9aa606",
+   "kind": "present"
+  },
+  {
+   "key": "005_present1",
+   "clip": "005_Create-Area-Route2",
+   "video": "005_Create-Area-Route2.mp4",
+   "video_sha256": "ba1b485b7650bc79db988fed672509531e1a7555823ac08d07e86910f18a8794",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 4282,
+   "count": 160,
+   "labels_sha256": "59100855fc5748a591f444c60c68a0b109297405acc7eb80f1ce7ca41c9aa606",
+   "kind": "present"
+  },
+  {
+   "key": "006_present0",
+   "clip": "006_Create-Area-Route2",
+   "video": "006_Create-Area-Route2.mp4",
+   "video_sha256": "d20f7aef32d16d28a58d10f10de10c9688200c9a0b5cc1f141edf4acdc7b4ab0",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 6163,
+   "count": 160,
+   "labels_sha256": "652941103d4938cd6ccee0bbbcadcbbc9d7e896ad3b4ec174a5791e5a8f0176f",
+   "kind": "present"
+  },
+  {
+   "key": "006_present1",
+   "clip": "006_Create-Area-Route2",
+   "video": "006_Create-Area-Route2.mp4",
+   "video_sha256": "d20f7aef32d16d28a58d10f10de10c9688200c9a0b5cc1f141edf4acdc7b4ab0",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 3719,
+   "count": 160,
+   "labels_sha256": "652941103d4938cd6ccee0bbbcadcbbc9d7e896ad3b4ec174a5791e5a8f0176f",
+   "kind": "present"
+  },
+  {
+   "key": "007_present0",
+   "clip": "007_Create-Area-Route2",
+   "video": "007_Create-Area-Route2.mp4",
+   "video_sha256": "2604c6a47cef5126af96af45fe12ec2acac3169cc18756facb917ae034dde5fc",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 6198,
+   "count": 160,
+   "labels_sha256": "08975d107e0a710f3f27271e7b0aa2098f85fbe5b9de719b979bf035185376fb",
+   "kind": "present"
+  },
+  {
+   "key": "007_present1",
+   "clip": "007_Create-Area-Route2",
+   "video": "007_Create-Area-Route2.mp4",
+   "video_sha256": "2604c6a47cef5126af96af45fe12ec2acac3169cc18756facb917ae034dde5fc",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 3722,
+   "count": 139,
+   "labels_sha256": "08975d107e0a710f3f27271e7b0aa2098f85fbe5b9de719b979bf035185376fb",
+   "kind": "present"
+  },
+  {
+   "key": "008_present0",
+   "clip": "008_Create-Area-Route2",
+   "video": "008_Create-Area-Route2.mp4",
+   "video_sha256": "de512328e6f6cae78ae8b64d6b75026ef4fd9c2079d7067dd6af1d728acfca1b",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 6240,
+   "count": 160,
+   "labels_sha256": "96a3bce49cf54b7271a16c9f4748626966ceded18f75f24c52e001e26f5b6618",
+   "kind": "present"
+  },
+  {
+   "key": "009_present0",
+   "clip": "009_Create-Area-Route3",
+   "video": "009_Create-Area-Route3.mp4",
+   "video_sha256": "fa642193499b8e3458f3b4a3469e23c708de57a30e7c8e5ff8d057ad2d54d8e1",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 3082,
+   "count": 160,
+   "labels_sha256": "6ef56492123c8642b27ee6d9534b6de14973a779ea0bb9c419e5964b3f6beeff",
+   "kind": "present"
+  },
+  {
+   "key": "009_present1",
+   "clip": "009_Create-Area-Route3",
+   "video": "009_Create-Area-Route3.mp4",
+   "video_sha256": "fa642193499b8e3458f3b4a3469e23c708de57a30e7c8e5ff8d057ad2d54d8e1",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 3684,
+   "count": 160,
+   "labels_sha256": "6ef56492123c8642b27ee6d9534b6de14973a779ea0bb9c419e5964b3f6beeff",
+   "kind": "present"
+  },
+  {
+   "key": "010_present0",
+   "clip": "010_Create-Area-Route3",
+   "video": "010_Create-Area-Route3.mp4",
+   "video_sha256": "5616c3ebafeafb02f41602e5afc426cf17a09f37ed480c88bf7869284bc89ffc",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 3725,
+   "count": 160,
+   "labels_sha256": "c4d3c7c77aaddd8d04fcf683c1f3cb97601b809bebd3b03bf4d4845de239b1d7",
+   "kind": "present"
+  },
+  {
+   "key": "010_present1",
+   "clip": "010_Create-Area-Route3",
+   "video": "010_Create-Area-Route3.mp4",
+   "video_sha256": "5616c3ebafeafb02f41602e5afc426cf17a09f37ed480c88bf7869284bc89ffc",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 2597,
+   "count": 160,
+   "labels_sha256": "c4d3c7c77aaddd8d04fcf683c1f3cb97601b809bebd3b03bf4d4845de239b1d7",
+   "kind": "present"
+  },
+  {
+   "key": "011_present0",
+   "clip": "011_Create-Area-Route3",
+   "video": "011_Create-Area-Route3.mp4",
+   "video_sha256": "be520a4ce953157d4e8748978f41332012ac9ed2fc8823446a9832a5259a288d",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 2026,
+   "count": 160,
+   "labels_sha256": "8dc4d19c7a743e050cd68362c61f066c7dc107619de2bdf5e6b085fa611a7636",
+   "kind": "present"
+  },
+  {
+   "key": "011_present1",
+   "clip": "011_Create-Area-Route3",
+   "video": "011_Create-Area-Route3.mp4",
+   "video_sha256": "be520a4ce953157d4e8748978f41332012ac9ed2fc8823446a9832a5259a288d",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 2624,
+   "count": 160,
+   "labels_sha256": "8dc4d19c7a743e050cd68362c61f066c7dc107619de2bdf5e6b085fa611a7636",
+   "kind": "present"
+  },
+  {
+   "key": "012_present0",
+   "clip": "012_Create-Area-Route3",
+   "video": "012_Create-Area-Route3.mp4",
+   "video_sha256": "b65293a8099d312cf31b0e613bcb9a63661f8ea353061cb0e0250e733fbf6655",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 2639,
+   "count": 136,
+   "labels_sha256": "53409637d698db1100ae0bf2b88633f3ec6c01f79ad39a5c1c98e3ef761e0b0d",
+   "kind": "present"
+  },
+  {
+   "key": "012_present1",
+   "clip": "012_Create-Area-Route3",
+   "video": "012_Create-Area-Route3.mp4",
+   "video_sha256": "b65293a8099d312cf31b0e613bcb9a63661f8ea353061cb0e0250e733fbf6655",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 6444,
+   "count": 136,
+   "labels_sha256": "53409637d698db1100ae0bf2b88633f3ec6c01f79ad39a5c1c98e3ef761e0b0d",
+   "kind": "present"
+  },
+  {
+   "key": "013_present0",
+   "clip": "013_Create-Area-Route4",
+   "video": "013_Create-Area-Route4.mp4",
+   "video_sha256": "4fa12c9c83c93f823ed85c1599559139a53132c4dc8136d1a6a36184902f1dbd",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 2800,
+   "count": 160,
+   "labels_sha256": "306d9756f6f1c9404f56152bc840a13abfc2d3731779dab449d58ccb0053f136",
+   "kind": "present"
+  },
+  {
+   "key": "013_present1",
+   "clip": "013_Create-Area-Route4",
+   "video": "013_Create-Area-Route4.mp4",
+   "video_sha256": "4fa12c9c83c93f823ed85c1599559139a53132c4dc8136d1a6a36184902f1dbd",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 2118,
+   "count": 160,
+   "labels_sha256": "306d9756f6f1c9404f56152bc840a13abfc2d3731779dab449d58ccb0053f136",
+   "kind": "present"
+  },
+  {
+   "key": "014_present0",
+   "clip": "014_Create-Area-Route4",
+   "video": "014_Create-Area-Route4.mp4",
+   "video_sha256": "8f61b392882a9fb167e14274a93d3ce1d7b3b3e20535d297c2d5d311f63a6f9c",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 2849,
+   "count": 160,
+   "labels_sha256": "a2c8cf0c8589805d89f1912774ed64276381856d59cff7f8570bcd1d97857817",
+   "kind": "present"
+  },
+  {
+   "key": "014_present1",
+   "clip": "014_Create-Area-Route4",
+   "video": "014_Create-Area-Route4.mp4",
+   "video_sha256": "8f61b392882a9fb167e14274a93d3ce1d7b3b3e20535d297c2d5d311f63a6f9c",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 2160,
+   "count": 160,
+   "labels_sha256": "a2c8cf0c8589805d89f1912774ed64276381856d59cff7f8570bcd1d97857817",
+   "kind": "present"
+  },
+  {
+   "key": "014_absence2",
+   "clip": "014_Create-Area-Route4",
+   "video": "014_Create-Area-Route4.mp4",
+   "video_sha256": "8f61b392882a9fb167e14274a93d3ce1d7b3b3e20535d297c2d5d311f63a6f9c",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 734,
+   "count": 160,
+   "labels_sha256": "a2c8cf0c8589805d89f1912774ed64276381856d59cff7f8570bcd1d97857817",
+   "kind": "absence"
+  },
+  {
+   "key": "015_present0",
+   "clip": "015_Create-Area-Route4",
+   "video": "015_Create-Area-Route4.mp4",
+   "video_sha256": "d094b833bcdc807941cf31fbdd9825b85e2a37c242f012dbc8eb4c4cb65b4244",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 2879,
+   "count": 160,
+   "labels_sha256": "e75d9ecf7fcba365ae8683d10f4e3bcf3f66529389a1c38c4fac8ead88cffd6a",
+   "kind": "present"
+  },
+  {
+   "key": "015_present1",
+   "clip": "015_Create-Area-Route4",
+   "video": "015_Create-Area-Route4.mp4",
+   "video_sha256": "d094b833bcdc807941cf31fbdd9825b85e2a37c242f012dbc8eb4c4cb65b4244",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 7046,
+   "count": 160,
+   "labels_sha256": "e75d9ecf7fcba365ae8683d10f4e3bcf3f66529389a1c38c4fac8ead88cffd6a",
+   "kind": "present"
+  },
+  {
+   "key": "016_present0",
+   "clip": "016_Create-Area-Route4",
+   "video": "016_Create-Area-Route4.mp4",
+   "video_sha256": "5ef6d21f8bb33ab0ebffa7c9972e7828f9332d5a7a3a2b3dbbf62946d7f4c2fa",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 2914,
+   "count": 146,
+   "labels_sha256": "6a0d7c215a7621ad9f807117e08b142c8bda3eff84bc6fb853aa1aa901ac64d4",
+   "kind": "present"
+  },
+  {
+   "key": "016_present1",
+   "clip": "016_Create-Area-Route4",
+   "video": "016_Create-Area-Route4.mp4",
+   "video_sha256": "5ef6d21f8bb33ab0ebffa7c9972e7828f9332d5a7a3a2b3dbbf62946d7f4c2fa",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 3331,
+   "count": 135,
+   "labels_sha256": "6a0d7c215a7621ad9f807117e08b142c8bda3eff84bc6fb853aa1aa901ac64d4",
+   "kind": "present"
+  },
+  {
+   "key": "017_present0",
+   "clip": "017_Create-Area-Route5",
+   "video": "017_Create-Area-Route5.mp4",
+   "video_sha256": "1301004c0d8414084a172ed409cba64121201886c35a05fa5500c9cfe5b615b3",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 2020,
+   "count": 160,
+   "labels_sha256": "2ba87d03612f1dd772b703fa80087fa6d45214893585e9742088939d07c006da",
+   "kind": "present"
+  },
+  {
+   "key": "017_present1",
+   "clip": "017_Create-Area-Route5",
+   "video": "017_Create-Area-Route5.mp4",
+   "video_sha256": "1301004c0d8414084a172ed409cba64121201886c35a05fa5500c9cfe5b615b3",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 903,
+   "count": 160,
+   "labels_sha256": "2ba87d03612f1dd772b703fa80087fa6d45214893585e9742088939d07c006da",
+   "kind": "present"
+  },
+  {
+   "key": "018_present0",
+   "clip": "018_Create-Area-Route5",
+   "video": "018_Create-Area-Route5.mp4",
+   "video_sha256": "79964fe6d55dc02f26432748f837aedd5d416b9babef77c415a6e6c1fe67b173",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 6203,
+   "count": 160,
+   "labels_sha256": "f9c68a847061e94cef0c690bc6fd998e25b01b09c73a2c9a3c7c35c2aa09b060",
+   "kind": "present"
+  },
+  {
+   "key": "018_present1",
+   "clip": "018_Create-Area-Route5",
+   "video": "018_Create-Area-Route5.mp4",
+   "video_sha256": "79964fe6d55dc02f26432748f837aedd5d416b9babef77c415a6e6c1fe67b173",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 940,
+   "count": 160,
+   "labels_sha256": "f9c68a847061e94cef0c690bc6fd998e25b01b09c73a2c9a3c7c35c2aa09b060",
+   "kind": "present"
+  },
+  {
+   "key": "019_present0",
+   "clip": "019_Create-Area-Route5",
+   "video": "019_Create-Area-Route5.mp4",
+   "video_sha256": "e1ce207741e5d0d507439f8be197c2e3fa07f62ef7f11e6a80e51481987fead9",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 6250,
+   "count": 160,
+   "labels_sha256": "a7a873a008103d57e3ce6cbf6159ad9c4f4ad1fd5c6cefb1b595edc0cc839b79",
+   "kind": "present"
+  },
+  {
+   "key": "019_present1",
+   "clip": "019_Create-Area-Route5",
+   "video": "019_Create-Area-Route5.mp4",
+   "video_sha256": "e1ce207741e5d0d507439f8be197c2e3fa07f62ef7f11e6a80e51481987fead9",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 2052,
+   "count": 140,
+   "labels_sha256": "a7a873a008103d57e3ce6cbf6159ad9c4f4ad1fd5c6cefb1b595edc0cc839b79",
+   "kind": "present"
+  },
+  {
+   "key": "020_present0",
+   "clip": "020_Create-Area-Route5",
+   "video": "020_Create-Area-Route5.mp4",
+   "video_sha256": "7c7bc371385ad3e9a5d84cb48c70f21b9287582f1ee5d55ee8a59d7fb9a983e7",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 6306,
+   "count": 160,
+   "labels_sha256": "26df726388a36043197ba637608f505197624fbd74192b1d294ca05d315ee19e",
+   "kind": "present"
+  },
+  {
+   "key": "020_absence1",
+   "clip": "020_Create-Area-Route5",
+   "video": "020_Create-Area-Route5.mp4",
+   "video_sha256": "7c7bc371385ad3e9a5d84cb48c70f21b9287582f1ee5d55ee8a59d7fb9a983e7",
+   "dimensions": [
+    3840,
+    2160
+   ],
+   "fps": 29.97,
+   "start": 302,
+   "count": 160,
+   "labels_sha256": "26df726388a36043197ba637608f505197624fbd74192b1d294ca05d315ee19e",
+   "kind": "absence"
+  }
+ ]
+}

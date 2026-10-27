@@ -1,0 +1,373 @@
+{
+ "set": "ard100",
+ "rule": "26 windows on 11 ARD100 test videos, chosen from the publisher's labels before any model ran on these videos: the 5 videos with the longest labelled-empty run, the 3 whose median drone size is closest to 23 px (the median size on our own flights), and the 3 with the smallest drones. Every video has a 'first' window from frame 4 and a 'middle' window from its median frame showing a drone, moved so that it fits and does not overlap 'first'. Four of the five long-empty-run videos also have an 'absence' window starting 40 frames before that run. Each window has 160 frames.",
+ "labels": "Frame n (counting from 0) is label file n + 1. A box is the publisher's VOC box with 1 subtracted from xmin and ymin, as in the dataset authors' own converter. A frame without a label file is skipped.",
+ "videos_folder": "the folder holding phantom119.mp4 and the other test videos (ARD100/test_videos in the archive)",
+ "labels_folder": "the folder holding one subfolder of XML files per video, such as phantom119/phantom119_0005.xml (annotations in annotations.zip)",
+ "windows": [
+  {
+   "key": "phantom119_first",
+   "clip": "phantom119",
+   "video": "phantom119.mp4",
+   "video_sha256": "65fd0e0e7d8f8fb5ee79ae041c81eebff1cbf5a5815a2f23ac9bde1bbb6815f9",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "28afe1e7ce9b86b8fdb6f4fdb1cb5d51bd5586b1a271583d8fe12403a33aa639"
+  },
+  {
+   "key": "phantom119_middle",
+   "clip": "phantom119",
+   "video": "phantom119.mp4",
+   "video_sha256": "65fd0e0e7d8f8fb5ee79ae041c81eebff1cbf5a5815a2f23ac9bde1bbb6815f9",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 1833,
+   "count": 160,
+   "labels_sha256": "f4d8215028994b82b3d7868b33a89978fe672bb04872c88f8e84f763fc5d9e02"
+  },
+  {
+   "key": "phantom119_absence",
+   "clip": "phantom119",
+   "video": "phantom119.mp4",
+   "video_sha256": "65fd0e0e7d8f8fb5ee79ae041c81eebff1cbf5a5815a2f23ac9bde1bbb6815f9",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 939,
+   "count": 160,
+   "labels_sha256": "f1a2d2b2d290e8d7392f12b066e45df8c71b2706e769688f3f0384480b2d9dfe"
+  },
+  {
+   "key": "phantom102_first",
+   "clip": "phantom102",
+   "video": "phantom102.mp4",
+   "video_sha256": "a7f96c3492d908feffc1734ef733565773e6491a7611210eb9137fb2a048c24a",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "ef611315a8250b16d35ada0159454d87899842be3cf863045e99d00d3e4df1dd"
+  },
+  {
+   "key": "phantom102_middle",
+   "clip": "phantom102",
+   "video": "phantom102.mp4",
+   "video_sha256": "a7f96c3492d908feffc1734ef733565773e6491a7611210eb9137fb2a048c24a",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 1676,
+   "count": 160,
+   "labels_sha256": "6669bdcdf94ddb86f07e323d5c10a7b75b701619e4a9324c2d1a9ae334b04278"
+  },
+  {
+   "key": "phantom144_first",
+   "clip": "phantom144",
+   "video": "phantom144.mp4",
+   "video_sha256": "ed63bad15e54d303e59dfc7e8ed473539908605bf6e88ec4df26eae7edec44d3",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "a501f38137fe99f3dfa40a27a121964ed21b86a50fbdd48c3e7a9b94f36aca7a"
+  },
+  {
+   "key": "phantom144_middle",
+   "clip": "phantom144",
+   "video": "phantom144.mp4",
+   "video_sha256": "ed63bad15e54d303e59dfc7e8ed473539908605bf6e88ec4df26eae7edec44d3",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 1318,
+   "count": 160,
+   "labels_sha256": "3be17364d06f81415f1cf4048fcb01a3072f2a11cfddfc288a29093bab4769ef"
+  },
+  {
+   "key": "phantom144_absence",
+   "clip": "phantom144",
+   "video": "phantom144.mp4",
+   "video_sha256": "ed63bad15e54d303e59dfc7e8ed473539908605bf6e88ec4df26eae7edec44d3",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 1542,
+   "count": 160,
+   "labels_sha256": "0d8c75f370310043c8d161346f580b372e22ac23a716dee813faf8b75b977ffd"
+  },
+  {
+   "key": "phantom97_first",
+   "clip": "phantom97",
+   "video": "phantom97.mp4",
+   "video_sha256": "58a283fa55c0fea9cb31420376d7ea263b7d7ec3a8a751b6e4742d4bacb42ea5",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "8ce29f951dd607fdc987c817a3373d2424d16d27ad4f2c7b19d052017f5aa1e0"
+  },
+  {
+   "key": "phantom97_middle",
+   "clip": "phantom97",
+   "video": "phantom97.mp4",
+   "video_sha256": "58a283fa55c0fea9cb31420376d7ea263b7d7ec3a8a751b6e4742d4bacb42ea5",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 875,
+   "count": 160,
+   "labels_sha256": "82f94d307f1accb2c52c23c6d031a42e72affe00711858254693726df7e414a3"
+  },
+  {
+   "key": "phantom97_absence",
+   "clip": "phantom97",
+   "video": "phantom97.mp4",
+   "video_sha256": "58a283fa55c0fea9cb31420376d7ea263b7d7ec3a8a751b6e4742d4bacb42ea5",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 1320,
+   "count": 160,
+   "labels_sha256": "7d30a9fcd86a465ad8867bb3108f2c4559a49fab5ecf23fb457fe9930f3c09aa"
+  },
+  {
+   "key": "phantom141_first",
+   "clip": "phantom141",
+   "video": "phantom141.mp4",
+   "video_sha256": "d477c3ab3e02d8edf157b41344db4ff12a3a97472da704e76470cfa5fe04d9b3",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "6465d8fa91dce5f17baee84a53af2f60ed323debbf6e2bfadb33ddf3a762f78c"
+  },
+  {
+   "key": "phantom141_middle",
+   "clip": "phantom141",
+   "video": "phantom141.mp4",
+   "video_sha256": "d477c3ab3e02d8edf157b41344db4ff12a3a97472da704e76470cfa5fe04d9b3",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 920,
+   "count": 160,
+   "labels_sha256": "fa443d67f915d52592c13ecda35ceac52bb3e5915de86b8457a2b0beaa5fc715"
+  },
+  {
+   "key": "phantom141_absence",
+   "clip": "phantom141",
+   "video": "phantom141.mp4",
+   "video_sha256": "d477c3ab3e02d8edf157b41344db4ff12a3a97472da704e76470cfa5fe04d9b3",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 299,
+   "count": 160,
+   "labels_sha256": "c0a26af724e442402731ad852ded5b9323440a69728678db3e0a2876254c43bc"
+  },
+  {
+   "key": "phantom02_first",
+   "clip": "phantom02",
+   "video": "phantom02.mp4",
+   "video_sha256": "f6bed6a509da5870b427d6b62d4b90b6d5b38e355131d9060012d359e19f9f3d",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "4847cf894142dfa4f3bf74174feaccf08086995e172ca814bf547bdaf043db2c"
+  },
+  {
+   "key": "phantom02_middle",
+   "clip": "phantom02",
+   "video": "phantom02.mp4",
+   "video_sha256": "f6bed6a509da5870b427d6b62d4b90b6d5b38e355131d9060012d359e19f9f3d",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 901,
+   "count": 160,
+   "labels_sha256": "d11de5a7b8de105d0cfd8c89f272d6d5e73e28764be7ff9b4bd5097d4d92cd9e"
+  },
+  {
+   "key": "phantom133_first",
+   "clip": "phantom133",
+   "video": "phantom133.mp4",
+   "video_sha256": "e33d7676fd158bb1e5bc0e36ea093f322efd1e762305fec4184452ede31575d9",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "4b95d2727d8fa07a687963a744c8bd9993d76fd911b7fbdba84a536e936632ae"
+  },
+  {
+   "key": "phantom133_middle",
+   "clip": "phantom133",
+   "video": "phantom133.mp4",
+   "video_sha256": "e33d7676fd158bb1e5bc0e36ea093f322efd1e762305fec4184452ede31575d9",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 903,
+   "count": 160,
+   "labels_sha256": "9c61735682989afb25a99c68e0569c55b01619123cdb5f3d5e46d538f33627fc"
+  },
+  {
+   "key": "phantom05_first",
+   "clip": "phantom05",
+   "video": "phantom05.mp4",
+   "video_sha256": "f79bf5284282a01dbd97eba088003f8c172a1d95d877ff4c92f95c88ddbb555f",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "0d6185b562850d591ef8a4fcd82b819972a56605262ac8384197815315924233"
+  },
+  {
+   "key": "phantom05_middle",
+   "clip": "phantom05",
+   "video": "phantom05.mp4",
+   "video_sha256": "f79bf5284282a01dbd97eba088003f8c172a1d95d877ff4c92f95c88ddbb555f",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 901,
+   "count": 160,
+   "labels_sha256": "6e3a62f3addd7dfb0293c2be5bb2e47f693c5669088669c7fd0392a66248e1fa"
+  },
+  {
+   "key": "phantom73_first",
+   "clip": "phantom73",
+   "video": "phantom73.mp4",
+   "video_sha256": "c4bdfa30d99b14e1e284e0d36344d9be53a05dc986fca6c11b7bd01e58acf706",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "22e5635d5acace85692ff49d942e2cffe011c5c68256d7485a6c5fc752c074a9"
+  },
+  {
+   "key": "phantom73_middle",
+   "clip": "phantom73",
+   "video": "phantom73.mp4",
+   "video_sha256": "c4bdfa30d99b14e1e284e0d36344d9be53a05dc986fca6c11b7bd01e58acf706",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 977,
+   "count": 160,
+   "labels_sha256": "4f0a80425ded9b5a576a98cd0343eaf690f97fb356bef407ac49bc1355e461a9"
+  },
+  {
+   "key": "phantom61_first",
+   "clip": "phantom61",
+   "video": "phantom61.mp4",
+   "video_sha256": "4129a9b2c9fb368a69c007a8760a1ee24b8b49c585270e82db6f7692c51c966e",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "c1c99ff61461c9e435b96611d704c51c2c8097dc8a014306f0be1547a3db781c"
+  },
+  {
+   "key": "phantom61_middle",
+   "clip": "phantom61",
+   "video": "phantom61.mp4",
+   "video_sha256": "4129a9b2c9fb368a69c007a8760a1ee24b8b49c585270e82db6f7692c51c966e",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 901,
+   "count": 160,
+   "labels_sha256": "0e4e209f1312746dc1762027eeb178da779db4fd03c48cf972dcba8c80d3dddc"
+  },
+  {
+   "key": "phantom50_first",
+   "clip": "phantom50",
+   "video": "phantom50.mp4",
+   "video_sha256": "a89476161d5d31dc2668a36a24eda9a72be82b4ec5632cefe1cb393eeb47a86e",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 4,
+   "count": 160,
+   "labels_sha256": "45cebe969fe6e96ba0b2fcf48e1fc9bc161cdd5da13a6d2d0a7158cbcb01d425"
+  },
+  {
+   "key": "phantom50_middle",
+   "clip": "phantom50",
+   "video": "phantom50.mp4",
+   "video_sha256": "a89476161d5d31dc2668a36a24eda9a72be82b4ec5632cefe1cb393eeb47a86e",
+   "dimensions": [
+    1920,
+    1080
+   ],
+   "fps": 29.97002997002997,
+   "start": 889,
+   "count": 160,
+   "labels_sha256": "60f8e5497d551c49d40bc7961e134ee4c5794fdb695d36d839ad7b1d461ebc59"
+  }
+ ]
+}
