@@ -39,5 +39,35 @@ class TileLabels(unittest.TestCase):
         self.assertEqual(tile_labels(boxes, 0, 0), ['0 0.968750 0.171875 0.062500 0.031250'])
 
 
+class PastedCars(unittest.TestCase):
+    def test_paste_blends_by_alpha(self):
+        from drone_model.build_tiles import paste
+        image = np.full((20, 20, 3), 100, np.uint8)
+        patch = np.zeros((4, 4, 4), np.uint8)
+        patch[:, :, :3] = 200
+        patch[1:3, 1:3, 3] = 255
+        paste(image, patch, 10, 10)
+        self.assertEqual(image[9, 9].tolist(), [200, 200, 200])
+        self.assertEqual(image[8, 8].tolist(), [100, 100, 100])
+
+    def test_cars_stay_clear_of_drones_and_inside_the_frame(self):
+        import random
+        from drone_model.build_tiles import add_cars
+        rng = random.Random(1)
+        car = np.zeros((30, 50, 4), np.uint8)
+        car[:, :, :3], car[:, :, 3] = 60, 255
+        color = np.full((1080, 1920, 3), 120, np.uint8)
+        stack = np.full((1080, 1920, 3), 120, np.uint8)
+        drone = [900.0, 500.0, 930.0, 520.0]
+        for _ in range(20):
+            new_color, new_stack, centres = add_cars(color, stack, [drone], rng, [car])
+            self.assertTrue(np.array_equal(color, np.full_like(color, 120)))  # inputs are not changed
+            for x, y in centres:
+                self.assertTrue(40 <= x < 1920 - 40 and 40 <= y < 1080 - 40)
+                self.assertTrue(x <= drone[0] - 92 or x >= drone[2] + 92 or y <= drone[1] - 92 or y >= drone[3] + 92)
+            if centres:
+                self.assertFalse(np.array_equal(new_stack[:, :, 0], new_stack[:, :, 2]))  # the car moved between f-4 and f
+
+
 if __name__ == '__main__':
     unittest.main()
