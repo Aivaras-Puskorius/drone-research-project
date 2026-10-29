@@ -1,0 +1,7 @@
+# Large scene assets are shared outside Git (see dataset_creation/readme.md)
+dataset_creation/photogrametry/
+*.blend
+*.blend1
+
+# Python
+__pycache__/
