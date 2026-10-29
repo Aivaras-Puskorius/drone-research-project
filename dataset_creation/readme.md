@@ -37,7 +37,7 @@ To update the add-on, disable or remove the old version in Preferences, then ins
 
 The photogrammetry terrain (~2.8 GB) and the example scene (`kmz_test_spiral.blend`, ~300 MB) are too large for GitHub. Download them from OneDrive:
 
-**➡ [Download the scene assets](ONEDRIVE_LINK_HERE)**
+**➡ [Download the scene assets](https://ktuedu-my.sharepoint.com/:f:/r/personal/ugnluk1_ktu_lt/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fugnluk1%5Fktu%5Flt%2FDocuments%2Ftyrimas%2Fsim%2Ddataset%2Fblender%5Ffiles&share=cgreloW%5F9TP5TZdwX2sfOba7EgUCl3FIxqYB9bylrhR3S84yQA)**
 
 Place them inside `dataset_creation/` with this structure:
 
