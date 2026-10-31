@@ -34,7 +34,9 @@ and pixels-before-pasting:
   extra empty tiles.
 - --scale-copies: per sampled frame, one drone tile and one empty tile cut from the frame downscaled by 2 or 3
   (names `_s2_` or `_s3_`), so drones of about 7-35 px appear. They are cut from the frames without pasted cars,
-  and the stand-out and no-empty rules apply to them like to every other tile.
+  and the stand-out and no-empty rules apply to them like to every other tile. --scale-factors changes the
+  factors drawn from (a fraction becomes `p` in names, `_s3p375_`), and --copies-per-frame adds more copies per
+  frame, named `_s<factor>c<k>_` from the second one on.
 """
 from __future__ import annotations
 
@@ -56,7 +58,11 @@ MARGIN, DRONE_TILES, SEED, FIRST_FRAME = 48, 3, 20261012, 4
 SCENES = {'centras1': ('0001-0400.mp4', [(0, 400)]), 'ktuxi2': ('0001-0400.mp4', [(0, 400)]),
           'eiguliai1': ('0001-1120.mp4', [(0, 400), (400, 800), (800, 1120)]),
           'amaliai1': ('0001-1120.mp4', [(0, 400), (400, 800), (800, 1120)]),
-          'centras2': ('0001-1000.mp4', [(0, 1000)]), 'ktuxi3': ('0001-1000.mp4', [(0, 1000)])}
+          'centras2': ('0001-1000.mp4', [(0, 1000)]), 'ktuxi3': ('0001-1000.mp4', [(0, 1000)]),
+          # Our own renders, made with the dataset_creation add-on in the centras2 scene (centras terrain, centras2
+          # camera path): hovering, distant and moving drones. Not published yet.
+          'r1_hover': ('0001-1000.mp4', [(0, 1000)]), 'r1_far': ('0001-1000.mp4', [(0, 1000)]),
+          'r1_move': ('0001-1000.mp4', [(0, 1000)])}
 # Seeds of the option generators, as in the research builder (SEED + 2 was its degraded-video option).
 SCALE_SEED, CARS_SEED = SEED + 1, SEED + 3
 
@@ -222,6 +228,9 @@ def main() -> None:
     parser.add_argument('--cars', type=Path, help='folder of BGRA car patches to paste as unlabelled moving objects')
     parser.add_argument('--cars-control', action='store_true', help='with --cars: add the car tiles at the same places, without cars')
     parser.add_argument('--scale-copies', action='store_true', help='add tiles cut from the frame downscaled by 2 or 3')
+    parser.add_argument('--scale-factors', type=float, nargs='+', default=[2, 3],
+                        help='with --scale-copies: downscale factors to draw from (default 2 3); the frame must stay at least 640 px high')
+    parser.add_argument('--copies-per-frame', type=int, default=1, help='with --scale-copies: downscaled copies per sampled frame')
     args = parser.parse_args()
     out = args.out.resolve()
     if out.exists():
@@ -229,6 +238,8 @@ def main() -> None:
     if args.cars_control and not args.cars:
         raise ValueError('--cars-control needs --cars, whose random car places it repeats')
     cars = load_cars(args.cars) if args.cars else []
+    # Whole-number factors stay ints, so the default draws, sizes and names equal the research builder's.
+    factors = tuple(int(f) if float(f).is_integer() else f for f in args.scale_factors)
     for kind in ('images', 'labels'):
         for split in ('train', 'val'):
             (out / kind / split).mkdir(parents=True)
@@ -304,9 +315,11 @@ def main() -> None:
                     window = (slice(oy, oy + TILE), slice(ox, ox + TILE))
                     write(f'{scene}_f{frame:04d}_{number}', split, scene, frame, kind, (ox, oy), color[window], stack[window],
                           tile_labels(present, ox, oy), decide=(bgr[window], clean_stack[window]) if centres else None)
-                if args.scale_copies:
-                    factor = rng_scale.choice((2, 3))
-                    size = (width // factor, height // factor)
+                for copy in range(args.copies_per_frame if args.scale_copies else 0):
+                    factor = rng_scale.choice(factors)
+                    size = (int(width // factor), int(height // factor))
+                    if min(size) < TILE:
+                        raise ValueError(f'{scene}: factor {factor} leaves {size}, smaller than a {TILE} px tile')
                     small_color = cv2.resize(bgr, size, interpolation=cv2.INTER_AREA)
                     small_stack = np.dstack([cv2.resize(clean_stack[:, :, c], size, interpolation=cv2.INTER_AREA) for c in range(3)])
                     small_boxes = [b for b in ([v / factor for v in box] for box in present) if b[2] - b[0] >= 2 and b[3] - b[1] >= 2]
@@ -319,13 +332,15 @@ def main() -> None:
                         extra.append(('empty', *spot))
                     for number, (kind, ox, oy) in enumerate(extra):
                         window = (slice(oy, oy + TILE), slice(ox, ox + TILE))
-                        write(f'{scene}_f{frame:04d}_s{factor}_{number}', split, scene, frame, kind, (ox, oy), small_color[window],
+                        tag = f's{factor}'.replace('.', 'p') + (f'c{copy}' if copy else '')
+                        write(f'{scene}_f{frame:04d}_{tag}_{number}', split, scene, frame, kind, (ox, oy), small_color[window],
                               small_stack[window], tile_labels(small_boxes, ox, oy), scale=factor)
         finally:
             capture.release()
     (out / 'dataset.yaml').write_text(f'path: {out}\ntrain: images/train\nval: images/val\nchannels: {CHANNELS}\nnames:\n  0: drone\n')
     record = {'rule': __doc__.strip(), 'seed': SEED, 'scenes': args.scenes, 'standout_scenes': args.standout_scenes,
               'no_empty_scenes': args.no_empty_scenes, 'scale_copies': args.scale_copies, 'cars_control': args.cars_control,
+              'scale_factors': list(factors), 'copies_per_frame': args.copies_per_frame,
               'cars': {p.name: sha(p) for p in sorted(args.cars.glob('*.png'))} if args.cars else None,
               'videos_sha256': {s: sha(args.renders / s / SCENES[s][0]) for s in args.scenes},
               'versions': runtime_versions('cpu'), 'counts': counts, 'dropped_not_standing_out': dropped, 'tiles': tiles}

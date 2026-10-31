@@ -52,6 +52,7 @@ def main() -> None:
     parser.add_argument('--seed', type=int, required=True)
     parser.add_argument('--device', default='0')
     parser.add_argument('--config', type=Path, default=CONFIG)
+    parser.add_argument('--model', default='yolo26n.yaml', help='ultralytics model definition, e.g. yolo26s.yaml for the larger network')
     parser.add_argument('--set', nargs='+', default=[], metavar='KEY=VALUE', help='override a setting, e.g. epochs=2')
     parser.add_argument('--resume', action='store_true', help='continue a stopped run with the same arguments')
     parser.add_argument('--gpu-share-file', type=Path)
@@ -83,10 +84,10 @@ def main() -> None:
         if run.exists() or record_path.exists():
             raise FileExistsError(f'{run} exists; use --resume to continue it')
         out.mkdir(parents=True, exist_ok=True)
-        record = {'status': 'running', 'data': str(data), 'data_sha256': sha(data), 'settings': settings,
+        record = {'status': 'running', 'data': str(data), 'data_sha256': sha(data), 'model': args.model, 'settings': settings,
                   'versions': runtime_versions(args.device), 'started_unix_s': started}
         write(record_path, record)
-        model = YOLO('yolo26n.yaml')  # random weights; the input channel count comes from dataset.yaml
+        model = YOLO(args.model)  # random weights; the input channel count comes from dataset.yaml
     for event in ('on_train_batch_end', 'on_val_batch_end'):
         model.add_callback(event, share.callback)
     model.add_callback('on_train_epoch_start', share.restart)

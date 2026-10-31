@@ -45,13 +45,15 @@ All commands run from this folder.
 python -m drone_model.build_tiles --renders /path/to/renders --out tiles/e1
 ```
 
-The defaults build E1's training set: scenes `centras1`, `ktuxi2`, `eiguliai1` and `amaliai1`, 3,075 tiles and 4.1 GB, built in about 5 minutes. Options add tiles without changing these: `--cars FOLDER` pastes moving car patches cut from the renders, `--cars-control` adds the same extra tiles without the cars, and `--scale-copies` adds tiles cut from frames downscaled by 2 or 3, for small drones (`python -m drone_model.build_tiles --help`).
+The defaults build E1's training set: scenes `centras1`, `ktuxi2`, `eiguliai1` and `amaliai1`, 3,075 tiles and 4.1 GB, built in about 5 minutes. Options add tiles without changing these: `--cars FOLDER` pastes moving car patches cut from the renders, `--cars-control` adds the same extra tiles without the cars, and `--scale-copies` adds tiles cut from frames downscaled by 2 or 3, for small drones. `--scale-factors` and `--copies-per-frame` change the downscale factors and how many downscaled copies each frame gives (`python -m drone_model.build_tiles --help`).
 
 **2. Train** one model per seed, about 40 minutes each on an RTX 4070:
 
 ```bash
 python -m drone_model.train --data tiles/e1/dataset.yaml --out runs --name e1_seed23 --seed 23
 ```
+
+The network is YOLO26n. `--model yolo26s.yaml` trains the larger YOLO26s instead.
 
 **3. Make the test plans.** `windows/` lists where each of our test windows lies and how it was chosen, but holds no labels, because they belong to each dataset's publisher. Download the dataset, then rebuild the plan with its labels:
 
