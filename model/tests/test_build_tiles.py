@@ -71,3 +71,23 @@ class PastedCars(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class RenderedCarTiles(unittest.TestCase):
+    def test_tile_holds_the_car_and_no_drone(self):
+        import random
+        from drone_model.build_tiles import TILE, car_tile_place
+        rng = random.Random(3)
+        car, drone = [1000.0, 800.0, 1080.0, 840.0], [1500.0, 820.0, 1530.0, 850.0]
+        for _ in range(50):
+            ox, oy = car_tile_place(rng, [car], [drone], 3840, 2160)
+            self.assertTrue(ox <= 1040 < ox + TILE and oy <= 820 < oy + TILE)
+            self.assertTrue(1500 >= ox + TILE or 1530 <= ox or 820 >= oy + TILE or 850 <= oy)
+
+    def test_no_car_or_no_clear_place_gives_none(self):
+        import random
+        from drone_model.build_tiles import car_tile_place
+        rng = random.Random(3)
+        self.assertIsNone(car_tile_place(rng, [], [], 3840, 2160))
+        everywhere = [0.0, 0.0, 3840.0, 2160.0]
+        self.assertIsNone(car_tile_place(rng, [[1000.0, 800.0, 1080.0, 840.0]], [everywhere], 3840, 2160))
