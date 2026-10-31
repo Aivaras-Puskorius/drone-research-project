@@ -59,5 +59,51 @@ class ReplayWindow(unittest.TestCase):
         self.assertIsNone(frames[5]['box'])
 
 
+def drone_and_car(frames=21, start_car=6):
+    """A drone tracked from frame 0; from `start_car` a stronger detection far away (a car) appears every frame."""
+    rows = []
+    for f in range(frames):
+        found = [proposal(100 + 2 * f, 100, 0.8 if f < start_car else 0.6)]
+        if f >= start_car:
+            found.append(proposal(500, 400, 0.9))
+        rows.append({'frame': f, 'proposals': found, 'background_shift': [0, 0]})
+    return rows
+
+
+class GatedAssociation(unittest.TestCase):
+    def test_default_is_top1(self):
+        rows = drone_and_car()
+        self.assertEqual(replay_window(rows, FPS, 640, 480, threshold=0.5),
+                         replay_window(rows, FPS, 640, 480, threshold=0.5, association='top1'))
+
+    def test_top1_loses_the_drone_to_a_stronger_far_detection(self):
+        frames, _ = replay_window(drone_and_car(), FPS, 640, 480, threshold=0.5, association='top1')
+        self.assertLess(abs(frames[-1]['point'][0] - 500), 3)
+
+    def test_gated_keeps_the_established_track_on_the_drone(self):
+        frames, events = replay_window(drone_and_car(), FPS, 640, 480, threshold=0.5, association='gated')
+        self.assertTrue(all(f['box'] is not None for f in frames[2:]))
+        self.assertLess(abs(frames[-1]['point'][0] - 140), 3)
+        self.assertEqual(len(events), 1)
+
+    def test_gated_without_a_track_takes_the_most_confident(self):
+        rows = [{'frame': 0, 'proposals': [proposal(100, 100, 0.6), proposal(300, 300, 0.9)], 'background_shift': [0, 0]}]
+        frames, _ = replay_window(rows, FPS, 640, 480, threshold=0.5, association='gated')
+        self.assertEqual(frames[0]['detection'], [300, 300])
+
+    def test_gated_leaves_tentative_tracks_alone(self):
+        # Two hits on a weak detection, then a stronger one far away: as with top1, the tentative track restarts there.
+        rows = [{'frame': f, 'proposals': [proposal(100 + 2 * f, 100, 0.6)] + ([proposal(400, 300, 0.9)] if f == 2 else []),
+                 'background_shift': [0, 0]} for f in range(3)]
+        gated, _ = replay_window(rows, FPS, 640, 480, threshold=0.5, association='gated')
+        top1, _ = replay_window(rows, FPS, 640, 480, threshold=0.5, association='top1')
+        self.assertEqual(gated, top1)
+        self.assertEqual(gated[2]['detection'], [400, 300])
+
+    def test_unknown_association_is_rejected(self):
+        with self.assertRaises(ValueError):
+            replay_window(drone_and_car(3), FPS, 640, 480, threshold=0.5, association='nearest')
+
+
 if __name__ == '__main__':
     unittest.main()
