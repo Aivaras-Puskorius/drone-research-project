@@ -469,23 +469,39 @@ def read_mission_file(filepath):
     return waypoints, info
 
 
-def waypoints_to_local(waypoints):
-    """WGS84 lon/lat -> local metres around the first waypoint (X = east, Y = north)."""
+def _wgs84_to_ecef(lon, lat):
+    """WGS84 lon/lat (deg, on the ellipsoid) -> Earth-centred XYZ in metres."""
     a, e2 = 6378137.0, 6.69437999014e-3
-    lat0 = math.radians(waypoints[0]["lat"])
-    lon0 = waypoints[0]["lon"]
-    s2 = math.sin(lat0) ** 2
-    n = a / math.sqrt(1.0 - e2 * s2)                 # prime vertical radius
-    m = a * (1.0 - e2) / (1.0 - e2 * s2) ** 1.5      # meridian radius
+    lon, lat = math.radians(lon), math.radians(lat)
+    n = a / math.sqrt(1.0 - e2 * math.sin(lat) ** 2)   # prime vertical radius
+    return (n * math.cos(lat) * math.cos(lon),
+            n * math.cos(lat) * math.sin(lon),
+            n * (1.0 - e2) * math.sin(lat))
 
-    return [
-        Vector((
-            math.radians(w["lon"] - lon0) * n * math.cos(lat0),
-            math.radians(w["lat"] - waypoints[0]["lat"]) * m,
+
+def waypoints_to_local(waypoints):
+    """
+    WGS84 lon/lat -> local metres around the first waypoint (X = east, Y = north),
+    on the plane tangent to the WGS84 ellipsoid there (local ENU frame).
+    Distances stay within 1 mm of the true ones up to ~3 km, 1 cm at 10 km.
+    Z is the waypoint height, which DJI stores relative to the takeoff point.
+    """
+    lon0, lat0 = waypoints[0]["lon"], waypoints[0]["lat"]
+    lo, la = math.radians(lon0), math.radians(lat0)
+    east = (-math.sin(lo), math.cos(lo), 0.0)
+    north = (-math.sin(la) * math.cos(lo), -math.sin(la) * math.sin(lo), math.cos(la))
+    o = _wgs84_to_ecef(lon0, lat0)
+
+    points = []
+    for w in waypoints:
+        # Plain Python floats: mathutils.Vector is 32-bit, far too coarse for ECEF.
+        d = [c - c0 for c, c0 in zip(_wgs84_to_ecef(w["lon"], w["lat"]), o)]
+        points.append(Vector((
+            sum(x * y for x, y in zip(d, east)),
+            sum(x * y for x, y in zip(d, north)),
             w["height"],
-        ))
-        for w in waypoints
-    ]
+        )))
+    return points
 
 
 def mission_timeline(waypoints, points):
@@ -525,6 +541,10 @@ def generate_flight_from_mission(obj, p, filepath):
     time_scale = total_time / ((end - start) / fps)
 
     origin = scene.cursor.location.copy()   # takeoff point
+    if p.kmz_cursor_center:
+        # Shift XY so the mean of all waypoints lands on the cursor; Z unchanged.
+        origin.x -= sum(pt.x for pt in points) / len(points)
+        origin.y -= sum(pt.y for pt in points) / len(points)
     sample_frames = sample_frame_list(start, end, fps, p.samples_per_second)
 
     positions, velocities = [], []
@@ -892,6 +912,13 @@ class DroneFlightProperties(PropertyGroup):
         description="Stretch/compress the mission to exactly 'Frames' frames "
                     "instead of using the speed from the file"
     )
+    kmz_cursor_center: BoolProperty(
+        name="Cursor As Center",
+        default=False,
+        description="Place the XY center (mean of all waypoints) of the mission at the "
+                    "3D cursor instead of the takeoff point. Heights stay relative to the "
+                    "3D cursor Z, as with the takeoff point"
+    )
 
     csv_filepath: StringProperty(
         name="CSV File",
@@ -956,7 +983,8 @@ class DRONE_OT_generate(Operator):
 class DRONE_OT_generate_kmz(Operator):
     bl_idname = "drone.generate_from_kmz"
     bl_label = "Fly KMZ Mission"
-    bl_description = "Generate the flight from a KMZ/KML mission file (takeoff point = 3D cursor)"
+    bl_description = ("Generate the flight from a KMZ/KML mission file "
+                      "(3D cursor = takeoff point, or mission center with 'Cursor As Center')")
 
     filepath: StringProperty(subtype='FILE_PATH')
     filter_glob: StringProperty(default="*.kmz;*.kml;*.wpml", options={'HIDDEN'})
@@ -1102,6 +1130,21 @@ class DRONE_OT_clear(Operator):
         return {'FINISHED'}
 
 
+def section(layout, idname, title, icon):
+    """
+    Collapsible section, closed by default. Returns the layout to draw into,
+    or None while the section is collapsed. Blender 4.0 has no layout panels,
+    so there the section is drawn as an always-open box.
+    """
+    if hasattr(layout, "panel"):
+        header, body = layout.panel(idname, default_closed=True)
+        header.label(text=title, icon=icon)
+        return body
+    box = layout.box()
+    box.label(text=title, icon=icon)
+    return box
+
+
 class DRONE_PT_panel(Panel):
     bl_label = "Drone Flight Generator"
     bl_idname = "DRONE_PT_flight_panel"
@@ -1119,66 +1162,71 @@ class DRONE_PT_panel(Panel):
         else:
             layout.label(text="Select your drone object.", icon='ERROR')
 
-        box = layout.box()
-        box.label(text="Flight", icon='ANIM')
-        box.prop(p, "start_frame")
-        box.prop(p, "frame_count")
-        fps = context.scene.render.fps / context.scene.render.fps_base
-        box.label(
-            text=f"Frames {p.start_frame} - {p.start_frame + p.frame_count - 1}"
-                 f" ({p.frame_count / fps:.1f} s)",
-            icon='TIME'
-        )
-        box.prop(p, "average_speed")
-        box.prop(p, "altitude_min")
-        box.prop(p, "altitude_max")
-        box.prop(p, "direction_change_seconds")
-        box.prop(p, "direction_randomness")
+        box = section(layout, "DRONE_flight", "Flight", 'ANIM')
+        if box:
+            box.prop(p, "start_frame")
+            box.prop(p, "frame_count")
+            fps = context.scene.render.fps / context.scene.render.fps_base
+            box.label(
+                text=f"Frames {p.start_frame} - {p.start_frame + p.frame_count - 1}"
+                     f" ({p.frame_count / fps:.1f} s)",
+                icon='TIME'
+            )
+            box.prop(p, "average_speed")
+            box.prop(p, "altitude_min")
+            box.prop(p, "altitude_max")
+            box.prop(p, "direction_change_seconds")
+            box.prop(p, "direction_randomness")
 
-        box = layout.box()
-        box.label(text="Environment", icon='FORCE_WIND')
-        box.prop(p, "wind_strength")
-        box.prop(p, "wind_vertical")
-        box.prop(p, "wind_frequency")
-        box.prop(p, "stabilization")
+        box = section(layout, "DRONE_environment", "Environment", 'FORCE_WIND')
+        if box:
+            box.prop(p, "wind_strength")
+            box.prop(p, "wind_vertical")
+            box.prop(p, "wind_frequency")
+            box.prop(p, "stabilization")
 
-        box = layout.box()
-        box.label(text="Drone Motion", icon='CONSTRAINT')
-        box.prop(p, "tilt_strength")
-        box.prop(p, "max_roll")
-        box.prop(p, "max_pitch")
-        box.prop(p, "micro_motion")
+        box = section(layout, "DRONE_motion", "Drone Motion", 'CONSTRAINT')
+        if box:
+            box.prop(p, "tilt_strength")
+            box.prop(p, "max_roll")
+            box.prop(p, "max_pitch")
+            box.prop(p, "micro_motion")
 
-        box = layout.box()
-        box.label(text="Generation", icon='MODIFIER')
-        box.prop(p, "seed")
-        box.prop(p, "samples_per_second")
+        box = section(layout, "DRONE_generation", "Generation", 'MODIFIER')
+        if box:
+            box.prop(p, "seed")
+            box.prop(p, "samples_per_second")
 
-        box = layout.box()
-        box.label(text="KMZ Mission", icon='WORLD')
-        box.prop(p, "kmz_filepath")
-        box.prop(p, "kmz_fit_frames")
-        box.label(text="Takeoff point = 3D cursor, +Y = north.", icon='INFO')
-        box.label(text="Wind and Drone Motion are not applied.", icon='INFO')
-        row = box.row()
-        row.scale_y = 1.4
-        row.operator("drone.generate_from_kmz", icon='IMPORT')
+        box = section(layout, "DRONE_kmz", "KMZ Mission", 'WORLD')
+        if box:
+            box.prop(p, "kmz_filepath")
+            box.prop(p, "kmz_fit_frames")
+            box.prop(p, "kmz_cursor_center")
+            if p.kmz_cursor_center:
+                box.label(text="Mission center (XY) = 3D cursor.", icon='INFO')
+                box.label(text="Height: 3D cursor Z = takeoff height.", icon='INFO')
+            else:
+                box.label(text="Takeoff point = 3D cursor.", icon='INFO')
+            box.label(text="+Y = north. Wind and Drone Motion not applied.", icon='INFO')
+            row = box.row()
+            row.scale_y = 1.4
+            row.operator("drone.generate_from_kmz", icon='IMPORT')
 
-        box = layout.box()
-        box.label(text="Ground / Terrain", icon='MESH_GRID')
-        box.prop(p, "ground_collection")
-        box.prop(p, "ground_ray_distance")
-        box.prop(p, "ground_offset")
-        box.label(text="CSV height uses downward raycast.", icon='INFO')
+        box = section(layout, "DRONE_ground", "Ground / Terrain", 'MESH_GRID')
+        if box:
+            box.prop(p, "ground_collection")
+            box.prop(p, "ground_ray_distance")
+            box.prop(p, "ground_offset")
+            box.label(text="CSV height uses downward raycast.", icon='INFO')
 
-        box = layout.box()
-        box.label(text="CSV Export", icon='FILE')
-        box.prop(p, "csv_filepath")
-        row = box.row()
-        row.scale_y = 1.4
-        row.operator("drone.save_csv", icon='FILE_TICK')
-        row.operator("drone.load_csv", icon='FILE_FOLDER')
-        box.prop(p, "csv_use_start_frame")
+        box = section(layout, "DRONE_csv", "CSV Export", 'FILE')
+        if box:
+            box.prop(p, "csv_filepath")
+            row = box.row()
+            row.scale_y = 1.4
+            row.operator("drone.save_csv", icon='FILE_TICK')
+            row.operator("drone.load_csv", icon='FILE_FOLDER')
+            box.prop(p, "csv_use_start_frame")
 
         row = layout.row()
         row.scale_y = 1.5
