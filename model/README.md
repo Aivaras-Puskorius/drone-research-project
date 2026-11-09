@@ -45,13 +45,15 @@ All commands run from this folder.
 python -m drone_model.build_tiles --renders /path/to/renders --out tiles/e1
 ```
 
-The defaults build E1's training set: scenes `centras1`, `ktuxi2`, `eiguliai1` and `amaliai1`, 3,075 tiles and 4.1 GB, built in about 5 minutes.
+The defaults build E1's training set: scenes `centras1`, `ktuxi2`, `eiguliai1` and `amaliai1`, 3,075 tiles and 4.1 GB, built in about 5 minutes. Options add tiles without changing these: `--cars FOLDER` pastes moving car patches cut from the renders, `--cars-control` adds the same extra tiles without the cars, and `--scale-copies` adds tiles cut from frames downscaled by 2 or 3, for small drones. `--scale-factors` and `--copies-per-frame` change the downscale factors and how many downscaled copies each frame gives (`python -m drone_model.build_tiles --help`).
 
 **2. Train** one model per seed, about 40 minutes each on an RTX 4070:
 
 ```bash
 python -m drone_model.train --data tiles/e1/dataset.yaml --out runs --name e1_seed23 --seed 23
 ```
+
+The network is YOLO26n. `--model yolo26s.yaml` trains the larger YOLO26s instead.
 
 **3. Make the test plans.** `windows/` lists where each of our test windows lies and how it was chosen, but holds no labels, because they belong to each dataset's publisher. Download the dataset, then rebuild the plan with its labels:
 
@@ -73,8 +75,8 @@ It writes `summary.csv` with one row per model and threshold, per-window counts 
 
 ## What has been checked
 
-- The 25 unit tests pass.
-- This code reproduces the research code it was cleaned from: identical training tiles, identical model inputs on 4K, 1920 × 1080 and 856 × 480 frames, identical proposals from the same weights, identical training weights after 2 short epochs (all 708 tensors of the saved checkpoint), and identical tracker and scorer results on all 7,056 saved E1 window replays.
+- The 27 unit tests pass.
+- This code reproduces the research code it was cleaned from: identical training tiles, identical model inputs on 4K, 1920 × 1080 and 856 × 480 frames, identical proposals from the same weights, identical training weights after 2 short epochs (all 708 tensors of the saved checkpoint), and identical tracker and scorer results on all 7,056 saved E1 window replays. The `--cars` and `--scale-copies` tile sets are byte-identical to the research builder's.
 - `make_plans` rebuilds all four test plans (392 windows, 58,751 frames) with exactly the labels our results were scored on.
 - Not measured: speed on a drone's onboard computer. The numbers above are from a desktop GPU.
 

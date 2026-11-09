@@ -39,5 +39,55 @@ class TileLabels(unittest.TestCase):
         self.assertEqual(tile_labels(boxes, 0, 0), ['0 0.968750 0.171875 0.062500 0.031250'])
 
 
+class PastedCars(unittest.TestCase):
+    def test_paste_blends_by_alpha(self):
+        from drone_model.build_tiles import paste
+        image = np.full((20, 20, 3), 100, np.uint8)
+        patch = np.zeros((4, 4, 4), np.uint8)
+        patch[:, :, :3] = 200
+        patch[1:3, 1:3, 3] = 255
+        paste(image, patch, 10, 10)
+        self.assertEqual(image[9, 9].tolist(), [200, 200, 200])
+        self.assertEqual(image[8, 8].tolist(), [100, 100, 100])
+
+    def test_cars_stay_clear_of_drones_and_inside_the_frame(self):
+        import random
+        from drone_model.build_tiles import add_cars
+        rng = random.Random(1)
+        car = np.zeros((30, 50, 4), np.uint8)
+        car[:, :, :3], car[:, :, 3] = 60, 255
+        color = np.full((1080, 1920, 3), 120, np.uint8)
+        stack = np.full((1080, 1920, 3), 120, np.uint8)
+        drone = [900.0, 500.0, 930.0, 520.0]
+        for _ in range(20):
+            new_color, new_stack, centres = add_cars(color, stack, [drone], rng, [car])
+            self.assertTrue(np.array_equal(color, np.full_like(color, 120)))  # inputs are not changed
+            for x, y in centres:
+                self.assertTrue(40 <= x < 1920 - 40 and 40 <= y < 1080 - 40)
+                self.assertTrue(x <= drone[0] - 92 or x >= drone[2] + 92 or y <= drone[1] - 92 or y >= drone[3] + 92)
+            if centres:
+                self.assertFalse(np.array_equal(new_stack[:, :, 0], new_stack[:, :, 2]))  # the car moved between f-4 and f
+
+
 if __name__ == '__main__':
     unittest.main()
+
+
+class RenderedCarTiles(unittest.TestCase):
+    def test_tile_holds_the_car_and_no_drone(self):
+        import random
+        from drone_model.build_tiles import TILE, car_tile_place
+        rng = random.Random(3)
+        car, drone = [1000.0, 800.0, 1080.0, 840.0], [1500.0, 820.0, 1530.0, 850.0]
+        for _ in range(50):
+            ox, oy = car_tile_place(rng, [car], [drone], 3840, 2160)
+            self.assertTrue(ox <= 1040 < ox + TILE and oy <= 820 < oy + TILE)
+            self.assertTrue(1500 >= ox + TILE or 1530 <= ox or 820 >= oy + TILE or 850 <= oy)
+
+    def test_no_car_or_no_clear_place_gives_none(self):
+        import random
+        from drone_model.build_tiles import car_tile_place
+        rng = random.Random(3)
+        self.assertIsNone(car_tile_place(rng, [], [], 3840, 2160))
+        everywhere = [0.0, 0.0, 3840.0, 2160.0]
+        self.assertIsNone(car_tile_place(rng, [[1000.0, 800.0, 1080.0, 840.0]], [everywhere], 3840, 2160))

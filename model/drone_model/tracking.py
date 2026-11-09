@@ -5,6 +5,11 @@ filter in pixel coordinates. A track starts after `hits_required` consecutive de
 prediction (a 99% chi-square gate and at most 200 px), and coasts on its prediction for up to 0.35 s without
 one. The prediction also moves with the camera, by the whole-frame background shift between f-1 and f. The
 displayed box is the Kalman centre with the size of the last detection used.
+
+replay_window's `association` picks the detection a frame feeds the tracker: 'top1' (the default, as in every
+experiment through round O) takes the most confident one; 'gated' gives an established track the most confident
+detection inside its gate, so a stronger detection elsewhere (a car, say) does not end the track, and falls back to
+the most confident one when no established track exists or none fits.
 """
 from __future__ import annotations
 
@@ -14,6 +19,7 @@ import math
 import numpy as np
 
 UNINITIALIZED, TENTATIVE, TRACKING, PREDICTED, LOST = 'UNINITIALIZED', 'TENTATIVE', 'TRACKING', 'PREDICTED', 'LOST'
+ASSOCIATIONS = ('top1', 'gated')
 
 
 @dataclass(frozen=True)
@@ -73,6 +79,18 @@ class Tracker:
         mahalanobis = float(innovation @ np.linalg.solve(covariance, innovation))
         return distance <= self.max_distance and mahalanobis <= self.gate
 
+    def established_fits(self, timestamp_s: float, points: list[tuple[float, float]], background_shift) -> list[bool] | None:
+        """For an established track (TRACKING or PREDICTED, within its coast time), whether step() at this timestamp
+        would take each point; None without one. The tracker is not changed."""
+        if self.state not in (TRACKING, PREDICTED) or float(timestamp_s) - self._last_measurement > self.max_coast + 1e-12:
+            return None
+        saved = self._x, self._p
+        try:
+            self._predict(float(timestamp_s) - self._last_time, np.asarray(background_shift, dtype=np.float64))
+            return [self._fits(np.asarray(point, dtype=np.float64)) for point in points]
+        finally:
+            self._x, self._p = saved  # _predict builds new arrays, so the saved ones are untouched
+
     def step(self, timestamp_s: float, detection: tuple[float, float] | None, background_shift) -> Step:
         timestamp = float(timestamp_s)
         if not math.isfinite(timestamp) or (self._last_time is not None and timestamp <= self._last_time):
@@ -120,28 +138,41 @@ class Tracker:
         return Step(self.state, None if self._x is None else (float(self._x[0]), float(self._x[1])), used)
 
 
-def select_candidate(proposals: list[dict], threshold: float) -> dict | None:
-    """The most confident proposal at or above the threshold; ties go to the smaller x, then y."""
+def select_candidate(proposals: list[dict], threshold: float, fits=None) -> dict | None:
+    """The most confident proposal at or above the threshold; ties go to the smaller x, then y. With `fits` (a
+    function from the passing proposals' points to a list of booleans, or None), only the fitting ones count when
+    any fits."""
     passing = [p for p in proposals if all(math.isfinite(float(p[k])) for k in ('x', 'y', 'confidence'))
                and p['confidence'] >= threshold]
+    if passing and fits is not None:
+        inside = fits([(p['x'], p['y']) for p in passing])
+        if inside and any(inside):
+            passing = [p for p, ok in zip(passing, inside) if ok]
     return min(passing, key=lambda p: (-p['confidence'], p['x'], p['y'])) if passing else None
 
 
 def replay_window(rows: list[dict], fps: float, width: int, height: int, *, threshold: float,
-                  hits_required: int = 3) -> tuple[list[dict], list[dict]]:
+                  hits_required: int = 3, association: str = 'top1') -> tuple[list[dict], list[dict]]:
     """Track one window from its saved per-frame proposals.
 
     rows: one per consecutive frame with 'frame', 'proposals' and 'background_shift'. Returns per frame the
     tracked point and box (both None when no box is shown) and the acquisition events: each time a track is
-    established, 'initial_acquisition' the first time and 'reacquisition' after that.
+    established, 'initial_acquisition' the first time and 'reacquisition' after that. `association` is 'top1' or
+    'gated' (module docstring).
     """
+    if association not in ASSOCIATIONS:
+        raise ValueError(f'unknown association {association!r}')
     tracker = Tracker(hits_required=hits_required)
     size, frames, events, previous = (32., 32.), [], [], None
     for row in rows:
         if previous is not None and row['frame'] != previous + 1:
             raise ValueError('frames must be consecutive')
         previous = row['frame']
-        chosen = select_candidate(row['proposals'], threshold)
+        fits = None
+        if association == 'gated':
+            def fits(points, row=row):
+                return tracker.established_fits(row['frame'] / fps, points, row['background_shift'])
+        chosen = select_candidate(row['proposals'], threshold, fits)
         before = tracker.state
         result = tracker.step(row['frame'] / fps, None if chosen is None else (chosen['x'], chosen['y']),
                               row['background_shift'])
