@@ -1,9 +1,21 @@
 # Experiment log
 
-Every experiment of the drone detector, newest first, in plain words. Numbers are medians over training seeds on development data. "Tracked" counts frames whose tracked box is within 20 px of the labelled drone (50 px on our own flights), "false" counts tracked boxes more than 50 px away (75 px on our flights). See [how we test](how-we-test.md) for the full protocol and [the glossary](glossary.md) for terms.
+Every experiment of the drone detector, newest first, in plain words. Numbers are medians over training seeds on development data. "Tracked" counts frames whose tracked box is within 20 px of the labelled drone (50 px on our own flights' projected labels), "false" counts tracked boxes more than 50 px away (75 px there). Our flights' numbers before 2026-11-19 use the projected labels. "At equal false boxes" compares tracked frames interpolated to the same number of false boxes; "the rule" is the gain rule in force at the time (since 2026-11-01: clearly better, p < 0.05 over 10 seeds, on our flights or on two public sets, and clearly worse on no set except NPS). See [how we test](how-we-test.md) for the full protocol and [the glossary](glossary.md) for terms.
 
 | Dates | Experiment | Outcome |
 | --- | --- | --- |
+| 2026-11-16 to 2026-11-19 | [Labels for our own flights from Segment Anything 2.1](#2026-11-19-sam-labels) | Finding |
+| 2026-11-10 to 2026-11-11 | [The standard single-frame YOLO26n (round AQ)](#2026-11-11-round-aq) | Reference |
+| 2026-11-08 to 2026-11-11 | [Birds back, clouds, and a second horizon view (rounds AN, AO, AP)](#2026-11-08-rounds-an-ap) | Dropped |
+| 2026-11-05 to 2026-11-07 | [A horizon scene and bird-free scenes: the current model (rounds AK, AL, AM)](#2026-11-05-rounds-ak-am) | Kept |
+| 2026-11-03 to 2026-11-05 | [Distractors, mosaic, a P2 head, scaling and rotation (rounds AE to AI)](#2026-11-03-rounds-ae-ai) | Dropped |
+| 2026-11-05 | [Four hits to start a track (round AJ)](#2026-11-05-round-aj) | Kept |
+| 2026-11-01 to 2026-11-03 | [Test-time changes: an older past frame, homography, upscaling, an overlay filter (rounds V, W, X, AB, AC, AD)](#2026-11-01-test-time) | Dropped |
+| 2026-10-31 to 2026-11-03 | [Our own render scenes: drone colour, hovering, distance, a second terrain (rounds N, N2, S, T, T2, U, Y, Z, AA)](#2026-10-31-own-renders) | Kept |
+| 2026-10-31 | [Rendered moving cars (round Q)](#2026-10-31-round-q) | Dropped |
+| 2026-10-31 | [A tracker gated to its own track (round P)](#2026-10-31-round-p) | Dropped |
+| 2026-10-30 to 2026-10-31 | [Newer teammate scenes, more downscaled copies, longer training, a bigger network (rounds K, L, M, O)](#2026-10-30-rounds-k-o) | Dropped |
+| 2026-10-29 to 2026-10-31 | [Pasted cars and downscaled copies (round J)](#2026-10-29-round-j) | Kept |
 | 2026-10-27 | [Two new scenes, motion dropout, and the homography at test time only (round I)](#2026-10-27-round-i) | Lead |
 | 2026-10-26 | [Training on homography- and flow-aligned tiles (round H)](#2026-10-26-round-h) | Dropped |
 | 2026-10-26 | [Measuring better alignments and a hover-holding tracker (round G)](#2026-10-26-round-g) | Finding |
@@ -23,6 +35,118 @@ Every experiment of the drone detector, newest first, in plain words. Numbers ar
 | 2026-09-29 to 2026-10-01 | [Several drones at once, and an onboard compute budget](#2026-09-29-multi-drone-onboard) | Finding |
 | 2026-09-23 to 2026-09-28 | [Finding the drone automatically with two YOLO detectors and verifiers](#2026-09-23-two-detector-acquisition) | Reference |
 | 2026-09-13 to 2026-09-21 | [Interactive tracker that starts from a clicked drone](#2026-09-13-seeded-tracker) | Finding |
+
+<a id="2026-11-19-sam-labels"></a>
+## Labels for our own flights from Segment Anything 2.1
+
+**Dates:** 2026-11-16 to 2026-11-19. **Phase:** 3. **Outcome:** Finding.
+
+**Question.** How much of the misses on our flights comes from the labels, which were projected from the flight logs?
+
+**What changed.** Segment Anything 2.1 followed the drone through every window, on a 1024 px full-resolution window around the projected position, started from one box per window and run forwards and backwards. Every tenth frame was reviewed on contact sheets by the AI assistant used for the analysis (not yet by a person), and stretches where it held a static object were rejected. 4,880 of the 5,906 drone frames of our hovering-camera flights got a box; the rest keep the projection.
+
+**Result.** The projection is 20.5 px off the Segment Anything boxes (median; 85% within 50 px, up to 205 px, worst when the drones are closest). Scored against the new boxes, the current model tracks 90% of those frames within 20 px and 93% of all drone frames within 50 px, against 80% with the projected labels: most of the earlier misses on our flights were label error. The standard single-frame YOLO26n stays at 0-1%.
+
+<a id="2026-11-11-round-aq"></a>
+## The standard single-frame YOLO26n (round AQ)
+
+**Dates:** 2026-11-10 to 2026-11-11. **Phase:** 3. **Outcome:** Reference.
+
+**Question.** How much does the unmodified YOLO26n, which sees colour only, find when trained on the same rendered tiles?
+
+**What changed.** The current model's tiles with only their B, G, R channels (`drone_model.colour_tiles`), 10 seeds from random weights and 10 from COCO-pretrained weights (the only arm that saw real photographs, through COCO), scored with `--channels 3`.
+
+**Result.** Almost nothing transfers: ARD100 157 and 86 tracked frames against 2,279 and 2,238 for the current model at equal false boxes, NPS 596 and 522 against 1,100, UAV-Anti-UAV 344 and 561 against 2,004 and 2,702, our flights 14 and 58 against 4,703 and 4,781 at 0.25 (projected labels). Rendered validation mAP50 about 0.2 against 0.45. The motion channels carry the transfer, and COCO pretraining does not rescue colour alone.
+
+<a id="2026-11-08-rounds-an-ap"></a>
+## Birds back, clouds, and a second horizon view (rounds AN, AO, AP)
+
+**Dates:** 2026-11-08 to 2026-11-11. **Phase:** 3. **Outcome:** Dropped.
+
+**What changed.** On the current model: the scene's birds put back into one grey scene (AN); a cloud layer in the horizon scene's sky (AO); a second horizon render looking back along the camera's path (AP).
+
+**Result.** Birds back lost small drones (ARD100 1,614 against 2,238 at equal false boxes, NPS 1,921 against 2,503, ARD100 drones of 10-20 px 36% against 51%) without a clear cut in false boxes. Clouds changed nothing clearly. The second horizon view lost ARD100 (1,616 and 1,687 against 2,238 and 2,310), NPS and our flights, with 40% more boxes on UAV-Anti-UAV's drone-free frames.
+
+<a id="2026-11-05-rounds-ak-am"></a>
+## A horizon scene and bird-free scenes: the current model (rounds AK, AL, AM)
+
+**Dates:** 2026-11-05 to 2026-11-07. **Phase:** 3. **Outcome:** Kept.
+
+**What changed.** AK: a rendered horizon view (camera near level, grey drones against sky, haze and treeline) added to the base. AL: the base's two grey scenes re-rendered without the 80 birds the shared Blender scene held, which had shown as unlabelled white shapes of drone size. AM: both together.
+
+**Result.** The horizon scene lifted NPS sharply (2,181 and 2,233 against 321 and 210 at equal false boxes) and cost our flights a little. Removing the birds found many more small drones (ARD100 10-20 px about 51% against 39%, UAV-Anti-UAV under 10 px 3.7% against 0.4%) with more boxes on drone-free frames. Together (AM): ARD100 2,235 and 2,310 against 1,886 and 1,363, NPS 2,650 and 2,696 against 366 and 266, our flights level, UAV-Anti-UAV lower on one GPU type and level on the other; confirmed on 10 fresh seeds (ARD100 2,193 against 1,403, NPS 2,589 against 360). AM became the base, `am_nobirds_horizon`, on 2026-11-07.
+
+<a id="2026-11-03-rounds-ae-ai"></a>
+## Distractors, mosaic, a P2 head, scaling and rotation (rounds AE to AI)
+
+**Dates:** 2026-11-03 to 2026-11-05. **Phase:** 3. **Outcome:** Dropped.
+
+**What changed.** AE: screen-fixed text, or flapping birds and model planes, as unlabelled distractors. AF: Ultralytics' mosaic augmentation. AG: a P2 head (extra stride-4 output), or training for 1.5x magnification. AH: random resizing off or wider. AI: rotation and upside-down flips off.
+
+**Result.** Every change lost clearly on at least one set, and none passed the rule. Distractors and the scale changes cost small ARD100 drones (10-20 px 13-22% against 41-43%); mosaic traded NPS for ARD100; without rotation or flips our flights lost. The settings that had never been tested on purpose (mosaic off, scaling 0.5-1.5, rotation 180°, upside-down flips) stay.
+
+<a id="2026-11-05-round-aj"></a>
+## Four hits to start a track (round AJ)
+
+**Dates:** 2026-11-05. **Phase:** 3. **Outcome:** Kept.
+
+**What changed.** The saved detections of the base replayed with 2, 3, 4 or 5 hits needed to start a track.
+
+**Result.** 4 hits tracked more drones at equal false boxes on ARD100 (1,886 against 1,576) and UAV-Anti-UAV (2,491 against 2,179), with fewer drone-free boxes everywhere, and slightly fewer frames on our flights (4,822 against 4,892), since each extra hit drops one frame per track start. 4 hits are used from then on.
+
+<a id="2026-11-01-test-time"></a>
+## Test-time changes: an older past frame, homography, upscaling, an overlay filter (rounds V, W, X, AB, AC, AD)
+
+**Dates:** 2026-11-01 to 2026-11-03. **Phase:** 3. **Outcome:** Dropped.
+
+**What changed.** V and X: f-16 instead of f-4 as the oldest past frame (`--past-gap 16`). W: the per-tile homography at test time on the new base. AB and AC: frames upscaled by 1.5 or 2 before tiling, alone or combined with the 1x detections. AD: dropping detections on screen-fixed overlays.
+
+**Result.** f-16 helped the older base on our flights but added nothing to the newer one. The homography and upscaling both trade ARD100 or UAV-Anti-UAV for NPS (upscaling triples UAV-Anti-UAV's false boxes), at two to three times the time per frame. The overlay filter dropped 0.1-0.7% of detections and changed nothing.
+
+<a id="2026-10-31-own-renders"></a>
+## Our own render scenes: drone colour, hovering, distance, a second terrain (rounds N, N2, S, T, T2, U, Y, Z, AA)
+
+**Dates:** 2026-10-31 to 2026-11-03. **Phase:** 3. **Outcome:** Kept.
+
+**What changed.** Scenes we rendered with the team's add-on: moving, hovering, distant and still drones; the same with grey instead of purple and orange drones; the stand-out filter on or off; the moving scene at a quarter dose; both grey scenes over a second terrain.
+
+**Result.** Unfiltered, the new scenes wrecked transfer (ARD100 163-707 against 1,871). With the filter and grey drones, the moving and distant scenes together (`t_move_far`) were level on ARD100, clearly better on UAV-Anti-UAV (2,705 against 1,820) and our flights (4,892 against 4,024), and lower on NPS on one GPU type; they became the base on 2026-11-01. Grey drones fixed most of the loss of the purple ones (ARD100 1,531 against 419). Hovering and still drones never helped hovering drones: the filter drops the still ones, and kept unfiltered they make the network fire on static background. A second terrain lost ARD100 and our flights.
+
+<a id="2026-10-31-round-q"></a>
+## Rendered moving cars (round Q)
+
+**Dates:** 2026-10-31. **Phase:** 3. **Outcome:** Dropped.
+
+**What changed.** 39 cars modelled in Blender driving on a scene's roads; 464 car-centred empty tiles from that render, against the same tiles from the render with the cars hidden.
+
+**Result.** The car pixels helped NPS (590 against 323) and our flights (4,277 against 3,362), but both arms lost about 40% of ARD100 against the base, so the pasted car patches stay.
+
+<a id="2026-10-31-round-p"></a>
+## A tracker gated to its own track (round P)
+
+**Dates:** 2026-10-31. **Phase:** 3. **Outcome:** Dropped.
+
+**What changed.** An established track takes the most confident detection inside its own gate instead of the frame's most confident one (`association='gated'`).
+
+**Result.** Tracks lived longer but also held on to false targets: false boxes rose (ARD100 784 to 882) and no model tracked more at equal false boxes (ARD100 1,705 against 1,873). The frame's most confident detection stays.
+
+<a id="2026-10-30-rounds-k-o"></a>
+## Newer teammate scenes, more downscaled copies, longer training, a bigger network (rounds K, L, M, O)
+
+**Dates:** 2026-10-30 to 2026-10-31. **Phase:** 3. **Outcome:** Dropped.
+
+**What changed.** K and O: the teammates' scenes `centras2` and `ktuxi3`, with and without their cluttered empty tiles. L: a second downscaled copy per frame, or a 3.375 factor. M: 200 epochs instead of 100, or YOLO26s instead of YOLO26n.
+
+**Result.** The newer scenes cut ARD100 about in half at equal false boxes (665-1,063 against 1,873) while helping UAV-Anti-UAV through fewer false boxes; their purple, orange or dark drones are the likely cause, which round S later supported. More copies, longer training and the bigger network gained nothing clear, so YOLO26n at 100 epochs stays.
+
+<a id="2026-10-29-round-j"></a>
+## Pasted cars and downscaled copies (round J)
+
+**Dates:** 2026-10-29 to 2026-10-31. **Phase:** 3. **Outcome:** Kept.
+
+**What changed.** E1 plus pasted moving car patches (`--cars`) and tiles from frames downscaled by 2 or 3 (`--scale-copies`), each alone and together, 10 seeds per arm from here on.
+
+**Result.** Together (`cars_scale`) they beat E1 at equal false boxes on ARD100 (1,873 against 1,318), NPS (1,576 against 536) and UAV-Anti-UAV (3,403 against 2,924), level on our flights. Downscaled copies raise the share of ARD100 drones under 10 px tracked from 7% to 30-32%; the cars cut UAV-Anti-UAV drone-free boxes from 1,086 to 470-616, and a control with the same extra tiles but no car pixels shows the car pixels do it.
 
 <a id="2026-10-27-round-i"></a>
 ## Two new scenes, motion dropout, and the homography at test time only (round I)

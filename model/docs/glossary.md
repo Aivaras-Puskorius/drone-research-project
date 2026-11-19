@@ -10,15 +10,17 @@
 | Homography | A warp with 8 numbers that also undoes rotation, zoom and perspective of a flat surface. Fitted per tile from tracked corner points. |
 | Flow warp | A homography followed by moving every pixel along a dense motion estimate, so the background, including trees and buildings, cancels. |
 | Stand out | A drone stands out when its brightest motion pixel is brighter than 99.9% of the tile's background motion. |
-| E1 | The current base model: four rendered scenes, only standing-out drone tiles from `eiguliai1` and `amaliai1`, `amaliai1`'s drone-free tiles left out, per-tile shift in training, whole-frame plus per-tile shift at test time. |
+| E1 | The base model of late October 2026: four rendered scenes, only standing-out drone tiles from `eiguliai1` and `amaliai1`, `amaliai1`'s drone-free tiles left out, per-tile shift in training, whole-frame plus per-tile shift at test time. |
+| am_nobirds_horizon | The current model since 2026-11-07: E1's four scenes plus two of our grey-drone scenes without the scene's bird flock and one horizon view, with pasted cars, downscaled copies and the stand-out filter. |
 | Round | One planned experiment with several models trained and scored together. Its question and pass rule are written down before any result. |
 | Arm | One of the models in a round. |
 | Seed | The random start of a training run. Each arm is trained with 3 seeds; results are medians with their range. |
 | Confidence threshold | The detector score a box needs to be passed to the tracker: 0.5, 0.25 or 0.1. |
-| Tracked frame | A frame whose tracked box is within 20 px of the labelled drone (50 px on our own flights). |
+| Tracked frame | A frame whose tracked box is within 20 px of the labelled drone (50 px where a label of our own flights is projected from the flight logs). |
 | False box | A tracked box more than 50 px from the drone (75 px on our own flights). |
 | Correct first start | A test window whose first track started on the drone. |
 | Equal false boxes | Comparing two models at the threshold where they make the same number of false boxes, read between the scored thresholds. |
 | Development data | Test videos already used while developing the method. Results on them can be optimistic. |
 | Reserve | Test videos kept untouched for one final test. |
 | Hovering drone | A drone that moves less than 0.5 px per frame against the background. |
+| Segment Anything 2.1 | A segmentation model that follows an object through a video from one box. It drew the labels of our own flights, on a full-resolution window around the drone's projected position. |
