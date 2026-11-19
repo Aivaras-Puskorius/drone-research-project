@@ -1,6 +1,8 @@
 import unittest
 
-from drone_model.evaluate import to_original
+import numpy as np
+
+from drone_model.evaluate import colour_only, to_original
 
 
 class ToOriginal(unittest.TestCase):
@@ -20,6 +22,24 @@ class ToOriginal(unittest.TestCase):
         found = [{'x': 10.0, 'y': 10.0, 'xyxy': [8.0, 8.0, 12.0, 12.0], 'confidence': 0.5}]
         to_original([1.0, 1.0], found, 2.0)
         self.assertEqual(found[0]['x'], 10.0)
+
+
+class ColourOnly(unittest.TestCase):
+    def setUp(self):
+        # Channel c of every tile holds the value 10 * (c + 1): B 10, G 20, R 30, f-2 40, f-4 50.
+        self.tile = np.stack([np.full((4, 4), 10 * (c + 1), np.uint8) for c in range(5)], axis=2)
+
+    def test_array_list_keeps_bgr(self):
+        windows, inputs = colour_only(([(0, 0), (512, 0)], [self.tile, self.tile]))
+        self.assertEqual(windows, [(0, 0), (512, 0)])
+        self.assertEqual([a.shape for a in inputs], [(4, 4, 3), (4, 4, 3)])
+        self.assertEqual(inputs[0][0, 0].tolist(), [10, 20, 30])
+
+    def test_tensor_becomes_rgb(self):
+        batch = np.stack([self.tile.transpose(2, 0, 1)] * 2)  # N x 5 x H x W, as the GPU path builds it
+        _, inputs = colour_only(([(0, 0), (512, 0)], batch))
+        self.assertEqual(inputs.shape, (2, 3, 4, 4))
+        self.assertEqual(inputs[0, :, 0, 0].tolist(), [30, 20, 10])
 
 
 if __name__ == '__main__':

@@ -91,7 +91,9 @@ SCENES = {'centras1': ('0001-0400.mp4', [(0, 400)]), 'ktuxi2': ('0001-0400.mp4',
           # so each stretch is its own clip and no past frame crosses a jump).
           'r5_still_grey': ('0001-1000.mp4', [(0, 200), (200, 400), (400, 600), (600, 800), (800, 1000)]),
           # r3_move_grey again (same drones, paths, camera) with unlabelled flying birds and model planes added.
-          'r6_move_grey_distract': ('0001-1000.mp4', [(0, 1000)])}
+          'r6_move_grey_distract': ('0001-1000.mp4', [(0, 1000)]),
+          # Horizon view: the camera near level, grey drones against sky, haze and treeline.
+          'r7_horizon_grey': ('0001-1000.mp4', [(0, 1000)])}
 # Seeds of the option generators, as in the research builder (SEED + 2 was its degraded-video option).
 SCALE_SEED, CARS_SEED, CAR_TILE_SEED, TEXT_SEED = SEED + 1, SEED + 3, SEED + 4, SEED + 5
 

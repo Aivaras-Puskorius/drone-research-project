@@ -50,6 +50,15 @@ def to_original(shift: list, found: list[dict], factor: float) -> tuple[list, li
             [{**p, 'x': p['x'] / factor, 'y': p['y'] / factor, 'xyxy': [v / factor for v in p['xyxy']]} for p in found])
 
 
+def colour_only(built: tuple) -> tuple:
+    """Tile inputs (windows, inputs) of tile_inputs reduced to the colour channels, for a colour-only model
+    (--channels 3): a list of H x W x 5 BGR-first arrays keeps B, G, R; an N x 5 x H x W tensor becomes R, G, B."""
+    windows, inputs = built
+    # WARN: ultralytics flips a list of 3-channel arrays from BGR to RGB itself but takes a tensor as RGB already, so
+    # only the tensor (GPU) path is reordered here; 5-channel input is never flipped.
+    return windows, (inputs[:, [2, 1, 0]] if hasattr(inputs, 'shape') else [a[:, :, :3] for a in inputs])
+
+
 def sha(path) -> str:
     with Path(path).open('rb') as handle:
         return hashlib.file_digest(handle, 'sha256').hexdigest()
@@ -144,6 +153,8 @@ def infer_window(window: dict, models: dict, args, share: GpuShare) -> tuple[dic
                 began = time.perf_counter()
                 stack = np.stack((grays[max(frame - gap, first)], grays[frame - 2], grays[frame]), axis=2)
                 built = tile_inputs(bgr, stack, args.alignment, device=args.device, gpu=gpu)
+                if args.channels == 3:
+                    built = colour_only(built)
                 yield frame, list(background_shift(grays[frame - 1], grays[frame])), built, time.perf_counter() - began
         finally:
             capture.release()
@@ -203,6 +214,8 @@ def main() -> None:
     parser.add_argument('--cpu-alignment', action='store_true',
                         help='align on the CPU even where the GPU could (the GPU result differs by 1 gray level in a few pixels)')
     parser.add_argument('--skip-video-hash', action='store_true', help='do not check the videos against the plan (slow for large files)')
+    parser.add_argument('--channels', type=int, choices=(5, 3), default=5,
+                        help='5: colour plus aligned past frames (default); 3: colour only, for colour-only models')
     parser.add_argument('--past-gap', type=int, default=PAST, help='oldest past frame f-N, as the model was trained (default 4)')
     parser.add_argument('--upscale', type=float, default=1.0,
                         help='upscale every frame by this factor before alignment and tiling (proposals are saved in the '
@@ -222,6 +235,8 @@ def main() -> None:
                 'alignment': args.alignment, 'cpu_alignment': args.cpu_alignment, 'proposal_floor': FLOOR}
     if args.past_gap != PAST:  # only when set, so earlier output folders still resume
         identity['past_gap'] = args.past_gap
+    if args.channels != 5:  # likewise
+        identity['channels'] = args.channels
     if args.upscale != 1:  # likewise
         if args.upscale <= 0:
             raise ValueError('--upscale must be positive')
