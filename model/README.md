@@ -14,14 +14,14 @@ This folder holds the detector: code that turns rendered video into training til
 
 ## Results so far
 
-The current model is called `am_nobirds_horizon` (since 2026-11-07). It trains on seven rendered scenes: the four of E1, two of our own scenes with grey drones (with the scene's bird flock removed) and one horizon view, with pasted moving cars, downscaled copies for small drones and the stand-out filter. Below are medians over 10 training seeds at confidence 0.25 with 4 hits, on test videos used during development. A tracked frame has the box within 20 px of the drone, a false box is more than 50 px away. On our own flights the labels are boxes that Segment Anything 2.1 drew by following the drone; on the 17% of frames without an accepted box the label is projected from the flight logs and read at 50 and 75 px.
+The current model is called `am_nobirds_horizon` (since 2026-11-07). It trains on seven rendered scenes: the four of E1, two of our own scenes with grey drones (with the scene's bird flock removed) and one horizon view, with pasted moving cars, downscaled copies for small drones and the stand-out filter. Below are medians over 10 training seeds at confidence 0.25 with 4 hits, on test videos used during development. A tracked frame has the box within 20 px of the drone, a false box is more than 50 px away. On our own flights the labels are boxes that Segment Anything 2.1 drew by following the drone, corrected by a person on every 10th frame where it failed and interpolated between; 1% of frames keep the position projected from the flight logs (read at 50 and 75 px), and 15 frames where the drone could not be seen are not scored.
 
 | Test set | Drone frames | Tracked | False boxes | Frames with no drone that still show a box |
 | --- | --- | --- | --- | --- |
 | ARD100, 26 windows | 3,799 | 2,256 | 505 | 229 of 361 |
 | NPS, 50 windows | 7,444 | 2,668 | 442 | none labelled |
 | UAV-Anti-UAV, 274 windows | 31,586 | 3,494 | 1,762 | 366 of 8,490 |
-| Our 4K flights, 42 windows | 5,906 | 5,356 | 106 | 458 of 640 |
+| Our 4K flights, 42 windows | 5,891 | 5,336 | 102 | 458 of 640 |
 
 The standard single-frame YOLO26n trained on the colour channels of the same tiles tracks almost nothing (our flights about 15 frames at 0.25, ARD100 157 at equal false boxes), so the motion channels carry the transfer from rendered to real video. The model still misses most hovering drones and tracks moving cars and people. The [experiments page](docs/experiments.md) has every round. A new training set, rendered with real-size drones along planned flight scenarios, is being tested to replace these scenes for the final model.
 

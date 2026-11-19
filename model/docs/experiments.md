@@ -43,9 +43,9 @@ Every experiment of the drone detector, newest first, in plain words. Numbers ar
 
 **Question.** How much of the misses on our flights comes from the labels, which were projected from the flight logs?
 
-**What changed.** Segment Anything 2.1 followed the drone through every window, on a 1024 px full-resolution window around the projected position, started from one box per window and run forwards and backwards. Every tenth frame was reviewed on contact sheets, and stretches where it held a static object were rejected. A person then checked the sheets and found every accepted box on the drone. 4,880 of the 5,906 drone frames of our hovering-camera flights got a box; the rest keep the projection.
+**What changed.** Segment Anything 2.1 followed the drone through every window, on a 1024 px full-resolution window around the projected position, started from one box per window and run forwards and backwards. Every tenth frame was reviewed on contact sheets, and stretches where it held a static object were rejected. A person then checked the sheets and found every accepted box on the drone, and in a small web tool drew the box on every tenth frame where Segment Anything had failed (frames between are interpolated) or marked the drone as not visible (15 frames, not scored). 4,880 of the 5,906 drone frames of our hovering-camera flights got a box; the rest keep the projection.
 
-**Result.** The projection is 20.5 px off the Segment Anything boxes (median; 85% within 50 px, up to 205 px, worst when the drones are closest). Scored against the new boxes, the current model tracks 90% of those frames within 20 px and 93% of all drone frames within 50 px, against 80% with the projected labels: most of the earlier misses on our flights were label error. The standard single-frame YOLO26n stays at 0-1%.
+**Result.** The projection is 20.5 px off the Segment Anything boxes (median; 85% within 50 px, up to 205 px, worst when the drones are closest). Scored against the new labels, the current model tracks 5,336 of 5,891 drone frames (91%) within 20 px of the image labels, with 102 false boxes, against 80% within 50 px and 438 false boxes with the projected labels: most of the earlier misses on our flights were label error. The standard single-frame YOLO26n stays at 0-1%.
 
 <a id="2026-11-11-round-aq"></a>
 ## The standard single-frame YOLO26n (round AQ)

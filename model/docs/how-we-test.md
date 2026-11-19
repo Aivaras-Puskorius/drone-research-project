@@ -8,8 +8,8 @@ None of these videos is used for training. The numbers are what the current deve
 
 | Test set | What it is | Windows | Drone frames | Frames with no drone | Labels |
 | --- | --- | --- | --- | --- | --- |
-| Our 4K flights | Two of our own drones, one hovering and filming the other from above, 3840 × 2160 | 42 | 5,906 | 640 | Boxes from Segment Anything 2.1 following the drone (4,880 frames); the other frames projected from both drones' flight logs, which are 20.5 px off the Segment Anything boxes (median) |
-| Our moving-camera flights | The same two drones, the filming one flying a grid at 5, 7 and 9 m/s, 3840 × 2160 | 19 | 1,270 | 3,000 | Boxes from Segment Anything 2.1 (1,263 frames); the target's logged positions exist only every 2.6 s |
+| Our 4K flights | Two of our own drones, one hovering and filming the other from above, 3840 × 2160 | 42 | 5,891 | 640 | Boxes from Segment Anything 2.1 following the drone (4,880 frames), boxes a person drew where it failed (99) and interpolation between them (840); 72 frames projected from both drones' flight logs, which are 20.5 px off the Segment Anything boxes (median); 15 frames where the drone could not be seen are not scored |
+| Our moving-camera flights | The same two drones, the filming one flying a grid at 5, 7 and 9 m/s, 3840 × 2160 | 19 | 1,250 | 3,000 | Boxes from Segment Anything 2.1, every 10th frame checked by a person; 20 frames where the drone could not be seen are not scored |
 | ARD100 | Public drone-to-drone video, drones mostly under 20 px | 26 | 3,799 | 361 | Drawn by the dataset's annotators |
 | UAV-Anti-UAV | Public video filmed from one drone of another, mostly 856 × 480 | 274 | 31,586 | 8,490 | Drawn by the dataset's annotators, with "absent" flags |
 | NPS | Public video of fixed-wing drones, mostly seen from above | 50 | 7,444 | 0 | Drawn by the dataset's annotators |
