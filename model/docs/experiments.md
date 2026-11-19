@@ -43,7 +43,7 @@ Every experiment of the drone detector, newest first, in plain words. Numbers ar
 
 **Question.** How much of the misses on our flights comes from the labels, which were projected from the flight logs?
 
-**What changed.** Segment Anything 2.1 followed the drone through every window, on a 1024 px full-resolution window around the projected position, started from one box per window and run forwards and backwards. Every tenth frame was reviewed on contact sheets by the AI assistant used for the analysis (not yet by a person), and stretches where it held a static object were rejected. 4,880 of the 5,906 drone frames of our hovering-camera flights got a box; the rest keep the projection.
+**What changed.** Segment Anything 2.1 followed the drone through every window, on a 1024 px full-resolution window around the projected position, started from one box per window and run forwards and backwards. Every tenth frame was reviewed on contact sheets, and stretches where it held a static object were rejected. A person then checked the sheets and found every accepted box on the drone. 4,880 of the 5,906 drone frames of our hovering-camera flights got a box; the rest keep the projection.
 
 **Result.** The projection is 20.5 px off the Segment Anything boxes (median; 85% within 50 px, up to 205 px, worst when the drones are closest). Scored against the new boxes, the current model tracks 90% of those frames within 20 px and 93% of all drone frames within 50 px, against 80% with the projected labels: most of the earlier misses on our flights were label error. The standard single-frame YOLO26n stays at 0-1%.
 
