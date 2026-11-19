@@ -31,7 +31,8 @@ def tile_windows(width: int, height: int) -> list[tuple[int, int]]:
 
 
 def compose_tile(color: np.ndarray, stack: np.ndarray, alignment: str = 'shift') -> np.ndarray:
-    """5-channel tile from a BGR crop of f and the gray crops f-4, f-2, f: B, G, R, aligned f-2, aligned f-4."""
+    """5-channel tile from a BGR crop of f and the gray crops f-4, f-2, f: B, G, R, aligned f-2, aligned f-4.
+    The oldest crop can be another past frame (build_tiles and evaluate --past-gap); it fills the last channel."""
     if alignment not in ALIGNMENTS:
         raise ValueError(f'unknown alignment {alignment!r}')
     if color.shape[:2] != stack.shape[:2] or color.shape[2:] != (3,) or stack.shape[2:] != (3,):

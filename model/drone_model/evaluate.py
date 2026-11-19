@@ -42,6 +42,14 @@ FLOOR = 0.005
 PAST = 4
 
 
+def to_original(shift: list, found: list[dict], factor: float) -> tuple[list, list[dict]]:
+    """Background shift and proposals measured on a frame upscaled by `factor`, in the original frame's pixels."""
+    if factor == 1:
+        return shift, found
+    return ([v / factor for v in shift],
+            [{**p, 'x': p['x'] / factor, 'y': p['y'] / factor, 'xyxy': [v / factor for v in p['xyxy']]} for p in found])
+
+
 def sha(path) -> str:
     with Path(path).open('rb') as handle:
         return hashlib.file_digest(handle, 'sha256').hexdigest()
@@ -109,25 +117,32 @@ def infer_window(window: dict, models: dict, args, share: GpuShare) -> tuple[dic
     """Per model, one row per frame with the background shift and the proposals; and seconds per frame."""
     video, start, count = window['video'], int(window['start']), int(window['count'])
     width, height = window['dimensions']
-    gpu = not args.cpu_alignment and gpu_alignment_possible(width, height, args.alignment, args.device)
+    factor = args.upscale
+    gpu = not args.cpu_alignment and gpu_alignment_possible(round(width * factor), round(height * factor), args.alignment,
+                                                            args.device)
+
+    gap = args.past_gap
+    first = max(0, start - gap)  # INFO(limit): near a video's start the oldest past frame is its first frame
 
     def frames():
         capture = cv2.VideoCapture(video)
-        capture.set(cv2.CAP_PROP_POS_FRAMES, start - PAST)
+        capture.set(cv2.CAP_PROP_POS_FRAMES, first)
         grays = {}
         try:
-            for frame in range(start - PAST, start + count):
+            for frame in range(first, start + count):
                 okay, bgr = capture.read()
                 if not okay or abs(capture.get(cv2.CAP_PROP_POS_FRAMES) - frame - 1) > .5:
                     raise OSError(f'exact decode failed: {video} frame {frame}')
                 if bgr.shape[:2] != (height, width):
                     raise ValueError(f'{video}: frame size differs from the plan')
+                if factor != 1:  # test-time upscaling (--upscale): everything below runs on the larger frame
+                    bgr = cv2.resize(bgr, None, fx=factor, fy=factor, interpolation=cv2.INTER_LINEAR)
                 grays[frame] = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
-                grays.pop(frame - PAST - 1, None)
+                grays.pop(frame - gap - 1, None)
                 if frame < start:
                     continue
                 began = time.perf_counter()
-                stack = np.stack((grays[frame - 4], grays[frame - 2], grays[frame]), axis=2)
+                stack = np.stack((grays[max(frame - gap, first)], grays[frame - 2], grays[frame]), axis=2)
                 built = tile_inputs(bgr, stack, args.alignment, device=args.device, gpu=gpu)
                 yield frame, list(background_shift(grays[frame - 1], grays[frame])), built, time.perf_counter() - began
         finally:
@@ -145,7 +160,8 @@ def infer_window(window: dict, models: dict, args, share: GpuShare) -> tuple[dic
                 torch.cuda.synchronize()
             busy += time.perf_counter() - began
             seconds[name].append(build_s + time.perf_counter() - began)
-            rows[name].append({'frame': frame, 'background_shift': shift, 'proposals': found})
+            shift_back, found_back = to_original(shift, found, factor)
+            rows[name].append({'frame': frame, 'background_shift': shift_back, 'proposals': found_back})
         share.wait(busy)
     return rows, seconds
 
@@ -187,6 +203,10 @@ def main() -> None:
     parser.add_argument('--cpu-alignment', action='store_true',
                         help='align on the CPU even where the GPU could (the GPU result differs by 1 gray level in a few pixels)')
     parser.add_argument('--skip-video-hash', action='store_true', help='do not check the videos against the plan (slow for large files)')
+    parser.add_argument('--past-gap', type=int, default=PAST, help='oldest past frame f-N, as the model was trained (default 4)')
+    parser.add_argument('--upscale', type=float, default=1.0,
+                        help='upscale every frame by this factor before alignment and tiling (proposals are saved in the '
+                             'original pixels); default 1, no change')
     parser.add_argument('--resume', action='store_true', help='continue an interrupted --out folder; finished windows are kept')
     parser.add_argument('--gpu-share-file', type=Path, help='file holding 1-100, the percent of normal pace (gpu_share.py)')
     args = parser.parse_args()
@@ -196,8 +216,16 @@ def main() -> None:
     weights = {model_name(w): w.resolve() for w in args.weights}
     if len(weights) != len(args.weights):
         raise ValueError('two weight files have the same model name')
+    if args.past_gap < 3:
+        raise ValueError('--past-gap must be at least 3, older than f-2')
     identity = {'models': {n: sha(w) for n, w in weights.items()}, 'windows_sha256': sha(plan_path),
                 'alignment': args.alignment, 'cpu_alignment': args.cpu_alignment, 'proposal_floor': FLOOR}
+    if args.past_gap != PAST:  # only when set, so earlier output folders still resume
+        identity['past_gap'] = args.past_gap
+    if args.upscale != 1:  # likewise
+        if args.upscale <= 0:
+            raise ValueError('--upscale must be positive')
+        identity['upscale'] = args.upscale
     if out.exists():
         if not args.resume:
             raise FileExistsError(f'{out} exists; use --resume to continue it')

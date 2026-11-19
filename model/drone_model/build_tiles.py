@@ -38,6 +38,15 @@ and pixels-before-pasting:
   factors drawn from (a fraction becomes `p` in names, `_s3p375_`), and --copies-per-frame adds more copies per
   frame, named `_s<factor>c<k>_` from the second one on.
 
+--past-gap N uses f-N instead of f-4 as the oldest past frame (B, G, R, aligned f-2, aligned f-N); near a clip's
+start the oldest frame is the clip's first frame. Sampled frames, tile places and stand-out decisions (which use
+f-2 only) stay the same; pasted cars keep their places and are drawn N frames back in the oldest frame.
+--coarse-oldest aligns the oldest past frame to f by the whole-frame shift (as at test time) before cutting tiles,
+because the per-tile shift's 32 px limit is too small for a moving camera over N frames.
+
+--keep-every SCENE=K writes that scene's tiles only on every K-th sampled frame. Every random draw is still made on
+the other frames, so the other scenes' tiles, and the scene's kept tiles, are the same as without the option.
+
 --car-tile-scenes names rendered scenes with moving cars, whose folders also hold one `car*_flight.csv` per car
 (same box columns as the drone files). Such a scene gives only car tiles: per sampled frame, one empty tile placed
 like a drone tile around a visible car that no drone box overlaps (name `_rc`), drawn from its own generator; no
@@ -57,6 +66,7 @@ import random
 import cv2
 import numpy as np
 
+from drone_model.alignment import coarse_shift
 from drone_model.inputs import CHANNELS, TILE, compose_tile
 from drone_model.versions import runtime_versions
 
@@ -71,9 +81,19 @@ SCENES = {'centras1': ('0001-0400.mp4', [(0, 400)]), 'ktuxi2': ('0001-0400.mp4',
           'r1_hover': ('0001-1000.mp4', [(0, 1000)]), 'r1_far': ('0001-1000.mp4', [(0, 1000)]),
           'r1_move': ('0001-1000.mp4', [(0, 1000)]),
           # The centras2 scene with moving cars added in Blender, and the same render with the cars hidden.
-          'r2_cars': ('0001-1000.mp4', [(0, 1000)]), 'r2_nocars': ('0001-1000.mp4', [(0, 1000)])}
+          'r2_cars': ('0001-1000.mp4', [(0, 1000)]), 'r2_nocars': ('0001-1000.mp4', [(0, 1000)]),
+          # r1_move, r1_hover and r1_far again, with the drones' textures turned white, grey or dark instead of purple and orange.
+          'r3_move_grey': ('0001-1000.mp4', [(0, 1000)]), 'r3_hover_grey': ('0001-1000.mp4', [(0, 1000)]),
+          'r3_far_grey': ('0001-1000.mp4', [(0, 1000)]),
+          # r3_move_grey and r3_far_grey again over the ktuxi terrain instead of the centras one.
+          'r4_ktuxi_move_grey': ('0001-1000.mp4', [(0, 1000)]), 'r4_ktuxi_far_grey': ('0001-1000.mp4', [(0, 1000)]),
+          # Hovering grey drones with the camera holding still in five 200-frame stretches (it jumps between them,
+          # so each stretch is its own clip and no past frame crosses a jump).
+          'r5_still_grey': ('0001-1000.mp4', [(0, 200), (200, 400), (400, 600), (600, 800), (800, 1000)]),
+          # r3_move_grey again (same drones, paths, camera) with unlabelled flying birds and model planes added.
+          'r6_move_grey_distract': ('0001-1000.mp4', [(0, 1000)])}
 # Seeds of the option generators, as in the research builder (SEED + 2 was its degraded-video option).
-SCALE_SEED, CARS_SEED, CAR_TILE_SEED = SEED + 1, SEED + 3, SEED + 4
+SCALE_SEED, CARS_SEED, CAR_TILE_SEED, TEXT_SEED = SEED + 1, SEED + 3, SEED + 4, SEED + 5
 
 
 def sha(path: Path) -> str:
@@ -208,8 +228,9 @@ def car_patch(rng: random.Random, cars: list[np.ndarray]) -> np.ndarray:
 
 
 def add_cars(color: np.ndarray, stack: np.ndarray, boxes: list[list[float]], rng: random.Random,
-             cars: list[np.ndarray]) -> tuple[np.ndarray, np.ndarray, list[tuple[float, float]]]:
-    """Paste 1-3 moving cars into copies of f and the gray stack f-4, f-2, f; returns them and the cars' centres at f."""
+             cars: list[np.ndarray], oldest: int = 4) -> tuple[np.ndarray, np.ndarray, list[tuple[float, float]]]:
+    """Paste 1-3 moving cars into copies of f and the gray stack f-oldest, f-2, f; returns them and the cars' centres
+    at f. Places are accepted on the f-4, f-2, f path whatever `oldest` is, so they do not depend on it."""
     color, stack = color.copy(), stack.copy()
     height, width = color.shape[:2]
     centres = []
@@ -230,12 +251,95 @@ def add_cars(color: np.ndarray, stack: np.ndarray, boxes: list[list[float]], rng
             continue
         patch = car_patch(rng, cars)
         paste(color, patch, *path[-1])
+        if oldest != 4:
+            path[0] = (cx - vx * oldest, cy - vy * oldest)  # may leave the 40 px margin; paste clips at the frame edge
         for channel, (px, py) in enumerate(path):
             plane = np.ascontiguousarray(stack[:, :, channel])
             paste(plane, patch, px, py)
             stack[:, :, channel] = plane
         centres.append(path[-1])
     return color, stack, centres
+
+
+TEXT_FONTS = (cv2.FONT_HERSHEY_SIMPLEX, cv2.FONT_HERSHEY_DUPLEX, cv2.FONT_HERSHEY_PLAIN, cv2.FONT_HERSHEY_COMPLEX)
+TEXT_COLOURS = ((255, 255, 255), (255, 255, 255), (230, 230, 230), (0, 230, 255), (0, 255, 0))  # BGR: mostly white
+
+
+def text_string(rng: random.Random) -> str:
+    """A short string like the readouts and logos burned into FPV video: clock, altitude, speed, battery, a word."""
+    kind = rng.randrange(6)
+    if kind == 0:
+        return f'{rng.randrange(60):02d}:{rng.randrange(60):02d}'
+    if kind == 1:
+        return f'{rng.choice("RPHAD")} {rng.randrange(100)}'
+    if kind == 2:
+        return f'{rng.randrange(400)} {rng.choice(["M", "m", "KM/H", "km/h"])}'
+    if kind == 3:
+        return f'{rng.uniform(10, 25):.1f}V'
+    if kind == 4:
+        return str(rng.randrange(1000))
+    return ''.join(rng.choice('ABCDEFGHIKLMNOPRSTUVXYZ') for _ in range(rng.randint(3, 7)))
+
+
+def add_text(color: np.ndarray, stack: np.ndarray, boxes: list[list[float]],
+             rng: random.Random) -> tuple[np.ndarray, np.ndarray, list[tuple[float, float]]]:
+    """Draw 1-3 screen-fixed text items (--text-overlays) into copies of f and of every frame of the gray stack, at the
+    same pixels in all of them, at least 32 px clear of every drone box; returns them and the items' centres. Drawn on
+    the raw frames, so after alignment the text moves against the background as burned-in readouts do. Drawn without
+    anti-aliasing, so the text covers exactly the same pixels in every frame."""
+    color, stack = color.copy(), stack.copy()
+    height, width = color.shape[:2]
+    centres = []
+    for _ in range(rng.randint(1, 3)):
+        text, font = text_string(rng), rng.choice(TEXT_FONTS)
+        scale, thickness = rng.uniform(0.6, 1.6), rng.randint(1, 3)
+        (w, h), base = cv2.getTextSize(text, font, scale, thickness)
+        outline = rng.random() < 0.5
+        pad = 3 if outline else 1
+        for _ in range(50):
+            x, y = rng.uniform(pad, width - w - pad), rng.uniform(h + pad, height - base - pad)
+            x0, y0, x1, y1 = x - pad, y - h - pad, x + w + pad, y + base + pad
+            if all(bx1 + 32 <= x0 or bx0 - 32 >= x1 or by1 + 32 <= y0 or by0 - 32 >= y1 for bx0, by0, bx1, by1 in boxes):
+                break
+        else:
+            continue
+        org, fill = (int(x), int(y)), rng.choice(TEXT_COLOURS)
+        # OpenCV 5 anti-aliases putText whatever the line type, so the masks are thresholded to whole pixels.
+        core = np.zeros((height, width), np.uint8)
+        cv2.putText(core, text, org, font, scale, 255, thickness, cv2.LINE_8)
+        core = core >= 128
+        rim = np.zeros((height, width), np.uint8)
+        if outline:
+            cv2.putText(rim, text, org, font, scale, 255, thickness + 2, cv2.LINE_8)
+        rim = (rim >= 128) & ~core
+        fill_gray = int(round(0.114 * fill[0] + 0.587 * fill[1] + 0.299 * fill[2]))
+        color[core], color[rim] = fill, (0, 0, 0)
+        for channel in range(stack.shape[2]):
+            plane = stack[:, :, channel]
+            plane[core], plane[rim] = fill_gray, 0
+        centres.append(((x0 + x1) / 2, (y0 + y1) / 2))
+    return color, stack, centres
+
+
+def keep_steps(items: list[str]) -> dict[str, int]:
+    """'scene=K' items -> {scene: K}: keep that scene's tiles on every K-th sampled frame only."""
+    steps = {}
+    for item in items:
+        scene, _, step = item.partition('=')
+        if scene not in SCENES or not step.isdigit() or int(step) < 1:
+            raise ValueError(f'--keep-every needs SCENE=K with a known scene and K >= 1, got {item!r}')
+        steps[scene] = int(step)
+    return steps
+
+
+def kept(steps: dict[str, int], scene: str, index: int) -> bool:
+    """Whether the scene's tiles of its index-th sampled frame are written."""
+    return index % steps.get(scene, 1) == 0
+
+
+def past_stack(grays: dict, frame: int, gap: int, first: int) -> np.ndarray:
+    """Gray stack f-gap, f-2, f, with the oldest frame clamped to `first` (the clip's first frame)."""
+    return np.stack((grays[max(frame - gap, first)], grays[frame - 2], grays[frame]), axis=2)
 
 
 def main() -> None:
@@ -252,12 +356,22 @@ def main() -> None:
     parser.add_argument('--scale-factors', type=float, nargs='+', default=[2, 3],
                         help='with --scale-copies: downscale factors to draw from (default 2 3); the frame must stay at least 640 px high')
     parser.add_argument('--copies-per-frame', type=int, default=1, help='with --scale-copies: downscaled copies per sampled frame')
+    parser.add_argument('--keep-every', nargs='*', default=[], metavar='SCENE=K',
+                        help="write a scene's tiles only on every K-th sampled frame (draws unchanged)")
+    parser.add_argument('--past-gap', type=int, default=4, help='oldest past frame f-N (default 4)')
+    parser.add_argument('--coarse-oldest', action='store_true', help='align the oldest past frame by the whole-frame shift first')
+    parser.add_argument('--text-overlays', type=float, default=0.0,
+                        help='share of sampled frames that get 1-3 screen-fixed text items (readouts, logos) as unlabelled '
+                             'distractors, plus one empty tile centred on the first item; default 0, none')
     parser.add_argument('--car-tile-scenes', nargs='*', default=[], choices=sorted(SCENES),
                         help='rendered scenes with moving cars (car*_flight.csv) that give only car-centred empty tiles')
     args = parser.parse_args()
     out = args.out.resolve()
     if out.exists():
         raise FileExistsError(out)
+    if args.past_gap < 3:
+        raise ValueError('--past-gap must be at least 3, older than f-2')
+    steps = keep_steps(args.keep_every)
     if args.cars_control and not args.cars:
         raise ValueError('--cars-control needs --cars, whose random car places it repeats')
     cars = load_cars(args.cars) if args.cars else []
@@ -268,11 +382,16 @@ def main() -> None:
             (out / kind / split).mkdir(parents=True)
     rng, rng_scale, rng_cars = random.Random(SEED), random.Random(SCALE_SEED), random.Random(CARS_SEED)
     rng_car_tiles = random.Random(CAR_TILE_SEED)
+    rng_text = random.Random(TEXT_SEED)
     tiles, dropped = [], []
     counts = {split: {'drone_tiles': 0, 'empty_tiles': 0, 'boxes': 0} for split in ('train', 'val')}
 
+    keep_now = True  # set per sampled frame from --keep-every
+
     def write(name, split, scene, frame, kind, crop, color, stack, labels, decide=None, scale=1, car_tile=False):
         """Write one tile, unless a rule drops it. `decide` holds the crops to judge stand-out on, if not these."""
+        if not keep_now:
+            return
         if (kind == 'drone') != bool(labels):
             raise ValueError(f'{name}: {kind} tile has {len(labels)} labels')
         if kind == 'empty' and scene in args.no_empty_scenes and not car_tile:
@@ -312,19 +431,22 @@ def main() -> None:
                 if not okay:
                     raise OSError(f'decode failed: {video} frame {frame}')
                 grays[frame] = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
-                grays.pop(frame - 9, None)
+                grays.pop(frame - max(9, args.past_gap + 5), None)
                 if frame not in sampled:
                     continue
                 if frame - FIRST_FRAME < clip_start[frame]:
                     raise ValueError(f'{scene} frame {frame}: past frames cross a clip boundary')
                 split = 'val' if sampled[frame] % 10 == 0 else 'train'
+                keep_now = kept(steps, scene, sampled[frame])
                 present = boxes.get(frame, [])
                 if scene in args.car_tile_scenes:
                     spot = car_tile_place(rng_car_tiles, rendered_cars.get(frame, []), present, width, height)
                     if spot:
                         ox, oy = spot
                         window = (slice(oy, oy + TILE), slice(ox, ox + TILE))
-                        stack = np.stack((grays[frame - 4], grays[frame - 2], grays[frame]), axis=2)
+                        stack = past_stack(grays, frame, args.past_gap, clip_start[frame])
+                        if args.coarse_oldest:
+                            stack[:, :, 0] = coarse_shift(stack)[:, :, 0]
                         write(f'{scene}_f{frame:04d}_rc', split, scene, frame, 'empty', (ox, oy), bgr[window], stack[window], [],
                               car_tile=True)
                     continue
@@ -334,12 +456,25 @@ def main() -> None:
                 spot = empty_place(rng, present, width, height)
                 if spot:
                     places.append(('empty', *spot))
-                clean_stack = np.stack((grays[frame - 4], grays[frame - 2], grays[frame]), axis=2)
+                clean_stack = past_stack(grays, frame, args.past_gap, clip_start[frame])
+                if args.coarse_oldest:
+                    # INFO(limit): cars are pasted after this, so in the oldest frame a car moves by its own speed only,
+                    # while in f-2 it also moves with the camera; fine for unlabelled distractors.
+                    clean_stack[:, :, 0] = coarse_shift(clean_stack)[:, :, 0]
                 color, stack, centres = bgr, clean_stack, []
                 if cars and rng_cars.random() < 0.5:
-                    color, stack, centres = add_cars(bgr, clean_stack, present, rng_cars, cars)
+                    oldest = frame - max(frame - args.past_gap, clip_start[frame])
+                    color, stack, centres = add_cars(bgr, clean_stack, present, rng_cars, cars, oldest=oldest)
                     if args.cars_control:
                         color, stack = bgr, clean_stack  # same draws and tile places, no car pixels
+                texts = []
+                if args.text_overlays and rng_text.random() < args.text_overlays:
+                    color, stack, texts = add_text(color, stack, present, rng_text)
+                if texts:
+                    ox, oy = placement(rng_text, texts[0][0], width), placement(rng_text, texts[0][1], height)
+                    if all(x1 <= ox or x0 >= ox + TILE or y1 <= oy or y0 >= oy + TILE for x0, y0, x1, y1 in present):
+                        write(f'{scene}_f{frame:04d}_t0', split, scene, frame, 'empty', (ox, oy),
+                              color[oy:oy + TILE, ox:ox + TILE], stack[oy:oy + TILE, ox:ox + TILE], [], car_tile=True)
                 if centres:
                     ox, oy = placement(rng_cars, centres[0][0], width), placement(rng_cars, centres[0][1], height)
                     if all(x1 <= ox or x0 >= ox + TILE or y1 <= oy or y0 >= oy + TILE for x0, y0, x1, y1 in present):
@@ -348,7 +483,7 @@ def main() -> None:
                 for number, (kind, ox, oy) in enumerate(places):
                     window = (slice(oy, oy + TILE), slice(ox, ox + TILE))
                     write(f'{scene}_f{frame:04d}_{number}', split, scene, frame, kind, (ox, oy), color[window], stack[window],
-                          tile_labels(present, ox, oy), decide=(bgr[window], clean_stack[window]) if centres else None)
+                          tile_labels(present, ox, oy), decide=(bgr[window], clean_stack[window]) if centres or texts else None)
                 for copy in range(args.copies_per_frame if args.scale_copies else 0):
                     factor = rng_scale.choice(factors)
                     size = (int(width // factor), int(height // factor))
@@ -375,6 +510,7 @@ def main() -> None:
     record = {'rule': __doc__.strip(), 'seed': SEED, 'scenes': args.scenes, 'standout_scenes': args.standout_scenes,
               'no_empty_scenes': args.no_empty_scenes, 'scale_copies': args.scale_copies, 'cars_control': args.cars_control,
               'scale_factors': list(factors), 'copies_per_frame': args.copies_per_frame, 'car_tile_scenes': args.car_tile_scenes,
+              'past_gap': args.past_gap, 'coarse_oldest': args.coarse_oldest, 'keep_every': steps, 'text_overlays': args.text_overlays,
               'cars': {p.name: sha(p) for p in sorted(args.cars.glob('*.png'))} if args.cars else None,
               'videos_sha256': {s: sha(args.renders / s / SCENES[s][0]) for s in args.scenes},
               'versions': runtime_versions('cpu'), 'counts': counts, 'dropped_not_standing_out': dropped, 'tiles': tiles}
